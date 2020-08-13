@@ -1,0 +1,45 @@
+version: "2"
+
+volumes:
+  vihsida-mysql-data:
+    driver: local
+
+  vihsida-redis-data:
+    driver: local
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: vihsida-mysql
+    volumes:
+      - vihsida-mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=vihsida
+      - MYSQL_DATABASE=vihsida
+      - MYSQL_USER=vihsida
+      - MYSQL_PASSWORD=vihsida
+
+  cache:
+    image: redis:4.0
+    container_name: vihsida-redis
+    command: --appendonly yes
+    volumes:
+      - vihsida-redis-data:/data
+    ports:
+      - "6380:6379"
+
+  app:
+    image: ambientum/php:7.3-nginx
+    container_name: vihsida-app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8081:8080"
+    environment:
+      XDEBUG_ENABLED: "true"
+    # command: start.sh
+    links:
+      - mysql
+      - cache
