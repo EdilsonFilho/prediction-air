@@ -11,7 +11,7 @@
     'boxed' => 'layout-boxed',
     'fixed' => 'fixed',
     'top-nav' => 'layout-top-nav'
-][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? ' sidebar-collapse ' : ''))
+][config('adminlte.layout')] : '') . (Auth::user()->settings(\App\Enums\SettingType::CollapseSidebar) ? ' sidebar-collapse ' : ''))
 
 @section('body')
     <div class="wrapper">
