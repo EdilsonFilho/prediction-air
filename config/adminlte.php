@@ -302,7 +302,7 @@ return [
         ],
         [
             'name' => 'Pace',
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'css',

@@ -29,6 +29,9 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    {{ Html::style('plugins/icheck-material-1.0.0/assets/css/icheck-material.min.css') }}
+    {{ Html::style('css/custom.css?v=sazdf6da-ij3d-4187-ab07-d9fda4a12abz') }}
 </head>
 <body class="hold-transition @yield('body_class')">
 
