@@ -49,7 +49,7 @@
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle fa5" data-toggle="push-menu" role="button">
+                <a href="#" class="sidebar-toggle fa5" data-toggle="push-menu" role="button" onclick="changeMenu()">
                     <span class="sr-only">{{ trans('adminlte::adminlte.toggle_navigation') }}</span>
                 </a>
             @endif
@@ -98,6 +98,20 @@
 
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
+
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        @if (Auth::user()->getProfilePicture())
+                            <img class="img-circle" src="{{ asset('storage/' . Auth::user()->getProfilePicture()) }}" alt="{{ Auth::user()->name }}" title="{{ Auth::user()->name }}">
+                        @else
+                            <img src="{{ asset('images/user_default.jpg') }}" class="img-circle" alt="{{ Auth::user()->name }}" title="{{ Auth::user()->name }}">
+                        @endif
+                    </div>
+                    <div class="pull-left info">
+                        <p>{{ Auth::user()->name }}</p>
+                        <a href="{{ route('settings.index') }}"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
@@ -151,6 +165,43 @@
 
     </div>
     <!-- ./wrapper -->
+
+    {{ Form::open(['method' => 'DELETE']) }}
+        <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+            <div class="modal-dialog modal-center modal-notification modal-dialog-centered modal-" role="document">
+                <div class="modal-content bg-gradient-danger">
+                    <div class="modal-body">
+                        <div class="py-3 text-center">
+                            <i class="fa fa-bell fa-3x"></i>
+                            <h4 class="heading mt-4">Deseja excluir este item?</h4>
+                            <p>Atenção! Essa ação não poderá ser desfeita.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Sim, quero excluir!</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">NÃO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ Form::close() }}
+
+    <div class="modal fade" id="modal-alert" tabindex="-1" role="dialog" aria-labelledby="modal-alert" aria-hidden="true">
+        <div class="modal-dialog modal-center modal-notification modal-dialog-centered modal-" role="document">
+            <div class="modal-content bg-gradient-danger">
+                <div class="modal-body">
+                    <div class="py-3 text-center">
+                        <i class="fa fa-bell fa-3x"></i>
+                        <h4 class="heading mt-4 title"></h4>
+                        <p class="message font-18"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-name" data-dismiss="modal"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('adminlte_js')

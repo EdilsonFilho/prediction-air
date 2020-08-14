@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profile', 'last_login_at', 'last_login_ip'
+        'name', 'email', 'password', 'profile', 'phone', 'address', 'last_login_at', 'last_login_ip'
     ];
 
     /**
@@ -49,5 +49,46 @@ class User extends Authenticatable
         if (isset($value)) {
             return Carbon::parse($value)->format('d/m/Y');
         }
+    }
+
+    public function getProfilePicture()
+    {
+        $image = $this->files()->where('highlight', '=', 1)->first();
+
+        return isset($image) ? $image->name : null;
+    }
+
+    public function getIdFromProfilePicture()
+    {
+        $image = $this->files()->where('highlight', '=', 1)->first();
+
+        return isset($image) ? $image->id : null;
+    }
+
+    public function files()
+    {
+        return $this->belongsToMany(File::class)->orderBy('created_at', 'desc');
+    }
+
+    public function getDescriptionProfile($profile = null)
+    {
+
+        $profile = $profile || $this->profile;
+
+        switch ($profile) {
+            case config('profile.administrator'):
+                return 'Administrador';
+
+            case config('profile.professional'):
+                return 'Profissional';
+
+            default:
+                return 'Paciente';
+        }
+    }
+
+    public static function getProfiles()
+    {
+        return ['' => 'Selecione...', 1 => 'Administrador', 2 => 'Profissional', 3 => 'Paciente'];
     }
 }

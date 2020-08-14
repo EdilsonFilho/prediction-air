@@ -50,7 +50,7 @@
 <h6 class="heading-small text-muted mb-4">Informações complementares</h6>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="form-group">
             {{ Form::label('phone', 'Telefone(s)') }}
             {{ Form::text('phone', null, array('class' => 'form-control')) }}

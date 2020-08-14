@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'adress' => 'max:191',
+            'address' => 'max:191',
             'phone' => 'max:191',
             'name' => 'required|max:191',
             'profile' => 'required',

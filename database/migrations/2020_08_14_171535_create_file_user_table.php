@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSettingsTable extends Migration
+class CreateFileUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,19 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('file_user', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('name');
-            $table->text('value');
-            $table->timestamps();
+            $table->unsignedInteger('file_id');
 
             $table->foreign('user_id')
                 ->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreign('file_id')
+                ->references('id')->on('files')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
     }
@@ -33,6 +37,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('file_user');
     }
 }

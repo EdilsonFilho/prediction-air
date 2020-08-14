@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Models\Department;
 use App\Models\User;
 
 class UserController extends Controller
@@ -37,7 +36,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.user.create', ['departments' => $this->departments]);
+        return view('dashboard.user.create');
     }
 
     /**
@@ -80,7 +79,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('dashboard.user.edit', ['departments' => $this->departments, 'user' => $user]);
+        return view('dashboard.user.edit', ['user' => $user]);
     }
 
     /**

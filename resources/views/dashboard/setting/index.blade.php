@@ -21,7 +21,7 @@
                             <b>Telefone(s)</b> <a class="pull-right">{{ Auth::user()->phone }}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Endereço</b> <a class="pull-right">{{ Auth::user()->adress }}</a>
+                            <b>Endereço</b> <a class="pull-right">{{ Auth::user()->address }}</a>
                         </li>
                     </ul>
                     <div class="row">
@@ -63,28 +63,6 @@
                     </ul>
                 </div>
             @endif
-            {{ Form::open(array('route' => 'settings.choose_cities', 'role' => 'form', 'class' => 'areyousure')) }}
-                <div class="box box-solid">
-                    <div class="box-header with-border">
-                        <h3 class="box-title" style="margin-top: 10px;">Informações do perfil</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <h6 class="heading-small text-muted mb-4">Lista dos Municípios</h6>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="city_id[]">Escolha o(s) município(s) <i class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Ao selecionar o(s) município(s) as notificações do sistema serão filtradas."></i></label>
-                                    {{ Form::select('city_id[]', [], null, ['class' => 'form-control', 'multiple' => 'multiple']) }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        {{ Form::submit('Salvar dados', ['class' => 'btn btn-danger']) }}
-                    </div>
-                </div>
-            {{ Form::close() }}
 
             {{ Form::model(Auth::user(), ['route' => ['settings.update', Auth::user()->id], 'method' => 'PUT', 'class' => 'areyousure']) }}
                 <div class="box box-solid">
@@ -97,11 +75,6 @@
                         <div class="form-group">
                             {{ Form::label('', 'Perfil de acesso: ') }}
                             <strong>{{ Auth::user()->getDescriptionProfile() }}</strong>
-                            
-                            <br>
-                            
-                            {{ Form::label('', 'Setor: ') }}
-                            <strong>{{ isset(Auth::user()->department) ? Auth::user()->department->name : null }}</strong>
                         </div>
                         @include('dashboard.user.partials.form', [
                             'showPasswordTip' => true
@@ -118,28 +91,4 @@
         <!-- /.col-md-8 -->
     </div>
     <!-- /.row -->
-
-    @php
-        
-        // dd(unserialize(\Auth::user()->settings(\App\Enums\SettingType::CitiesList)));
-    @endphp
 @stop
-@section('js')
-    <script>
-        $(function() {
-            runSelect2($('select[name="city_id[]"]'), '{{ route("cities.find") }}', 'cities');
-
-            @if (\Auth::user()->settings(\App\Enums\SettingType::CitiesList))
-            
-                @foreach(explode(',', \Auth::user()->settings(\App\Enums\SettingType::CitiesList)) as $city)
-                    
-                    var newOption = new Option('{{ explode(':', $city)[0] }}', {{ explode(':', $city)[1] }}, true, true);
-                    
-                    $('select[name="city_id[]"]').append(newOption).trigger('change');
-            
-                @endforeach
-            
-            @endif
-        });
-    </script>
-@endsection
