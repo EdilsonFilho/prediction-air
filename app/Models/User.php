@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profile', 'phone', 'address', 'last_login_at', 'last_login_ip'
+        'name', 'email', 'password', 'profile', 'phone', 'address', 'last_login_at', 'last_login_ip',
+        'date_birth'
     ];
 
     /**
@@ -51,6 +52,11 @@ class User extends Authenticatable
         }
     }
 
+    public function setDateBirthAttribute($value)
+    {
+        $this->attributes['date_birth'] = isset($value) ? Carbon::createFromFormat('d/m/Y', $value) : null;
+    }
+
     public function getProfilePicture()
     {
         $image = $this->files()->where('highlight', '=', 1)->first();
@@ -70,25 +76,17 @@ class User extends Authenticatable
         return $this->belongsToMany(File::class)->orderBy('created_at', 'desc');
     }
 
-    public function getDescriptionProfile($profile = null)
+    public function getDescriptionProfile()
     {
-
-        $profile = $profile || $this->profile;
-
-        switch ($profile) {
+        switch ($this->profile) {
             case config('profile.administrator'):
-                return 'Administrador';
+                return 'Administrador(a)';
 
             case config('profile.professional'):
-                return 'Profissional';
+                return 'Enfermeiro(a)';
 
             default:
                 return 'Paciente';
         }
-    }
-
-    public static function getProfiles()
-    {
-        return ['' => 'Selecione...', 1 => 'Administrador', 2 => 'Profissional', 3 => 'Paciente'];
     }
 }

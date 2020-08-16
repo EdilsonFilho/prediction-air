@@ -1,6 +1,12 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
+            {{ Form::label('phone', 'Telefone') }}
+            {{ Form::text('phone', null, array('class' => 'form-control phone')) }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
             {{ Form::label('email', 'Email') }}
             {{ Form::email('email', null, array('class' => 'form-control')) }}
         </div>
@@ -45,19 +51,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<h6 class="heading-small text-muted mb-4">Informações complementares</h6>
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="form-group">
-            {{ Form::label('phone', 'Telefone(s)') }}
-            {{ Form::text('phone', null, array('class' => 'form-control')) }}
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-md-12">
         <div class="form-group">
             {{ Form::label('address', 'Endereço') }}

@@ -27,12 +27,14 @@ a:focus {
     border-left-color: #468208;
 }
 
-.btn-danger {
+.btn-custom {
+    color: white;
     background-color: #437c0a !important;
     border-color: #468208 !important;
 }
 
-.btn-danger:hover {
+.btn-custom:hover {
+    color: white;
     background-color: #324e14 !important;
     border-color: #324e14 !important;
 }
@@ -201,12 +203,6 @@ label {
     border: 1px solid #cad1d7;
     border-radius: .375rem;
     background-color: #fff;
-}
-
-.alert-danger {
-    color: #fff !important;
-    border-color: #39630d !important;
-    background-color: #39630d !important;
 }
 
 .input-group .input-group-addon {

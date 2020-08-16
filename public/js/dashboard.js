@@ -60,6 +60,19 @@ $(function () {
   $(".uppercase").keyup(function () {
     $(this).val($(this).val().toUpperCase());
   });
+
+  var SPMaskBehavior = function (val) {
+      return val.replace(/\D/g, "").length === 11
+        ? "(00) 00000-0000"
+        : "(00) 0000-00009";
+    },
+    spOptions = {
+      onKeyPress: function (val, e, field, options) {
+        field.mask(SPMaskBehavior.apply({}, arguments), options);
+      },
+    };
+
+  $(".phone").mask(SPMaskBehavior, spOptions);
 });
 
 function showAlert(title, message, button) {
@@ -134,7 +147,7 @@ function getParamsFromUrl() {
 function changeMenu() {
   $.ajax({
     method: "post",
-    url: $('body').data('base-url') + "/dashboard/settings/change-menu",
+    url: $("body").data("base-url") + "/dashboard/settings/change-menu",
     data: {
       _token: $('input[name="_token"]').val(),
     },

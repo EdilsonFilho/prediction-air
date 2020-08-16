@@ -7,7 +7,7 @@
             {{ session('message') }}
         </div>
     @endif
-    <a href="{{ route('users.create') }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">NOVO USUÁRIO</a>
+    <a href="{{ route('users.create') }}" class="btn btn-custom btn-sm" style="margin-bottom: 10px;">NOVO USUÁRIO</a>
     <div class="box">
         <div class="box-header with-border">
             <h4 class="box-title">Lista de usuários</h4>
@@ -16,7 +16,7 @@
                     <div class="input-group input-group-sm">
                         <input value="{{ $s }}" type="text" class="form-control input-sm" name="s" placeholder="Digite o trecho do nome do usuário p/ pesquisar...">
                         <span class="input-group-btn">
-                            <button type="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i></button>
+                            <button type="submit" class="btn btn-custom btn-flat"><i class="fa fa-search"></i></button>
                         </span>
                     </div>
                 {{ Form::close() }}

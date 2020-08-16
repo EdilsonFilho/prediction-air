@@ -18,7 +18,7 @@
                             <b>E-mail</b> <a class="pull-right">{{ Auth::user()->email }}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Telefone(s)</b> <a class="pull-right">{{ Auth::user()->phone }}</a>
+                            <b>Telefone</b> <a class="pull-right">{{ Auth::user()->phone }}</a>
                         </li>
                         <li class="list-group-item">
                             <b>Endereço</b> <a class="pull-right">{{ Auth::user()->address }}</a>
@@ -82,7 +82,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        {{ Form::submit('Salvar dados', ['class' => 'btn btn-danger']) }}
+                        {{ Form::submit('Salvar dados', ['class' => 'btn btn-custom']) }}
                     </div>
                 </div>
                 <!-- /.box -->

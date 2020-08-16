@@ -27,12 +27,11 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <h6 class="heading-small text-muted mb-4">Informações de acesso ao sistema</h6>
-                        @include('dashboard.user.partials.manage')
                         @include('dashboard.user.partials.form')
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        {{ Form::submit('Salvar dados', ['class' => 'btn btn-danger']) }}
+                        {{ Form::submit('Salvar dados', ['class' => 'btn btn-custom']) }}
                     </div>
                 </div>
                 <!-- /.box -->

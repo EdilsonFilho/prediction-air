@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     {{ Html::style('plugins/icheck-material-1.0.0/assets/css/icheck-material.min.css') }}
-    {{ Html::style('css/custom.css?v=sazdf6da-ij3d-4187-ab07-d9fda4a12abz') }}
+    {{ Html::style('css/custom.css?v=sazdf6da-aj3d-4187-ab07-d9fda4a111bz') }}
 </head>
 <body class="hold-transition @yield('body_class')" data-base-url="{{ url('/') }}">
 
@@ -45,7 +45,7 @@
 <script src="{{ asset('plugins/are-you-sure/jquery.are-you-sure.js?v=a87b8160-5be0-418e-b4b2-140d8a13def1') }}"></script>
 <script src="//oss.maxcdn.com/jquery.mask/1.11.4/jquery.mask.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
-<script src="{{ asset('js/dashboard.js?v=auzca181-ccia-018e-zab2-028a8903dyzz') }}"></script>
+<script src="{{ asset('js/dashboard.js?v=auzca191-ccia-018e-zab2-028a8903dyzz') }}"></script>
 
 @include('adminlte::plugins', ['type' => 'js'])
 
