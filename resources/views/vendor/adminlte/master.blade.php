@@ -20,8 +20,6 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
 
-    @yield('adminlte_css')
-
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -31,7 +29,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     {{ Html::style('plugins/icheck-material-1.0.0/assets/css/icheck-material.min.css') }}
-    {{ Html::style('css/custom.css?v=sazdf6da-aj3d-4187-ab07-d9fda4a111bz') }}
+    {{ Html::style('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}
+    {{ Html::style('css/custom.css?v=sazcf6da-aj3d-4187-ab07-d9fda4a111bz') }}
+
+    @yield('adminlte_css')
+
 </head>
 <body class="hold-transition @yield('body_class')" data-base-url="{{ url('/') }}">
 

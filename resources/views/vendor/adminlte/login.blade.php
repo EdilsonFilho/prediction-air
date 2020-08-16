@@ -48,15 +48,15 @@
                         <!-- /.col -->
                         <div class="col-xs-4">
                             <button type="submit"
-                                    class="btn btn-danger btn-block">{{ trans('adminlte::adminlte.sign_in') }}</button>
+                                    class="btn btn-custom btn-block">{{ trans('adminlte::adminlte.sign_in') }}</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
                 <div class="auth-links">
-                    <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
+                    {{-- <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
                     class="text-center"
-                    >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
+                    >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a> --}}
                     <br>
                     @if (config('adminlte.register_url', 'register'))
                         <a href="{{ url(config('adminlte.register_url', 'register')) }}"

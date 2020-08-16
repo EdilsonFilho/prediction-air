@@ -23,10 +23,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::put('settings/{user}', 'SettingController@update')->name('settings.update');
     Route::post('settings/change-menu', 'SettingController@changeMenu')->name('settings.changeMenu');
 
-    Route::resource('users', 'UserController');
-
     Route::put('image/{id}/upload', 'ImageController@upload')->name('image.upload');
     Route::delete('image/destroy/{file}', 'ImageController@destroy')->name('image.destroy');
+
+    Route::resource('patients', 'PatientController');
+
+    Route::group(['middleware' => ['admin']], function () {
+        Route::resource('users', 'UserController');
+    });
 });
 
 Auth::routes();

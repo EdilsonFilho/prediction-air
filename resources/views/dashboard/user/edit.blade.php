@@ -22,15 +22,23 @@
             {{ Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'class' => 'areyousure']) }}
                 <div class="box box-solid">
                     <div class="box-header with-border">
-                        <h3 class="box-title" style="margin-top: 10px;">Informações do usuário</h3>
+                        <h3 class="box-title" style="margin-top: 10px;">
+                            @isset($title)
+                                {{ $title }}
+                            @else
+                                Informações do usuário
+                            @endisset
+                        </h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <h6 class="heading-small text-muted mb-4">Informações de acesso ao sistema</h6>
-                        <div class="form-group">
-                            {{ Form::label('', 'Perfil de acesso: ') }}
-                            <strong>{{ Auth::user()->getDescriptionProfile() }}</strong>
-                        </div>
+                        @if (!isset($isPatientRecord))
+                            <div class="form-group">
+                                {{ Form::label('', 'Perfil de acesso: ') }}
+                                <strong>{{ Auth::user()->getDescriptionProfile() }}</strong>
+                            </div>
+                        @endif
                         @include('dashboard.user.partials.form')
                     </div>
                     <!-- /.box-body -->

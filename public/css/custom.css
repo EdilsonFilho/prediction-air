@@ -211,6 +211,7 @@ label {
 }
 
 .datepicker-days table tr td.active {
+    background: 0 0;
     background-color: #39630d !important;
 }
 

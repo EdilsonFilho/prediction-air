@@ -19,10 +19,20 @@
                     </ul>
                 </div>
             @endif
-            {{ Form::open(array('route' => 'users.store', 'role' => 'form', 'class' => 'areyousure')) }}
+            @isset($isPatientRecord)
+                {{ Form::open(['route' => 'patients.store', 'role' => 'form', 'class' => 'areyousure']) }}
+            @else
+                {{ Form::open(['route' => 'users.store', 'role' => 'form', 'class' => 'areyousure']) }}
+            @endisset
                 <div class="box box-solid">
                     <div class="box-header with-border">
-                        <h3 class="box-title" style="margin-top: 10px;">Informações do usuário</h3>
+                        <h3 class="box-title" style="margin-top: 10px;">
+                            @isset($title)
+                                {{ $title }}
+                            @else
+                                Informações do usuário
+                            @endisset
+                        </h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

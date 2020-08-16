@@ -58,7 +58,7 @@
                     @endif
                 </div>
                 <button type="submit"
-                        class="btn btn-danger btn-block"
+                        class="btn btn-custom btn-block"
                 >{{ trans('adminlte::adminlte.register') }}</button>
             </form>
             <div class="auth-links">

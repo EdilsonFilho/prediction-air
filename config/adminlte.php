@@ -128,27 +128,27 @@ return [
     */
 
     'menu' => [
-        ['header' => 'main_navigation'],
-        [
-            'text'        => 'início',
-            'url'         => 'dashboard/home',
-            'icon'        => 'fas fa-fw fa-home',
-            'active' => ['dashboard/home*'],
-        ],
-        ['header' => 'ADMINISTRAÇÃO'],
-        [
-            'text' => 'Usuários',
-            'url' => 'dashboard/users',
-            'icon' => 'fas fa-fw fa-users',
-            'active' => ['dashboard/users*'],
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'dashboard/settings',
-            'icon' => 'fas fa-fw fa-user',
-            'active' => ['dashboard/settings*'],
-        ],
+        // ['header' => 'main_navigation'],
+        // [
+        //     'text'        => 'início',
+        //     'url'         => 'dashboard/home',
+        //     'icon'        => 'fas fa-fw fa-home',
+        //     'active' => ['dashboard/home*'],
+        // ],
+        // ['header' => 'ADMINISTRAÇÃO'],
+        // [
+        //     'text' => 'Usuários',
+        //     'url' => 'dashboard/users',
+        //     'icon' => 'fas fa-fw fa-users',
+        //     'active' => ['dashboard/users*'],
+        // ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'dashboard/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        //     'active' => ['dashboard/settings*'],
+        // ],
     ],
 
     /*

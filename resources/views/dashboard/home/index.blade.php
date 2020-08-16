@@ -7,5 +7,11 @@
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    @if (session('message'))
+        <div class="alert alert-{{ session('code') }} alert-dismissible">
+            <h4>Atenção!</h4>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            {{ session('message') }}
+        </div>
+    @endif
 @stop

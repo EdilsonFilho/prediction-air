@@ -7,14 +7,14 @@
             {{ session('message') }}
         </div>
     @endif
-    <a href="{{ route('users.create') }}" class="btn btn-custom btn-sm" style="margin-bottom: 10px;">NOVO USUÁRIO</a>
+    <a href="{{ route('patients.create') }}" class="btn btn-custom btn-sm" style="margin-bottom: 10px;">NOVO PACIENTE</a>
     <div class="box">
         <div class="box-header with-border">
-            <h4 class="box-title">Lista de usuários</h4>
+            <h4 class="box-title">Lista de pacientes</h4>
             <div class="pull-right col-md-4" style="padding: 0px;">
-                {{ Form::open(['method' => 'GET', 'route' => ['users.index'], 'style' => 'display: inline']) }}
+                {{ Form::open(['method' => 'GET', 'route' => ['patients.index'], 'style' => 'display: inline']) }}
                     <div class="input-group input-group-sm">
-                        <input value="{{ $s }}" type="text" class="form-control input-sm" name="s" placeholder="Digite o trecho do nome do usuário p/ pesquisar...">
+                        <input value="{{ $s }}" type="text" class="form-control input-sm" name="s" placeholder="Digite o trecho do nome do paciente p/ pesquisar...">
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-custom btn-flat"><i class="fa fa-search"></i></button>
                         </span>
@@ -29,25 +29,21 @@
                         <tr>
                             <th>Nome</th>
                             <th>Telefone</th>
-                            <th>E-mail</th>
-                            <th>Perfil de acesso</th>
                             <th>Data de cadastro</th>
                             <th>Último acesso</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($users as $user)
+                        @forelse($patients as $patient)
                             <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->phone }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->getDescriptionProfile() }}</td>
-                                <td>{{ $user->created }}</td>
-                                <td>{{ $user->last_login_at }}</td>
+                                <td>{{ $patient->user->name }}</td>
+                                <td>{{ $patient->user->phone }}</td>
+                                <td>{{ $patient->user->created }}</td>
+                                <td>{{ $patient->user->last_login_at }}</td>
                                 <td>
-                                    <a href="{{ route('users.edit', $user->id) }}" alt="Editar" title="Editar" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i></a>
-                                    <button alt="Excluir" title="Excluir" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $user->id }})"><i class="fa fa-trash"></i></button>
+                                    <a href="{{ route('patients.edit', $patient->user->id) }}" alt="Editar" title="Editar" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i></a>
+                                    <button alt="Excluir" title="Excluir" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $patient->id }})"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         @endforeach
@@ -56,7 +52,7 @@
             </div>
         </div>
         <div class="box-footer clearfix">
-              {{ ($users != null)? $users->links(): null }}
+              {{ ($patients != null)? $patients->links(): null }}
         </div>
     </div>
 @stop
