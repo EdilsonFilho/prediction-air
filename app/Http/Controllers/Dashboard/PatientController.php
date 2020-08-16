@@ -23,13 +23,13 @@ class PatientController extends Controller
         $s = isset($request['s']) ? $request['s'] : null;
 
         if ($s) {
-            $patients = Patient::where('professional_id', '=', Auth::id())
-                ->with(['user' => function ($q) use ($s) {
-                    return $q->where('name', 'LIKE', '%' . $s . '%');
-                }])
+            $patients = Patient::with(['user' => function ($q) use ($s) {
+                return $q->where('name', 'LIKE', '%' . $s . '%');
+            }])
+                ->where('professional_id', '=', Auth::id())
                 ->paginate(config('pagination.default'));
 
-            dd(count($patients), $patients[0]);
+            dd($patients);
         } else {
             $patients = Patient::where('professional_id', '=', Auth::id())
                 ->paginate(config('pagination.default'));

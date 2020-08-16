@@ -42,6 +42,7 @@
                                 <td>{{ $patient->user->created }}</td>
                                 <td>{{ $patient->user->last_login_at }}</td>
                                 <td>
+                                    {{-- TODO: LEMBRAR DE ANALISAR O ID DA EDIÇÃO --}}
                                     <a href="{{ route('patients.edit', $patient->user->id) }}" alt="Editar" title="Editar" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i></a>
                                     <button alt="Excluir" title="Excluir" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $patient->id }})"><i class="fa fa-trash"></i></button>
                                 </td>
