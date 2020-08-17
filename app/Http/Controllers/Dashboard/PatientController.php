@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Models\Patient;
 use App\Models\User;
 use Auth;
-use DB;
-use Exception;
 
 class PatientController extends Controller
 {
@@ -23,15 +20,11 @@ class PatientController extends Controller
         $s = isset($request['s']) ? $request['s'] : null;
 
         if ($s) {
-            $patients = Patient::with(['user' => function ($q) use ($s) {
-                return $q->where('name', 'LIKE', '%' . $s . '%');
-            }])
+            $patients = User::where('name', 'LIKE', '%' . $s . '%')
                 ->where('professional_id', '=', Auth::id())
                 ->paginate(config('pagination.default'));
-
-            dd($patients);
         } else {
-            $patients = Patient::where('professional_id', '=', Auth::id())
+            $patients = User::where('professional_id', '=', Auth::id())
                 ->paginate(config('pagination.default'));
         }
 
@@ -59,32 +52,20 @@ class PatientController extends Controller
      */
     public function store(UserRequest $request)
     {
-        try {
-            $request['password'] = bcrypt($request['password']);
+        $request['password'] = bcrypt($request['password']);
 
-            $request['profile'] = config('profile.patient');
+        $request['profile'] = config('profile.patient');
 
-            DB::beginTransaction();
+        $request['professional_id'] = Auth::id();
 
-            $user = User::create($request->all());
+        $user = User::create($request->all());
 
-            $patient = Patient::create([
-                'user_id' => $user->id,
-                'professional_id' => Auth::id()
-            ]);
-
-            DB::commit();
-
-            return redirect()->route('patients.edit', ['patient' => $patient->id])
+        if ($user) {
+            return redirect()->route('patients.edit', ['id' => $user['id']])
                 ->with(['message' => 'Cadastrado realizado com sucesso.', 'code' => 'success']);
-        } catch (Exception $e) {
-            DB::rollBack();
-
+        } else {
             return redirect()->route('patients.create')
-                ->with([
-                    'message' => 'Erro ao cadastrar. Tente novamente! Informe está mesangem ao desenvolvedor: ' . $e->getMessage(),
-                    'code' => 'danger'
-                ]);
+                ->with(['message' => 'Erro ao cadastrar. Tente novamente!', 'code' => 'danger']);
         }
     }
 
@@ -94,13 +75,42 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit(User $user)
     {
         return view('dashboard.user.edit', [
             'title' => 'Informações do paciente',
             'isPatientRecord' => true,
-            'user' => $patient->user
+            'user' => $user
         ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UserRequest $request, User $user)
+    {
+        $data = [];
+
+        if (!empty($request['password'])) {
+            $request['password'] = bcrypt($request['password']);
+            $data = $request->all();
+        } else {
+            $data = $request->except(['password', 'password_confirmation']);
+        }
+
+        $user->fill($data)->update();
+
+        if ($user) {
+            return redirect()->route('patients.edit', ['id' => $user['id']])
+                ->with(['message' => 'Edição realizada com sucesso.', 'code' => 'success']);
+        } else {
+            return redirect()->route('patients.create')
+                ->with(['message' => 'Erro ao editar. Tente novamente!', 'code' => 'danger']);
+        }
     }
 
     /**
@@ -109,22 +119,14 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy(User $user)
     {
-        try {
-            DB::beginTransaction();
+        $user->delete();
 
-            $patient->user->delete();
-
-            $patient->delete();
-
-            DB::commit();
-
+        if ($user) {
             return redirect()->route('patients.index')
                 ->with(['message' => 'Ação de exclusão realizada com sucesso.', 'code' => 'success']);
-        } catch (Exception $e) {
-            DB::rollBack();
-
+        } else {
             return redirect()->route('patients.index')
                 ->with(['message' => 'Erro ao excluir. Tente novamente!', 'code' => 'danger']);
         }

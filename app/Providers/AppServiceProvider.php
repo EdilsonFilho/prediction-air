@@ -45,6 +45,15 @@ class AppServiceProvider extends ServiceProvider
                     'active' => ['dashboard/users*'],
                 ]);
             }
+
+            $event->menu->add('PERFIL');
+
+            $event->menu->add([
+                'text' => 'Meu perfil',
+                'url'  => 'dashboard/settings',
+                'icon' => 'fas fa-fw fa-user',
+                'active' => ['dashboard/settings*'],
+            ]);
         });
     }
 

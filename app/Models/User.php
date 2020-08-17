@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'profile', 'phone', 'address', 'last_login_at', 'last_login_ip',
-        'date_birth'
+        'date_birth', 'professional_id'
     ];
 
     /**
@@ -88,5 +88,10 @@ class User extends Authenticatable
             default:
                 return 'Paciente';
         }
+    }
+
+    public function getCreatedAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->format('d/m/Y \à\s H:i');
     }
 }

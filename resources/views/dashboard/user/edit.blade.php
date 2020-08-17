@@ -19,7 +19,11 @@
                     </ul>
                 </div>
             @endif
-            {{ Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'class' => 'areyousure']) }}
+            @isset($isPatientRecord)
+                {{ Form::model($user, ['route' => ['patients.update', $user->id], 'method' => 'PUT', 'class' => 'areyousure']) }}
+            @else
+                {{ Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'class' => 'areyousure']) }}
+            @endisset
                 <div class="box box-solid">
                     <div class="box-header with-border">
                         <h3 class="box-title" style="margin-top: 10px;">

@@ -31,7 +31,7 @@
                             {{ Form::hidden('highlight', 1) }}
                             <div class="custom-file">
                                 <input type="file" style="display: none" class="custom-file-input" onchange="uploadImage('#frmUploadImage')" name="file" id="fileUser" accept="image/x-png,image/jpeg">
-                                <div class="col-md-9">
+                                <div class="{{ Auth::user()->getIdFromProfilePicture() ? "col-md-9" : "col-md-12" }}">
                                     <label class="btn btn-primary btn-block" for="fileUser" data-toggle="tooltip" data-placement="left" title="Resolução ideal: 800x800">Escolher imagem do perfil</label>
                                 </div>
                                 <div class="col-md-3">
