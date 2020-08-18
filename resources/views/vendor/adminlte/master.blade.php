@@ -30,7 +30,7 @@
 
     {{ Html::style('plugins/icheck-material-1.0.0/assets/css/icheck-material.min.css') }}
     {{ Html::style('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}
-    {{ Html::style('css/custom.css?v=sazcf6da-aj3d-4287-ab07-d9fda4a111bz') }}
+    {{ Html::style('css/custom.css?v=sazcf6dc-aj3d-4287-ab07-d9fda4a111bz') }}
 
     @yield('adminlte_css')
 
