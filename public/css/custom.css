@@ -422,6 +422,11 @@ label {
     margin-top: 10px;
 }
 
+.content-header>h1>small {
+    display: block;
+    margin-top: 10px;
+}
+
 @-moz-keyframes fadeOut {
     0% {
         opacity: 1;

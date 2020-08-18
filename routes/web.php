@@ -34,6 +34,10 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::get('patients/{user}/edit', 'PatientController@edit')->name('patients.edit');
 
     Route::get('survey/{user}', 'SurveyController@index')->name('surveys.index');
+    Route::get('survey/{user}/step-1', 'SurveyController@step1')->name('surveys.step1');
+    Route::post('survey/{user}/step-1', 'SurveyController@storeStep1')->name('surveys.store_step1');
+
+    Route::get('navigations/to/{user}', 'NavigationToController@to')->name('navigations.to');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::resource('users', 'UserController');
