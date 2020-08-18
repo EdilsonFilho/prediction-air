@@ -3,7 +3,11 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    @include('dashboard.survey.partials.information', ['user' => $user, 'isRoot' => true])
+    <h1>
+        Questionário - {{ $user->name }}
+        <br>
+        <small>Selecione a seção para inserir novas informações</small>
+    </h1>
 @stop
 
 @section('content')
