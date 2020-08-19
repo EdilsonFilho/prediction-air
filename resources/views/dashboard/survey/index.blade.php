@@ -1,15 +1,5 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
-
-@section('content_header')
-    <h1>
-        Questionário - {{ $user->name }}
-        <br>
-        <small>Selecione a seção para inserir novas informações</small>
-    </h1>
-@stop
-
 @section('content')
     @if (session('message'))
         <div class="alert alert-{{ session('code') }} alert-dismissible">
@@ -17,20 +7,40 @@
             {{ session('message') }}
         </div>
     @endif
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
-            <div class="small-box bg-sagcic">
-                <div class="inner">
-                    <h3>Dados Sociodemográficos</h3>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-copy"></i>
-                </div>
-                <a href="{{ route('surveys.step1', ['user' => $user->id]) }}" class="small-box-footer">
-                    Responder questionário <i class="fa fa-arrow-circle-right"></i>
-                </a>
+    {{ Form::open(['route' => ['surveys.store', 'user' => $user], 'role' => 'form', 'style' => 'margin-bottom: 10px']) }}
+        {{ Form::submit('INICIAR NOVO QUESTIONÁRIO', ['class' => 'btn btn-custom']) }}
+    {{ Form::close() }}
+    <div class="box">
+        <div class="box-header with-border">
+            <h4 class="box-title">Lista de questionários p/ o paciente {{ $user->name }}</h4>
+        </div>
+        <div class="box-body no-padding">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Número</th>
+                            <th>Data de criação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($surveys as $survey)
+                            <tr>
+                                <td>{{ $survey->id }}</td>
+                                <td>{{ $survey->created }}</td>
+                                <td>
+                                    <a href="{{ route('surveys.edit', $survey->id) }}" alt="Acessar pesquisa" title="Acessar pesquisa" class="btn btn-default btn-sm"><i class="fa fa-copy"></i></a>
+                                    <button alt="Excluir pesquisa" title="Excluir pesquisa" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $survey->id }})"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
+        </div>
+        <div class="box-footer clearfix">
+              {{ ($surveys != null)? $surveys->links(): null }}
         </div>
     </div>
 @stop
