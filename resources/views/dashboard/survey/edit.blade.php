@@ -27,7 +27,7 @@
                 <div class="icon">
                     <i class="fa fa-copy"></i>
                 </div>
-                <a href="{{ route('surveys.step1', ['user' => $user->id]) }}" class="small-box-footer">
+                <a href="{{ route('steps1.index', ['user' => $user->id]) }}" class="small-box-footer">
                     Responder questionário <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>

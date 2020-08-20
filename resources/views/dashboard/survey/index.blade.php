@@ -30,8 +30,8 @@
                                 <td>{{ $survey->id }}</td>
                                 <td>{{ $survey->created }}</td>
                                 <td>
-                                    <a href="{{ route('surveys.edit', $survey->id) }}" alt="Acessar pesquisa" title="Acessar pesquisa" class="btn btn-default btn-sm"><i class="fa fa-copy"></i></a>
-                                    <button alt="Excluir pesquisa" title="Excluir pesquisa" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $survey->id }})"><i class="fa fa-trash"></i></button>
+                                    <a href="{{ route('surveys.edit', $survey->id) }}" alt="Acessar questionário" title="Acessar questionário" class="btn btn-default btn-sm"><i class="fa fa-copy"></i></a>
+                                    <button alt="Excluir questionário" title="Excluir questionário" class="btn btn-danger btn-sm"   onclick="confirmDelete({{ $survey->id }}, '{{ route('surveys.destroy', ['survey' => $survey]) }}')"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         @endforeach

@@ -61,8 +61,22 @@ class SurveyController extends Controller
         return view('dashboard.survey.edit', ['survey' => $survey, 'user' => $user]);
     }
 
-    // public function step1(User $user)
-    // {
-    //     return view('dashboard.survey.step1', ['user' => $user]);
-    // }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Survey $survey)
+    {
+        $survey->delete();
+
+        if ($survey) {
+            return redirect()->back()
+                ->with(['message' => 'Ação de exclusão realizada com sucesso.', 'code' => 'success']);
+        } else {
+            return redirect()->back()
+                ->with(['message' => 'Erro ao excluir. Tente novamente!', 'code' => 'danger']);
+        }
+    }
 }

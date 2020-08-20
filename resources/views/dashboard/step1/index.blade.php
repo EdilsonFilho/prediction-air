@@ -19,7 +19,7 @@
                     </ul>
                 </div>
             @endif
-            {{ Form::open(['route' => ['surveys.store_step1', 'user' => $user->id], 'role' => 'form', 'class' => 'areyousure']) }}
+            {{ Form::open(['route' => ['steps1.store', 'user' => $user->id], 'role' => 'form', 'class' => 'areyousure']) }}
                 <div class="box box-solid">
                     <div class="box-header with-border">
                         <div class="row">

@@ -12,7 +12,7 @@ class NavigationToController extends Controller
     {
         switch ($request['step']) {
             case 'step1':
-                return redirect()->route('surveys.step1', $user);
+                return redirect()->route('steps1.index', $user);
 
             default:
                 return redirect()->route('surveys.index', $user);
