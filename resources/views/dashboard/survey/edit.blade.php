@@ -27,9 +27,15 @@
                 <div class="icon">
                     <i class="fa fa-copy"></i>
                 </div>
-                <a href="{{ route('steps1.index', ['user' => $user->id]) }}" class="small-box-footer">
-                    Responder questionário <i class="fa fa-arrow-circle-right"></i>
-                </a>
+                @isset($survey->step1)
+                    <a href="{{ route('steps1.edit', ['survey' => $survey]) }}" class="small-box-footer">
+                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @else
+                    <a href="{{ route('steps1.create', ['survey' => $survey]) }}" class="small-box-footer">
+                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @endisset
             </div>
         </div>
     </div>

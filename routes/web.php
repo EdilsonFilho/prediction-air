@@ -38,8 +38,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::get('surveys/{survey}/edit', 'SurveyController@edit')->name('surveys.edit');
     Route::delete('surveys/{survey}', 'SurveyController@destroy')->name('surveys.destroy');
 
-    Route::get('steps1/{user}', 'Step1Controller@index')->name('steps1.index');
-    Route::post('steps1/{user}', 'Step1Controller@store')->name('steps1.store');
+    Route::get('steps1/{survey}', 'Step1Controller@create')->name('steps1.create');
+    Route::post('steps1/{survey}', 'Step1Controller@store')->name('steps1.store');
+    Route::get('steps1/{survey}/edit', 'Step1Controller@edit')->name('steps1.edit');
 
     Route::get('navigations/to/{user}', 'NavigationToController@to')->name('navigations.to');
 

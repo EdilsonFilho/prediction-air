@@ -14,7 +14,7 @@
                     return;
                 }
 
-                window.location.href = $('body').data('base-url') + '/navigations/to/' + '{{ $user->id }}' + '?step=' + $(this).val();
+                window.location.href = $('body').data('base-url') + '/navigations/to/' + '{{ $patient->id }}' + '?step=' + $(this).val();
 
             });
         });

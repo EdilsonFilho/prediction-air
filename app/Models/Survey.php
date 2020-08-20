@@ -20,4 +20,14 @@ class Survey extends Model
     {
         return Carbon::parse($this->attributes['created_at'])->format('d/m/Y \à\s H:i');
     }
+
+    public function patient()
+    {
+        return $this->belongsTo(User::class, 'patient_id');
+    }
+
+    public function step1()
+    {
+        return $this->hasOne(Step1::class);
+    }
 }
