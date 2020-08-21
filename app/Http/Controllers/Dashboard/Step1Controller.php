@@ -49,8 +49,8 @@ class Step1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Survey $survey)
+    public function show(Survey $survey, Step1 $step1)
     {
-        return view('dashboard.step1.edit', ['survey' => $survey]);
+        return view('dashboard.step1.show', ['survey' => $survey, 'step1' => $step1]);
     }
 }

@@ -16,6 +16,7 @@ class CreateStep1sTable extends Migration
         Schema::create('step1s', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('survey_id');
+            $table->date('fill_date');
             $table->text('step1_1');
             $table->text('step1_2');
             $table->text('step1_3');

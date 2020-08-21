@@ -28,11 +28,11 @@
                     <i class="fa fa-copy"></i>
                 </div>
                 @isset($survey->step1)
-                    <a href="{{ route('steps1.edit', ['survey' => $survey]) }}" class="small-box-footer">
-                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    <a href="{{ route('step1s.show', ['survey' => $survey, 'step1' => $survey->step1]) }}" class="small-box-footer">
+                        Analisar respostas <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 @else
-                    <a href="{{ route('steps1.create', ['survey' => $survey]) }}" class="small-box-footer">
+                    <a href="{{ route('step1s.create', ['survey' => $survey]) }}" class="small-box-footer">
                         Responder questionário <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 @endisset
