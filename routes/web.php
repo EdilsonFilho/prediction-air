@@ -42,6 +42,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::post('step1s/{survey}', 'Step1Controller@store')->name('step1s.store');
     Route::get('step1s/{survey}/{step1}', 'Step1Controller@show')->name('step1s.show');
 
+    Route::get('step2s/{survey}', 'Step2Controller@create')->name('step2s.create');
+    Route::post('step2s/{survey}', 'Step2Controller@store')->name('step2s.store');
+    Route::get('step2s/{survey}/{step2}', 'Step2Controller@show')->name('step2s.show');
+
+    Route::get('step3s/{survey}', 'Step3Controller@create')->name('step3s.create');
+    Route::post('step3s/{survey}', 'Step3Controller@store')->name('step3s.store');
+    Route::get('step3s/{survey}/{step3}', 'Step3Controller@show')->name('step3s.show');
+
     Route::get('navigations/to/{user}', 'NavigationToController@to')->name('navigations.to');
 
     Route::group(['middleware' => ['admin']], function () {

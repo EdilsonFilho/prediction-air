@@ -38,5 +38,43 @@
                 @endisset
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
+            <div class="small-box bg-sagcic">
+                <div class="inner">
+                    <h3>Adesão à Medicação</h3>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-copy"></i>
+                </div>
+                @isset($survey->step2)
+                    <a href="{{ route('step2s.show', ['survey' => $survey, 'step2' => $survey->step2]) }}" class="small-box-footer">
+                        Analisar respostas <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @else
+                    <a href="{{ route('step2s.create', ['survey' => $survey]) }}" class="small-box-footer">
+                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @endisset
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
+            <div class="small-box bg-sagcic">
+                <div class="inner">
+                    <h3>Escala de Demência</h3>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-copy"></i>
+                </div>
+                @isset($survey->step3)
+                    <a href="{{ route('step3s.show', ['survey' => $survey, 'step3' => $survey->step3]) }}" class="small-box-footer">
+                        Analisar respostas <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @else
+                    <a href="{{ route('step3s.create', ['survey' => $survey]) }}" class="small-box-footer">
+                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @endisset
+            </div>
+        </div>
     </div>
 @stop
