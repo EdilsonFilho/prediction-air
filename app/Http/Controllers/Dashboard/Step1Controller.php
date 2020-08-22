@@ -6,11 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Step1Request;
 use App\Models\Step1;
 use App\Models\Survey;
+use Auth;
 
 class Step1Controller extends Controller
 {
     public function create(Survey $survey)
     {
+        if (Auth::id() != $survey->professional_id) {
+            return redirect()->route('patients.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
         if ($survey->step1) {
             return redirect()->route('surveys.edit', ['id' => $survey->id])
                 ->with([
@@ -51,6 +60,17 @@ class Step1Controller extends Controller
      */
     public function show(Survey $survey, Step1 $step1)
     {
+        if (
+            Auth::id() != $survey->professional_id ||
+            Auth::id() != $step1->survey->professional_id
+        ) {
+            return redirect()->route('patients.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
         return view('dashboard.step1.show', ['survey' => $survey, 'step1' => $step1]);
     }
 }
