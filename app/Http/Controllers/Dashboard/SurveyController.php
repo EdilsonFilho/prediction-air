@@ -12,7 +12,13 @@ class SurveyController extends Controller
 {
     public function index(User $user)
     {
-        // TODO: Validar se existe permissão para realziar a pesquisa
+        if (Auth::id() != $user->professional_id) {
+            return redirect()->route('patients.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
 
         $surveys = Survey::where('professional_id', '=', Auth::id())
             ->paginate(config('pagination.default'));
@@ -57,6 +63,14 @@ class SurveyController extends Controller
     public function edit(Survey $survey)
     {
         $user = User::find($survey->patient_id);
+
+        if (Auth::id() != $user->professional_id) {
+            return redirect()->route('patients.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
 
         return view('dashboard.survey.edit', ['survey' => $survey, 'user' => $user]);
     }
