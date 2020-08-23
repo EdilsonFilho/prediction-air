@@ -45,4 +45,14 @@ class Step4 extends Model
     {
         return $this->belongsTo(Survey::class);
     }
+
+    public function setStep452Attribute($value)
+    {
+        $this->attributes['step4_5_2'] = implode("|", $value);
+    }
+
+    public function setStep412Attribute($value)
+    {
+        $this->attributes['step4_12'] = implode("|", $value);
+    }
 }
