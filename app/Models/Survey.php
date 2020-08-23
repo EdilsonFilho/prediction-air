@@ -45,4 +45,9 @@ class Survey extends Model
     {
         return $this->hasOne(Step4::class);
     }
+
+    public function step5()
+    {
+        return $this->hasOne(Step5::class);
+    }
 }
