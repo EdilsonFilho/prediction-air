@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Survey;
 use Auth;
+use Illuminate\Http\Request;
 
 class Step4Controller extends Controller
 {
@@ -29,26 +30,27 @@ class Step4Controller extends Controller
         return view('dashboard.step4.create', ['survey' => $survey]);
     }
 
-    // public function store(Survey $survey, Step4Request $request)
-    // {
-    //     $request['survey_id'] = $survey->id;
+    public function store(Survey $survey, Request $request)
+    {
+        dd($request->all());
+        // $request['survey_id'] = $survey->id;
 
-    //     $step = Step4::create($request->all());
+        // $step = Step4::create($request->all());
 
-    //     if ($step) {
-    //         return redirect()->route('surveys.edit', ['id' => $survey->id])
-    //             ->with([
-    //                 'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',
-    //                 'code' => 'success'
-    //             ]);
-    //     } else {
-    //         return redirect()->back()
-    //             ->with([
-    //                 'message' => 'Erro ao iniciar um novo questionário. Por favor, tente novamente.',
-    //                 'code' => 'danger'
-    //             ]);
-    //     }
-    // }
+        // if ($step) {
+        //     return redirect()->route('surveys.edit', ['id' => $survey->id])
+        //         ->with([
+        //             'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',
+        //             'code' => 'success'
+        //         ]);
+        // } else {
+        //     return redirect()->back()
+        //         ->with([
+        //             'message' => 'Erro ao iniciar um novo questionário. Por favor, tente novamente.',
+        //             'code' => 'danger'
+        //         ]);
+        // }
+    }
 
     // /**
     //  * Show the form for editing the specified resource.
