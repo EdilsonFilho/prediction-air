@@ -54,128 +54,10 @@
                 'title_2' => '5.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?',
                 'number' => '5'
             ])
-
-            {{-- 5.2 --}}
-            <div class="table-responsive">
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th>
-                                5.2 Com base nos tipos de apoio mencionado acima (questões 1 a 5), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio?
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Marido, esposa(a), companheiro(a) ou namorado(a)", false, ['id' => 'a_step4_5_2']) }}
-                                    <label for="a_step4_5_2">
-                                        Marido, esposa(a), companheiro(a) ou namorado(a)
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Pessoa(s) da família que mora(m) comigo", false, ['id' => 'b_step4_5_2']) }}
-                                    <label for="b_step4_5_2">
-                                        Pessoa(s) da família que mora(m) comigo
-                                    </label>
-                                </div>
-                                {{ Form::text('step4_5_2[]', null,
-                                    array(
-                                        'id' => 'b_step4_5_2_input',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Quem?',
-                                        'style' => 'display: none'
-                                    ))
-                                }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Pessoa(s) da família que não mora(m) comigo", false, ['id' => 'c_step4_5_2']) }}
-                                    <label for="c_step4_5_2">
-                                        Pessoa(s) da família que não mora(m) comigo
-                                    </label>
-                                </div>
-                                {{ Form::text('step4_5_2[]', null,
-                                    array(
-                                        'id' => 'c_step4_5_2_input',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Quem?',
-                                        'style' => 'display: none'
-                                    ))
-                                }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Amigo(s)", false, ['id' => 'd_step4_5_2']) }}
-                                    <label for="d_step4_5_2">
-                                        Amigo(s)
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Chefe ou colega(s) de trabalho", false, ['id' => 'e_step4_5_2']) }}
-                                    <label for="e_step4_5_2">
-                                        Chefe ou colega(s) de trabalho
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Vizinho(s)", false, ['id' => 'f_step4_5_2']) }}
-                                    <label for="f_step4_5_2">
-                                        Vizinho(s)
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Profissionais de saúde", false, ['id' => 'g_step4_5_2']) }}
-                                    <label for="g_step4_5_2">
-                                        Profissionais de saúde
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icheck-material-green">
-                                    {{ Form::checkbox('step4_5_2[]', "Outra(s) pessoa(s)", false, ['id' => 'h_step4_5_2']) }}
-                                    <label for="h_step4_5_2">
-                                        Outra(s) pessoa(s)
-                                    </label>
-                                </div>
-                                {{ Form::text('step4_5_2[]', null,
-                                    array(
-                                        'id' => 'h_step4_5_2_input',
-                                        'class' => 'form-control',
-                                        'placeholder' => 'Quem?',
-                                        'style' => 'display: none'
-                                    ))
-                                }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <br>
-
+            @include('dashboard.step4.partials.question_2', [
+                'title' => '5.2 Com base nos tipos de apoio mencionado acima (questões 1 a 5), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio?',
+                'number' => '5_2'
+            ])
             @include('dashboard.step4.partials.question', [
                 'title_1' => '6. Tem recebido apoio de alguém que o/a faz você sentir valorizado(a) como pessoa?',
                 'title_2' => '6.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?',
@@ -206,59 +88,59 @@
                 'title_2' => '11.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?',
                 'number' => '11'
             ])
+            @include('dashboard.step4.partials.question_2', [
+                'title' => '12. Com base nos tipos de apoio mencionado acima (questões 6 a 11), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio a você?',
+                'number' => '12'
+            ])
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>
+                                13. Tem recebido algum outro tipo de apoio?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{ Form::text('step4_13', null,
+                                    array(
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Quem?',
+                                    ))
+                                }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            {{-- 12 --}}
-            {{-- 13 --}}
-            {{-- 14 --}}
+            <br>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>
+                                14. Gostaria de fazer algum comentário sobre o apoio ou ajuda?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{ Form::text('step4_14', null,
+                                    array(
+                                        'class' => 'form-control',
+                                        'placeholder' => 'Qual?',
+                                    ))
+                                }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
-@push('js')
-    <script>
-        $(function () {
-
-            $('#b_step4_5_2').click(function () {
-                if ($(this).is(':checked')) {
-                    $('#b_step4_5_2_input')
-                        .removeAttr('disabled')
-                        .val('')
-                        .show();
-                } else {
-                    $('#b_step4_5_2_input')
-                        .hide()
-                        .attr('disabled', true)
-                        .val('');
-                }
-            });
-
-            $('#c_step4_5_2').click(function () {
-                if ($(this).is(':checked')) {
-                    $('#c_step4_5_2_input')
-                        .removeAttr('disabled')
-                        .val('')
-                        .show();
-                } else {
-                    $('#c_step4_5_2_input')
-                        .hide()
-                        .attr('disabled', true)
-                        .val('');
-                }
-            });
-
-            $('#h_step4_5_2').click(function () {
-                if ($(this).is(':checked')) {
-                    $('#h_step4_5_2_input')
-                        .removeAttr('disabled')
-                        .val('')
-                        .show();
-                } else {
-                    $('#h_step4_5_2_input')
-                        .hide()
-                        .attr('disabled', true)
-                        .val('');
-                }
-            });
-
-        });
-    </script>
-@endpush
