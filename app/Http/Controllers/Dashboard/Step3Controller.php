@@ -59,19 +59,19 @@ class Step3Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show(Survey $survey, Step3 $step3)
-    // {
-    //     if (
-    //         Auth::id() != $survey->professional_id ||
-    //         Auth::id() != $step3->survey->professional_id
-    //     ) {
-    //         return redirect()->route('patients.index')
-    //             ->with([
-    //                 'message' => 'Você tentou acessar uma área não permitida.',
-    //                 'code' => 'danger'
-    //             ]);
-    //     }
+    public function show(Survey $survey, Step3 $step3)
+    {
+        if (
+            Auth::id() != $survey->professional_id ||
+            Auth::id() != $step3->survey->professional_id
+        ) {
+            return redirect()->route('patients.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
 
-    //     return view('dashboard.step3.show', ['survey' => $survey, 'step3' => $step3]);
-    // }
+        return view('dashboard.step3.show', ['survey' => $survey, 'step3' => $step3]);
+    }
 }

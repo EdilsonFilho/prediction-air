@@ -19,4 +19,9 @@ class Step3 extends Model
     {
         return $this->belongsTo(Survey::class);
     }
+
+    public function getTotal()
+    {
+        return $this->step3_1 + $this->step3_2 + $this->step3_3 + $this->step3_4;
+    }
 }

@@ -32,8 +32,8 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#step2">
-                                        ADESÃO À MEDICAÇÃO
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#step3">
+                                        ESCALA DE DEMÊNCIA
                                     </a>
                                 </h4>
                             </div>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="step2" class="panel-collapse collapse in">
+                    <div id="step3" class="panel-collapse collapse in">
                         <div class="box-body no-padding">
                             <div class="box-body no-padding">
                                 <div class="table-responsive">
@@ -55,28 +55,28 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1. Alguma vez se esqueceu de tomar os seus medicamentos?</td>
-                                                <td>{{ $step2->step2_1 }}</td>
+                                                <td>1. ATENÇÃO</td>
+                                                <td>{{ $step3->step3_1 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>2. Por vezes descuida-se na toma dos seus medicamentos?</td>
-                                                <td>{{ $step2->step2_2 }}</td>
+                                                <td>2. VELOCIDADE PSICOMOTORA</td>
+                                                <td>{{ $step3->step3_2 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>3. Alguma vez interrompeu a toma dos medicamentos por se sentir mal?</td>
-                                                <td>{{ $step2->step2_3 }}</td>
+                                                <td>3. RECUPERAÇÃO DA MEMÓRIA</td>
+                                                <td>{{ $step3->step3_3 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>4. Pense na semana passada. Quantas vezes não tomou os medicamentos?</td>
-                                                <td>{{ $step2->step2_4 }}</td>
+                                                <td>4. CONSTRUÇÃO</td>
+                                                <td>{{ $step3->step3_4 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>5. Não tomou algum dos seus medicamentos durante o fim de semana passado?</td>
-                                                <td>{{ $step2->step2_5 }}</td>
+                                                <td style="background: #f6f9fc;"></td>
+                                                <td style="background: #f6f9fc;"></td>
                                             </tr>
                                             <tr>
-                                                <td>6. Nos últimos três meses, quantos dias deixou de tomar todos os medicamentos?</td>
-                                                <td>{{ $step2->step2_6 }}</td>
+                                                <td><strong>TOTAL</strong></td>
+                                                <td>{{ $step3->getTotal() }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
