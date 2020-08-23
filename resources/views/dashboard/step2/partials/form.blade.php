@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#step1">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#step2">
                         ADESÃO À MEDICAÇÃO
                     </a>
                 </h4>
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div id="step1" class="panel-collapse collapse in">
+    <div id="step2" class="panel-collapse collapse in">
         <div class="box-body">
             <div class="row">
                 <div class="col-md-3">

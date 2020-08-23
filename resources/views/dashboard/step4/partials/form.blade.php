@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-8">
                 <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#step3">
-                        ESCALA DE DEMÊNCIA
+                    <a data-toggle="collapse" data-parent="#accordion" href="#step4">
+                        ESCALA DE SUPORTE SOCIAL
                     </a>
                 </h4>
             </div>
@@ -13,8 +13,20 @@
             </div>
         </div>
     </div>
-    <div id="step3" class="panel-collapse collapse in">
+    <div id="step4" class="panel-collapse collapse in">
         <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning alert-dismissible">
+                        <h4>Informações</h4>
+                        <p>
+                            Esta escala é sobre o apoio ou ajuda que tem recebido de diferentes pessoas com quem se relaciona.
+                            Por favor, informe a frenquência dos diferentes tipos de apoio que tem recebido em relação à
+                            soropositividade e a satisfação quanto a cada um deles. Pedimos que não deixe nenhuma questão em branco.
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-warning alert-dismissible">

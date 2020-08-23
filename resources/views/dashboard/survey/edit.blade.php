@@ -76,5 +76,24 @@
                 @endisset
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
+            <div class="small-box bg-sagcic">
+                <div class="inner">
+                    <h3>Escala de Suporte Social</h3>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-copy"></i>
+                </div>
+                @isset($survey->step4)
+                    <a href="{{ route('step4s.show', ['survey' => $survey, 'step4' => $survey->step4]) }}" class="small-box-footer">
+                        Analisar respostas <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @else
+                    <a href="{{ route('step4s.create', ['survey' => $survey]) }}" class="small-box-footer">
+                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @endisset
+            </div>
+        </div>
     </div>
 @stop
