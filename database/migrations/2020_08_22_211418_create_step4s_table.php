@@ -40,7 +40,7 @@ class CreateStep4sTable extends Migration
             $table->text('step4_11');
             $table->text('step4_11_1');
             $table->text('step4_12');
-            $table->text('step4_13');
+            $table->text('step4_13')->nullable();
             $table->text('step4_14')->nullable();
             $table->timestamps();
 

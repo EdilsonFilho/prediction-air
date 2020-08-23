@@ -27,164 +27,127 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-warning alert-dismissible">
-                        <h4>Informações</h4>
-                        <p>
-                            Leia ao utente as seguintes palavras, demorando apenas um segundo para cada uma delas: <strong>cão,
-                            chapéu, verde e pêssego</strong>. Solicite ao utente que as reproduza.
-                            Repita as palavras se necessário. Informe o utente que deverá lembrar-se delas
-                            mais tarde.
-                        </p>
-                    </div>
-                </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th colspan="5">
+                                1. Tem recebido apoio de alguém em situação concreta, facilitando a realização do seu tratamento?
+                                (Ex: tomar conta dos filhos quando tem consulta, cuidar da casa nos dias de consulta ou qualquer outra situação)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nunca</td>
+                            <td>Raramente</td>
+                            <td>Às vezes</td>
+                            <td>Frequentemente</td>
+                            <td>Sempre</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1', 'Nunca', null, ['id' => 'Nunca_step4_1']) }}
+                                    <label for="Nunca_step4_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1', 'Raramente', null, ['id' => 'Raramente_step4_1']) }}
+                                    <label for="Raramente_step4_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1', 'Às vezes', null, ['id' => 'As_Vezes_step4_1']) }}
+                                    <label for="As_Vezes_step4_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1', 'Frequentemente', null, ['id' => 'Frequentemente_step4_1']) }}
+                                    <label for="Frequentemente_step4_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1', 'Sempre', null, ['id' => 'Sempre_step4_1']) }}
+                                    <label for="Sempre_step4_1"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <strong>1. ATENÇÃO</strong>
-                        <p>
-                            Movimentos oculares anti-sacádicos: 20 movimentos (estímulos)
-                            <br>
-                            Ocorrerem _____ erros em 20 tentativas
-                            <br>
-                            <strong>< 3 erros = 4; 4 erros = 3; 5 erros = 2; 6 erros = 1; > 6 erros = 0</strong>
-                        </p>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_1', '0', null, ['id' => '0_step3_1']) }}
-                            <label for="0_step3_1">0</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_1', '1', null, ['id' => '1_step3_1']) }}
-                            <label for="1_step3_1">1</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_1', '2', null, ['id' => '2_step3_1']) }}
-                            <label for="2_step3_1">2</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_1', '3', null, ['id' => '3_step3_1']) }}
-                            <label for="3_step3_1">3</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_1', '4', null, ['id' => '4_step3_1']) }}
-                            <label for="4_step3_1">4</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <strong>2. VELOCIDADE PSICOMOTORA</strong>
-                        <p>
-                            Peça ao utente para escrever o alfabeto em letras maiúsculas horizontalmente numa folha (uma linha).
-                            <br>
-                            Registe o tempo despendido em segundos.
-                            <br>
-                            <strong>
-                                < 21 seg = 6; 21,1 a 24 seg = 5; 24,1 a 27 seg = 4; 27,1 a 30 segundos = 3; 30,1 a 33 seg = 2; 33,1 a 36 seg = 1; > 36 seg = 0
-                            </strong>
-                        </p>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '0', null, ['id' => '0_step3_2']) }}
-                            <label for="0_step3_2">0</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '1', null, ['id' => '1_step3_2']) }}
-                            <label for="1_step3_2">1</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '2', null, ['id' => '2_step3_2']) }}
-                            <label for="2_step3_2">2</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '3', null, ['id' => '3_step3_2']) }}
-                            <label for="3_step3_2">3</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '4', null, ['id' => '4_step3_2']) }}
-                            <label for="4_step3_2">4</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '5', null, ['id' => '5_step3_2']) }}
-                            <label for="5_step3_2">5</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_2', '6', null, ['id' => '6_step3_2']) }}
-                            <label for="6_step3_2">6</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <strong>3. RECUPERAÇÃO DA MEMÓRIA</strong>
-                        <p>
-                            Solicite ao utente que repita as quatro palavras enunciadas inicialmente. Atribua um
-                            ponto por cada resposta correta. Utilize "pistas semânticas" sempre que o utente
-                            demonstre dificuldade em recordar as palavras: animal (cão), peça de roupa
-                            (chapéu), cor (verde), fruta (pêssego).
-                            <br>
-                            <strong>Atribua 1/2 ponto por cada resposta correta após a ajuda fornecida</strong>
-                        </p>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_3', '0', null, ['id' => '0_step3_3']) }}
-                            <label for="0_step3_3">0</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_3', '1', null, ['id' => '1_step3_3']) }}
-                            <label for="1_step3_3">1</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_3', '2', null, ['id' => '2_step3_3']) }}
-                            <label for="2_step3_3">2</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_3', '3', null, ['id' => '3_step3_3']) }}
-                            <label for="3_step3_3">3</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_3', '4', null, ['id' => '4_step3_3']) }}
-                            <label for="4_step3_3">4</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <strong>4. CONSTRUÇÃO</strong>
-                        <p>
-                            Solicite ao utente que copie o cubo abaixo. Registar o tempo despendido:
-                            _______segundos
-                            <br>
-                            <strong>< 25 seg = 2; 25 a 35 seg = 1; > 35 seg = 0</strong>
-                        </p>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_4', '0', null, ['id' => '0_step3_4']) }}
-                            <label for="0_step3_4">0</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_4', '1', null, ['id' => '1_step3_4']) }}
-                            <label for="1_step3_4">1</label>
-                        </div>
-                        <div class="icheck-material-green">
-                            {{ Form::radio('step3_4', '2', null, ['id' => '2_step3_4']) }}
-                            <label for="2_step3_4">2</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <img src="{{ asset('images/cubo.png') }}">
-                    </div>
-                </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th colspan="5">
+                                1.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Muito <br> insatisfeito</td>
+                            <td>Insatisfeito</td>
+                            <td>Nem satisfeito <br> nem insatisfeito</td>
+                            <td>Satisfeito</td>
+                            <td>Muito <br> Satisfeito</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1_1', 'Muito insatisfeito', null, ['id' => 'Muito_insatisfeito_step4_1_1']) }}
+                                    <label for="Muito_insatisfeito_step4_1_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1_1', 'Insatisfeito', null, ['id' => 'Insatisfeito_step4_1_1']) }}
+                                    <label for="Insatisfeito_step4_1_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1_1', 'Nem satisfeito nem insatisfeito', null, ['id' => 'Nem_satisfeito_nem_insatisfeito_step4_1_1']) }}
+                                    <label for="Nem_satisfeito_nem_insatisfeito_step4_1_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1_1', 'Satisfeito', null, ['id' => 'Satisfeito_step4_1_1']) }}
+                                    <label for="Satisfeito_step4_1_1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icheck-material-green">
+                                    {{ Form::radio('step4_1_1', 'Muito Satisfeito', null, ['id' => 'Muito_Satisfeito_step4_1_1']) }}
+                                    <label for="Muito_Satisfeito_step4_1_1"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+@push('css')
+    <style>
+        .table {
+            border: 1px solid #333;
+        }
+
+        .table>thead>tr>th {
+            color: #333;
+            border-color: #333;
+        }
+
+        .table>tbody>tr>td {
+            border-color: #333;
+        }
+    </style>
+@endpush
