@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table header-fixed">
+    <table class="table">
         <tbody>
             <tr>
                 <td width="2%">{{ $number }}</td>

@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#step4">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#step5">
                                         ESCALA DE SUPORTE SOCIAL
                                     </a>
                                 </h4>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="step4" class="panel-collapse collapse in">
+                    <div id="step5" class="panel-collapse collapse in">
                         <div class="box-body no-padding">
                             <div class="box-body no-padding">
                                 <div class="table-responsive">
@@ -56,159 +56,321 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    1. Tem recebido apoio de alguém em situação concreta, facilitando a realização do seu tratamento? (Ex: tomar conta dos filhos quando tem consulta, cuidar da casa nos dias de consulta ou qualquer outra situação)
+                                                    1. Nervosismo ou tensão interior
                                                 </td>
-                                                <td>{{ $step4->step4_1 }}</td>
+                                                <td>{{ $step5->step5_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    1.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    2. Desmaios ou tonturas
                                                 </td>
-                                                <td>{{ $step4->step4_1_1 }}</td>
+                                                <td>{{ $step5->step5_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    2. Tem recebido apoio de alguém em questões financeiras, como divisão das despesas da casa, dinheiro dado ou emprestado?
+                                                    3. Ter a impressão de que as outras pessoas controlam os seuspensamentos
                                                 </td>
-                                                <td>{{ $step4->step4_2 }}</td>
+                                                <td>{{ $step5->step5_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    2.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    4. Ter a ideia de que as outras pessoas são culpadas pela maior parte dos seus problemas
                                                 </td>
-                                                <td>{{ $step4->step4_2_1 }}</td>
+                                                <td>{{ $step5->step5_4 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    3. Tem recebido apoio de alguém em atividades práticas do seu dia-a-dia? (Ex: arrumação da casa, ajuda no cuidado dos filhos, preparação de refeições ou qualquer outra atividade quotidiana)
+                                                    5. Dificuldades em se lembrar de coisas passadas ou recentes
                                                 </td>
-                                                <td>{{ $step4->step4_3 }}</td>
+                                                <td>{{ $step5->step5_5 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    3.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    6. Aborrecer-se e irritar-se com facilidade
                                                 </td>
-                                                <td>{{ $step4->step4_3_1 }}</td>
+                                                <td>{{ $step5->step5_6 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    4. Tem recebido apoio de alguém em relação aos seus próprios cuidados de saúde? (Ex: lembrar a hora de tomar um medicamento ou o dia de fazer um exame, comprar um medicamento para si, acompanhalo numa consulta ou qualquer outra situação)
+                                                    7. Dores sobre o coração ou no peito
                                                 </td>
-                                                <td>{{ $step4->step4_4 }}</td>
+                                                <td>{{ $step5->step5_7 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    4.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    8. Sentir medo na rua ou nos espaços abertos
                                                 </td>
-                                                <td>{{ $step4->step4_4_1 }}</td>
+                                                <td>{{ $step5->step5_8 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    5. Tem recebido apoio de alguém com quem possa contar em caso de necessidade?
+                                                    9. Pensamentos de acabar com a vida
                                                 </td>
-                                                <td>{{ $step4->step4_5 }}</td>
+                                                <td>{{ $step5->step5_9 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    5.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    10. Vê a sua saúde ser afetada por ter de cuidar do seu familiar?
                                                 </td>
-                                                <td>{{ $step4->step4_5_1 }}</td>
+                                                <td>{{ $step5->step5_10 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    5.2 Com base nos tipos de apoio mencionado acima (questões 1 a 5), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio?
+                                                    11. Perder o apetite
                                                 </td>
-                                                <td>{{ $step4->step4_5_2 }}</td>
+                                                <td>{{ $step5->step5_11 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    6. Tem recebido apoio de alguém que o/a faz você sentir valorizado(a) como pessoa?
+                                                    12. Ter medo subitamente sem ter motivo para isso
                                                 </td>
-                                                <td>{{ $step4->step4_6 }}</td>
+                                                <td>{{ $step5->step5_12 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    6.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    13. Ter impulsos que não consegue controlar
                                                 </td>
-                                                <td>{{ $step4->step4_6_1 }}</td>
+                                                <td>{{ $step5->step5_13 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7. Tem recebido apoio de alguém com quem possa desabafar ou conversar sobre assuntos relacionados com a sua doença?
+                                                    14. Sentir-se sozinho mesmo quando está com mais pessoas
                                                 </td>
-                                                <td>{{ $step4->step4_7 }}</td>
+                                                <td>{{ $step5->step5_14 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    7.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    15. Dificuldade em fazer qualquer trabalho
                                                 </td>
-                                                <td>{{ $step4->step4_7_1 }}</td>
+                                                <td>{{ $step5->step5_15 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    8. Tem recebido apoio de alguém que lhe oferece informações, melhorando o seu nível de conhecimento sobre o seu problema de saúde?
+                                                    16. Sentir-se sozinho
                                                 </td>
-                                                <td>{{ $step4->step4_8 }}</td>
+                                                <td>{{ $step5->step5_16 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    8.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    17. Sentir-se triste
                                                 </td>
-                                                <td>{{ $step4->step4_8_1 }}</td>
+                                                <td>{{ $step5->step5_17 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    9. Tem recebido apoio de alguém que faz senti-lo/a integrado socialmente?
+                                                    18. Não ter interesse por nada
                                                 </td>
-                                                <td>{{ $step4->step4_9 }}</td>
+                                                <td>{{ $step5->step5_18 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    9.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    19. Sentir-se atemorizado
                                                 </td>
-                                                <td>{{ $step4->step4_9_1 }}</td>
+                                                <td>{{ $step5->step5_19 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    10. Tem recebido apoio de alguém que o/a ajuda a melhorar o seu humor e disposição?
+                                                    20. Sentir-se facilmente ofendido nos seus sentimentos
                                                 </td>
-                                                <td>{{ $step4->step4_10 }}</td>
+                                                <td>{{ $step5->step5_20 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    10.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    21. Sentir que as pessoas não são amigas ou não gostam de si
                                                 </td>
-                                                <td>{{ $step4->step4_10_1 }}</td>
+                                                <td>{{ $step5->step5_21 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    11. Tem recebido apoio de alguém quando precisa de companhia para se divertir ou fazer atividades de lazer?
+                                                    22. Sentir-se inferior aos outros
                                                 </td>
-                                                <td>{{ $step4->step4_11 }}</td>
+                                                <td>{{ $step5->step5_22 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    11.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?
+                                                    23. Vontade de vomitar ou mal estar
                                                 </td>
-                                                <td>{{ $step4->step4_11_1 }}</td>
+                                                <td>{{ $step5->step5_23 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    12. Com base nos tipos de apoio mencionado acima (questões 6 a 11), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio a você?
+                                                    24. Ter a impressão de que os outros o costumam observar e falar de si
                                                 </td>
-                                                <td>{{ $step4->step4_12 }}</td>
+                                                <td>{{ $step5->step5_24 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    13. Tem recebido algum outro tipo de apoio?
+                                                    25. Ter dificuldade em adormecer
                                                 </td>
-                                                <td>{{ $step4->step4_13 }}</td>
+                                                <td>{{ $step5->step5_25 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    14. Gostaria de fazer algum comentário sobre o apoio ou ajuda?
+                                                    26. Sentir necessidade de verificar várias vezes o que faz
                                                 </td>
-                                                <td>{{ $step4->step4_14 }}</td>
+                                                <td>{{ $step5->step5_26 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    27. Dificuldade em tomar decisões
+                                                </td>
+                                                <td>{{ $step5->step5_27 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    28. Medo de viajar de comboio, eléctrico ou autocarro
+                                                </td>
+                                                <td>{{ $step5->step5_28 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    29. Sensação de que lhe falta o ar
+                                                </td>
+                                                <td>{{ $step5->step5_29 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    30. Calafrios ou afrontamentos
+                                                </td>
+                                                <td>{{ $step5->step5_30 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    31. Ter que evitar certas coisas, lugares ou actividades por lhe causar medo
+                                                </td>
+                                                <td>{{ $step5->step5_31 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    32. Sensação de vazio na cabeça
+                                                </td>
+                                                <td>{{ $step5->step5_32 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    33. Sensação de anestesia ou de formigueiro no corpo
+                                                </td>
+                                                <td>{{ $step5->step5_33 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    34. Ter a ideia de que deveria ser castigado
+                                                </td>
+                                                <td>{{ $step5->step5_34 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    35. Sentir-se sem esperança em relação ao futuro
+                                                </td>
+                                                <td>{{ $step5->step5_35 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    36. Ter dificuldade em se concentrar
+                                                </td>
+                                                <td>{{ $step5->step5_36 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    37. Sentir falta de forças em partes do corpo
+                                                </td>
+                                                <td>{{ $step5->step5_37 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    38. Sentir em estado de tensão ou aflição
+                                                </td>
+                                                <td>{{ $step5->step5_38 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    39. Ter pensamentos sobre a morte ou que vai morrer
+                                                </td>
+                                                <td>{{ $step5->step5_39 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    40. Ter impulsos de bater, ofender ou fazer mal a alguém
+                                                </td>
+                                                <td>{{ $step5->step5_40 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    41. Ter vontade de destruir ou partir coisas
+                                                </td>
+                                                <td>{{ $step5->step5_41 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    42. Sentir-se embaraçado junto de outras pessoas
+                                                </td>
+                                                <td>{{ $step5->step5_42 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    43. Não se sentir à vontade nas multidões, por exemplo, nas lojas, cinemas, mercados, etc.
+                                                </td>
+                                                <td>{{ $step5->step5_43 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    44. Grande dificuldade em sentir-se próximo de outra pessoa
+                                                </td>
+                                                <td>{{ $step5->step5_44 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    45. Ter ataques de terror ou pânico
+                                                </td>
+                                                <td>{{ $step5->step5_45 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    46. Envolver-se facilmente em discussões
+                                                </td>
+                                                <td>{{ $step5->step5_46 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    47. Sentir-se nervoso quando tem de ficar sozinho
+                                                </td>
+                                                <td>{{ $step5->step5_47 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    48. Sentir que as outras pessoas não dão o devido valor ao seu trabalho ou às suas capacidades
+                                                </td>
+                                                <td>{{ $step5->step5_48 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    49. Sentir-se tão inquieto que não se pode sentar ou estar parado
+                                                </td>
+                                                <td>{{ $step5->step5_49 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    50. Sentir que não tem valor
+                                                </td>
+                                                <td>{{ $step5->step5_50 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    51. Ter a impressão de que, se deixasse, as outras pessoas se aproveitariam de si
+                                                </td>
+                                                <td>{{ $step5->step5_51 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    52. Ter sentimentos de culpa
+                                                </td>
+                                                <td>{{ $step5->step5_52 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    53. Ter a impressão de que alguma coisa está mal na sua cabeça ou no seu espírito
+                                                </td>
+                                                <td>{{ $step5->step5_53 }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
