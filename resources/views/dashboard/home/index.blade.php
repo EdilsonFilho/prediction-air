@@ -3,7 +3,11 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>
+        Seja bem-vindo(a) {{ \Auth::user()->name }}
+        <br>
+        <small>Esse é o seu resumo global</small>
+    </h1>
 @stop
 
 @section('content')
@@ -14,4 +18,28 @@
             {{ session('message') }}
         </div>
     @endif
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
+            <div class="small-box bg-sagcic">
+                <div class="inner">
+                    <h3>{{ $amountPatients }}</h3>
+                    <p>Qtd. de Pacientes</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
+            <div class="small-box bg-sagcic">
+                <div class="inner">
+                    <h3>{{ $amountSurveys }}</h3>
+                    <p>Qtd. de Questionários Criados</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-copy"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop

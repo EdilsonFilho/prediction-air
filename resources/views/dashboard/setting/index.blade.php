@@ -21,6 +21,9 @@
                             <b>Telefone</b> <a class="pull-right">{{ Auth::user()->phone }}</a>
                         </li>
                         <li class="list-group-item">
+                            <b>Último acesso</b> <a class="pull-right">{{ Auth::user()->last_login_at }}</a>
+                        </li>
+                        <li class="list-group-item">
                             <b>Endereço</b> <a class="pull-right">{{ Auth::user()->address }}</a>
                         </li>
                     </ul>

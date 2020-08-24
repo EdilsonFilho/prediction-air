@@ -151,6 +151,13 @@
         @hasSection('footer')
         <footer class="main-footer">
             @yield('footer')
+            {{-- <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>
+                Copyright &copy; 2020-{{ date('Y') }} <a href="#">AdminLTE</a>.
+            </strong>
+            Developed by <a href="mailto:f.ronaldaraujo@gmail.com">Ronald Araújo</a>. All rights reserved. --}}
         </footer>
         @endif
 
