@@ -50,4 +50,34 @@ class Survey extends Model
     {
         return $this->hasOne(Step5::class);
     }
+
+    public function getStatuStep1()
+    {
+        return isset($this->step1) ? '<span class="label label-success">Completo</span>'
+            : '<span class="label label-warning">Pendente</span>';
+    }
+
+    public function getStatuStep2()
+    {
+        return isset($this->step2) ? '<span class="label label-success">Completo</span>'
+            : '<span class="label label-warning">Pendente</span>';
+    }
+
+    public function getStatuStep3()
+    {
+        return isset($this->step3) ? '<span class="label label-success">Completo</span>'
+            : '<span class="label label-warning">Pendente</span>';
+    }
+
+    public function getStatuStep4()
+    {
+        return isset($this->step4) ? '<span class="label label-success">Completo</span>'
+            : '<span class="label label-warning">Pendente</span>';
+    }
+
+    public function getStatuStep5()
+    {
+        return isset($this->step5) ? '<span class="label label-success">Completo</span>'
+            : '<span class="label label-warning">Pendente</span>';
+    }
 }

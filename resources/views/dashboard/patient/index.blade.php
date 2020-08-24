@@ -42,8 +42,8 @@
                                 <td>{{ $patient->created }}</td>
                                 <td>{{ $patient->last_login_at }}</td>
                                 <td>
-                                    <a href="{{ route('patients.edit', $patient->id) }}" alt="Editar" title="Editar" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i></a>
                                     <a href="{{ route('surveys.index', $patient->id) }}" alt="Analisar questionários" title="Analisar questionários" class="btn btn-custom btn-sm"><i class="fa fa-poll-h"></i></a>
+                                    <a href="{{ route('patients.edit', $patient->id) }}" alt="Editar" title="Editar" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i></a>
                                     <button alt="Excluir" title="Excluir" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $patient->id }})"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>

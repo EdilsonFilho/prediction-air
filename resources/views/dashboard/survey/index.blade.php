@@ -12,23 +12,31 @@
     {{ Form::close() }}
     <div class="box">
         <div class="box-header with-border">
-            <h4 class="box-title">Lista de questionários p/ o paciente {{ $user->name }}</h4>
+            <h4 class="box-title">Lista de questionários do(a) paciente {{ $user->name }}</h4>
         </div>
         <div class="box-body no-padding">
             <div class="table-responsive">
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th>Número</th>
                             <th>Data de criação</th>
+                            <th>Dados Sociodemográficos</th>
+                            <th>Adesão à Medicação</th>
+                            <th>Escala de Demência</th>
+                            <th>Escala de Suporte Social</th>
+                            <th>Inventário Breve de Sintomas (BSI)</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($surveys as $survey)
                             <tr>
-                                <td>{{ $survey->id }}</td>
                                 <td>{{ $survey->created }}</td>
+                                <td>{!! $survey->getStatuStep1() !!}</td>
+                                <td>{!! $survey->getStatuStep2() !!}</td>
+                                <td>{!! $survey->getStatuStep3() !!}</td>
+                                <td>{!! $survey->getStatuStep4() !!}</td>
+                                <td>{!! $survey->getStatuStep5() !!}</td>
                                 <td>
                                     <a href="{{ route('surveys.edit', $survey->id) }}" alt="Acessar questionário" title="Acessar questionário" class="btn btn-default btn-sm"><i class="fa fa-copy"></i></a>
                                     <button alt="Excluir questionário" title="Excluir questionário" class="btn btn-danger btn-sm"   onclick="confirmDelete({{ $survey->id }}, '{{ route('surveys.destroy', ['survey' => $survey]) }}')"><i class="fa fa-trash"></i></button>

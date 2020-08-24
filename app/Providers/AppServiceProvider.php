@@ -31,7 +31,15 @@ class AppServiceProvider extends ServiceProvider
                 'text' => 'Pacientes',
                 'url'  => 'dashboard/patients',
                 'icon' => 'fas fa-fw fa-users',
-                'active' => ['dashboard/patients*']
+                'active' => [
+                    'dashboard/patients*',
+                    'dashboard/surveys*',
+                    'dashboard/step1s*',
+                    'dashboard/step2s*',
+                    'dashboard/step3s*',
+                    'dashboard/step4s*',
+                    'dashboard/step5s*',
+                ]
             ]);
 
             if (Auth::user()->profile == 1) {
