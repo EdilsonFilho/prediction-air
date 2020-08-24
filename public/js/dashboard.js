@@ -147,7 +147,7 @@ function getParamsFromUrl() {
 function changeMenu() {
   $.ajax({
     method: "post",
-    url: $("body").data("base-url") + "/dashboard/settings/change-menu",
+    url: $("body").data("base-url") + "/settings/change-menu",
     data: {
       _token: $('input[name="_token"]').val(),
     },
