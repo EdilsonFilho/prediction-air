@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::post('step5s/{survey}', 'Step5Controller@store')->name('step5s.store');
     Route::get('step5s/{survey}/{step5}', 'Step5Controller@show')->name('step5s.show');
 
-    Route::get('navigations/to/{user}', 'NavigationToController@to')->name('navigations.to');
+    Route::get('navigations/to/{survey}', 'NavigationToController@to')->name('navigations.to');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::resource('users', 'UserController');

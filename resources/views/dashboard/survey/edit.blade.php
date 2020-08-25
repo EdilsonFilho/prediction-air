@@ -24,7 +24,7 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>Dados Sociodemográficos</h3>
                 </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>Adesão à Medicação</h3>
                 </div>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>Escala de Demência</h3>
                 </div>
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>Escala de Suporte Social</h3>
                 </div>
@@ -100,7 +100,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>Inventário Breve de Sintomas (BSI)</h3>
                 </div>

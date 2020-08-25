@@ -9,7 +9,7 @@
                 </h4>
             </div>
             <div class="col-md-4 text-right">
-                @include('dashboard.survey.partials.navigation', ['patient' => $survey->patient])
+                @include('dashboard.survey.partials.navigation', ['survey' => $survey])
             </div>
         </div>
     </div>

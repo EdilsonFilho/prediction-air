@@ -315,7 +315,12 @@ label {
     background-color: #468208;
 }
 
-.bg-sagcic {
+.bg-dark {
+    background-color: #39630d !important;
+    color: white !important;
+}
+
+.bg-custom {
     background-color: #39630d !important;
     color: white !important;
 }

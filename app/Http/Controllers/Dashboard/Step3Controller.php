@@ -22,11 +22,7 @@ class Step3Controller extends Controller
         }
 
         if ($survey->step3) {
-            return redirect()->route('surveys.edit', ['id' => $survey->id])
-                ->with([
-                    'message' => 'Não é possível criar mais de um Questionário para o mesmo processo de pesquisa.',
-                    'code' => 'danger'
-                ]);
+            return redirect()->route('step3s.show', ['survey' => $survey, 'step3' => $survey->step3]);
         }
 
         return view('dashboard.step3.create', ['survey' => $survey]);

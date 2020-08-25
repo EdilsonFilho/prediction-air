@@ -22,11 +22,7 @@ class Step5Controller extends Controller
         }
 
         if ($survey->step5) {
-            return redirect()->route('surveys.edit', ['id' => $survey->id])
-                ->with([
-                    'message' => 'Não é possível criar mais de um Questionário para o mesmo processo de pesquisa.',
-                    'code' => 'danger'
-                ]);
+            return redirect()->route('step5s.show', ['survey' => $survey, 'step5' => $survey->step5]);
         }
 
         return view('dashboard.step5.create', ['survey' => $survey]);

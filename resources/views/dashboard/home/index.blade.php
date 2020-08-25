@@ -20,7 +20,7 @@
     @endif
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>{{ $amountPatients }}</h3>
                     <p>Qtd. de Pacientes</p>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
-            <div class="small-box bg-sagcic">
+            <div class="small-box bg-custom">
                 <div class="inner">
                     <h3>{{ $amountSurveys }}</h3>
                     <p>Qtd. de Questionários Criados</p>
