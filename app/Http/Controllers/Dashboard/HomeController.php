@@ -27,7 +27,7 @@ class HomeController extends Controller
             $amountSurveys = Auth::user()->getAmountSurveys();
 
             return view(
-                'dashboard.home.admin',
+                'dashboard.home.administrator',
                 compact(
                     'totalUsers',
                     'totalProfessionals',
@@ -39,6 +39,30 @@ class HomeController extends Controller
                 )
             );
         }
+
+        if (Auth::user()->profile == config('profile.professional')) {
+
+            $amountPatients = Auth::user()->getAmountPatients();
+
+            $amountSurveys = Auth::user()->getAmountSurveys();
+
+            return view(
+                'dashboard.home.professional',
+                compact(
+                    'amountPatients',
+                    'amountSurveys'
+                )
+            );
+        }
+
+        $amountSurveys = Survey::where('patient_id', '=', Auth::id())->count();
+
+        return view(
+            'dashboard.home.patient',
+            compact(
+                'amountSurveys'
+            )
+        );
 
 
         // $amountPatients = 0;

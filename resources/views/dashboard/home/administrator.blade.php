@@ -6,7 +6,7 @@
     <h1>
         Seja bem-vindo(a) {{ \Auth::user()->name }}
         <br>
-        <small>Os cards em verde é o seu resumo pessoal. Os cards em preto é o seu resumo global.</small>
+        <small>Os cards em verde são o seu resumo pessoal. Os cards em preto são o seu resumo global.</small>
     </h1>
 @stop
 
