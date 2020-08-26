@@ -316,8 +316,12 @@ label {
 }
 
 .bg-dark {
-    background-color: #39630d !important;
+    background-color: #222d32 !important;
     color: white !important;
+}
+
+.bg-dark .fa:before {
+    color: #444444;
 }
 
 .bg-custom {
@@ -430,6 +434,10 @@ label {
 .content-header>h1>small {
     display: block;
     margin-top: 10px;
+}
+
+.users-list>li img {
+    max-width: 69%;
 }
 
 @-moz-keyframes fadeOut {

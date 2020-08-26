@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
@@ -107,21 +108,31 @@ class User extends Authenticatable
 
     public function getAmountSurveys()
     {
-        return $this->surveys->count();
+        return $this->surveys->where('professional_id', '=', Auth::id())->count();
     }
 
     public function getAmountPatients()
     {
-        return $this->patients->count();
+        return $this->patients->where('professional_id', '=', Auth::id())->count();
     }
 
-    public function getAmountUsers()
+    public function getTotalUsers()
     {
-        return $this->count();
+        return $this->where('profile', '!=', config('profile.administrator'))->count();
     }
 
-    public function getAmountProfessionals()
+    public function getTotalProfessionals()
     {
         return $this->where('profile', '=', config('profile.professional'))->count();
+    }
+
+    public function getTotalPatients()
+    {
+        return $this->where('profile', '=', config('profile.patient'))->count();
+    }
+
+    public function getLastUsers($number = 8)
+    {
+        return $this->where('profile', '!=', config('profile.administrator'))->limit($number)->get();
     }
 }
