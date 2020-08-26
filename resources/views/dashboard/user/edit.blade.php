@@ -36,14 +36,21 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <h6 class="heading-small text-muted mb-4">Informações de acesso ao sistema</h6>
+                        <h6 class="heading-small text-muted mb-4">
+                            Atenção!
+                            <br>
+                            <br>
+                            Você está na página de edição do usuário. Somente os campos Telefone e Nome são obrigatórios.
+                        </h6>
                         @if (!isset($isPatientRecord))
                             <div class="form-group">
                                 {{ Form::label('', 'Perfil de acesso: ') }}
                                 <strong>{{ Auth::user()->getDescriptionProfile() }}</strong>
                             </div>
                         @endif
-                        @include('dashboard.user.partials.form')
+                        @include('dashboard.user.partials.form', [
+                            'showPasswordTip' => true
+                        ])
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

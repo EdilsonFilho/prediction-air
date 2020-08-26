@@ -26,12 +26,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::put('image/{id}/upload', 'ImageController@upload')->name('image.upload');
     Route::delete('image/destroy/{file}', 'ImageController@destroy')->name('image.destroy');
 
-    Route::post('patients', 'PatientController@store')->name('patients.store');
-    Route::get('patients', 'PatientController@index')->name('patients.index');
-    Route::get('patients/create', 'PatientController@create')->name('patients.create');
-    Route::delete('patients/{user}', 'PatientController@destroy')->name('patients.destroy');
-    Route::put('patients/{user}', 'PatientController@update')->name('patients.update');
-    Route::get('patients/{user}/edit', 'PatientController@edit')->name('patients.edit');
+    Route::get('my-surveys', 'MySurveyController@index')->name('my_surveys.index');
 
     Route::get('surveys/{user}', 'SurveyController@index')->name('surveys.index');
     Route::post('surveys/{user}', 'SurveyController@store')->name('surveys.store');
@@ -59,6 +54,15 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 
     Route::get('step5s/{survey}/{step5}', 'Step5Controller@show')->name('step5s.show');
 
     Route::get('navigations/to/{survey}', 'NavigationToController@to')->name('navigations.to');
+
+    Route::group(['middleware' => ['only.admin.professional']], function () {
+        Route::post('patients', 'PatientController@store')->name('patients.store');
+        Route::get('patients', 'PatientController@index')->name('patients.index');
+        Route::get('patients/create', 'PatientController@create')->name('patients.create');
+        Route::delete('patients/{user}', 'PatientController@destroy')->name('patients.destroy');
+        Route::put('patients/{user}', 'PatientController@update')->name('patients.update');
+        Route::get('patients/{user}/edit', 'PatientController@edit')->name('patients.edit');
+    });
 
     Route::group(['middleware' => ['admin']], function () {
         Route::resource('users', 'UserController');

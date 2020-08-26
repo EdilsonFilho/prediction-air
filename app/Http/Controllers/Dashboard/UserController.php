@@ -20,10 +20,10 @@ class UserController extends Controller
 
         if ($s) {
             $users = User::where('name', 'LIKE', '%' . $s . '%')
-                ->orderBy('name')
+                ->orderBy('profile')
                 ->paginate(config('pagination.default'));
         } else {
-            $users = User::orderBy('name', 'asc')->paginate(config('pagination.default'));
+            $users = User::orderBy('profile')->paginate(config('pagination.default'));
         }
 
         return view('dashboard.user.index', compact('users', 's'));

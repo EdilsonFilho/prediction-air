@@ -13,7 +13,7 @@ class SurveyController extends Controller
     public function index(User $user)
     {
         if (Auth::id() != $user->professional_id) {
-            return redirect()->route('patients.index')
+            return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
                     'code' => 'danger'
@@ -21,6 +21,7 @@ class SurveyController extends Controller
         }
 
         $surveys = Survey::where('professional_id', '=', Auth::id())
+            ->where('patient_id', '=', $user->id)
             ->paginate(config('pagination.default'));
 
         return view('dashboard.survey.index', ['user' => $user, 'surveys' => $surveys]);
@@ -34,6 +35,14 @@ class SurveyController extends Controller
      */
     public function store(User $user)
     {
+        if (!$this->canAccess($user)) {
+            return redirect()->route('home.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
         $survey = Survey::create([
             'professional_id' => Auth::id(),
             'patient_id' => $user->id
@@ -64,8 +73,8 @@ class SurveyController extends Controller
     {
         $user = User::find($survey->patient_id);
 
-        if (Auth::id() != $user->professional_id) {
-            return redirect()->route('patients.index')
+        if (!$this->canAccess($user)) {
+            return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
                     'code' => 'danger'
@@ -83,6 +92,16 @@ class SurveyController extends Controller
      */
     public function destroy(Survey $survey)
     {
+        $user = User::find($survey->patient_id);
+
+        if (!$this->canAccess($user)) {
+            return redirect()->route('home.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
         $survey->delete();
 
         if ($survey) {
@@ -92,5 +111,18 @@ class SurveyController extends Controller
             return redirect()->back()
                 ->with(['message' => 'Erro ao excluir. Tente novamente!', 'code' => 'danger']);
         }
+    }
+
+    protected function canAccess(User $user)
+    {
+        if (Auth::user()->profile != config('profile.patient') && Auth::id() != $user->professional_id) {
+            return false;
+        }
+
+        if (Auth::user()->profile == config('profile.patient') && Auth::id() != $user->id) {
+            return false;
+        }
+
+        return true;
     }
 }

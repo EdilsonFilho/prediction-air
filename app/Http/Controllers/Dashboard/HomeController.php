@@ -9,9 +9,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $amountPatients = Auth::user()->getAmountPatients();
+        $amountPatients = 0;
+        $amountSurveys = 0;
 
-        $amountSurveys = Auth::user()->getAmountSurveys();
+        if (Auth::user()->profile != config('profile.patient')) {
+            $amountPatients = Auth::user()->getAmountPatients();
+            $amountSurveys = Auth::user()->getAmountSurveys();
+        }
 
         return view('dashboard.home.index', [
             'amountPatients' => $amountPatients,

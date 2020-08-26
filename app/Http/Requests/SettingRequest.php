@@ -27,7 +27,7 @@ class SettingRequest extends FormRequest
         return [
             'name' => 'required|max:191',
             'date_birth' => 'nullable|date_format:d/m/Y',
-            'email' => 'email',
+            'email' => 'email|nullable',
             'phone' => 'required|max:191|unique:users,phone,' . Auth::user()->id,
             'password' => 'confirmed|nullable|min:6',
             'password_confirmation' => 'nullable|min:6|same:password',

@@ -36,7 +36,12 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <h6 class="heading-small text-muted mb-4">Informações de acesso ao sistema</h6>
+                        <h6 class="heading-small text-muted mb-4">
+                            Atenção!
+                            <br>
+                            <br>
+                            Os campos Telefone, Senha, Confirmação de senha e Nome são campos obrigatórios.
+                        </h6>
                         @include('dashboard.user.partials.form')
                     </div>
                     <!-- /.box-body -->

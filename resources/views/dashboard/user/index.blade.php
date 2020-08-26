@@ -27,10 +27,9 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
+                            <th>Perfil de acesso</th>
                             <th>Nome</th>
                             <th>Telefone</th>
-                            <th>E-mail</th>
-                            <th>Perfil de acesso</th>
                             <th>Data de cadastro</th>
                             <th>Último acesso</th>
                             <th>Ações</th>
@@ -39,10 +38,9 @@
                     <tbody>
                         @forelse($users as $user)
                             <tr>
+                                <td>{{ $user->getDescriptionProfile() }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->phone }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->getDescriptionProfile() }}</td>
                                 <td>{{ $user->created }}</td>
                                 <td>{{ $user->last_login_at }}</td>
                                 <td>

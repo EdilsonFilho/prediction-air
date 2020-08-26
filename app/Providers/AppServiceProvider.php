@@ -27,22 +27,33 @@ class AppServiceProvider extends ServiceProvider
                 'active' => ['dashboard/home*']
             ]);
 
-            $event->menu->add([
-                'text' => 'Pacientes',
-                'url'  => 'dashboard/patients',
-                'icon' => 'fas fa-fw fa-users',
-                'active' => [
-                    'dashboard/patients*',
-                    'dashboard/surveys*',
-                    'dashboard/step1s*',
-                    'dashboard/step2s*',
-                    'dashboard/step3s*',
-                    'dashboard/step4s*',
-                    'dashboard/step5s*',
-                ]
-            ]);
+            if (Auth::user()->profile == config('profile.patient')) {
+                $event->menu->add([
+                    'text' => 'Minhas pesquisas',
+                    'url' => 'dashboard/my-surveys',
+                    'icon' => 'fas fa-fw fa-copy',
+                    'active' => ['dashboard/my-surveys*'],
+                ]);
+            }
 
-            if (Auth::user()->profile == 1) {
+            if (Auth::user()->profile != config('profile.patient')) {
+                $event->menu->add([
+                    'text' => 'Pacientes',
+                    'url'  => 'dashboard/patients',
+                    'icon' => 'fas fa-fw fa-users',
+                    'active' => [
+                        'dashboard/patients*',
+                        'dashboard/surveys*',
+                        'dashboard/step1s*',
+                        'dashboard/step2s*',
+                        'dashboard/step3s*',
+                        'dashboard/step4s*',
+                        'dashboard/step5s*',
+                    ]
+                ]);
+            }
+
+            if (Auth::user()->profile == config('profile.administrator')) {
 
                 $event->menu->add('ADMINISTRAÇÃO');
 
