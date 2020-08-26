@@ -13,8 +13,16 @@ class Step3Controller extends Controller
 {
     public function create(Survey $survey)
     {
-        if (Auth::id() != $survey->professional_id) {
-            return redirect()->route('patients.index')
+        if (Auth::user()->profile == config('profile.patient')) {
+            return redirect()->route('home.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
+        if (!canAccessStep($survey)) {
+            return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
                     'code' => 'danger'
@@ -30,6 +38,14 @@ class Step3Controller extends Controller
 
     public function store(Survey $survey, Step3Request $request)
     {
+        if (!canAccessStep($survey)) {
+            return redirect()->route('home.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
         $request['survey_id'] = $survey->id;
 
         $step = Step3::create($request->all());
@@ -57,11 +73,8 @@ class Step3Controller extends Controller
      */
     public function show(Survey $survey, Step3 $step3)
     {
-        if (
-            Auth::id() != $survey->professional_id ||
-            Auth::id() != $step3->survey->professional_id
-        ) {
-            return redirect()->route('patients.index')
+        if (!canAccessStep($survey)) {
+            return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
                     'code' => 'danger'

@@ -19,7 +19,36 @@
         </div>
     @endif
     <div class="row">
-        @if (\Auth::user()->profile != config('profile.patient'))
+
+        @if (\Auth::user()->profile == config('profile.administrator'))
+            <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
+                <div class="small-box bg-custom">
+                    <div class="inner">
+                        <h3>{{ $amountUsers }}</h3>
+                        <p>Qtd. de Usuários</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
+                <div class="small-box bg-custom">
+                    <div class="inner">
+                        <h3>{{ $amountProfessionals }}</h3>
+                        <p>Qtd. de Profissionais</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if (
+            \Auth::user()->profile == config('profile.administrator') ||
+            \Auth::user()->profile == config('profile.professional')
+        )
             <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
                 <div class="small-box bg-custom">
                     <div class="inner">

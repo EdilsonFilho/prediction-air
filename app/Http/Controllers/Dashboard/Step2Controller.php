@@ -13,8 +13,8 @@ class Step2Controller extends Controller
 {
     public function create(Survey $survey)
     {
-        if (Auth::id() != $survey->professional_id) {
-            return redirect()->route('patients.index')
+        if (!canAccessStep($survey)) {
+            return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
                     'code' => 'danger'
@@ -30,6 +30,14 @@ class Step2Controller extends Controller
 
     public function store(Survey $survey, Step2Request $request)
     {
+        if (!canAccessStep($survey)) {
+            return redirect()->route('home.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
         $request['survey_id'] = $survey->id;
 
         $step = Step2::create($request->all());
@@ -57,11 +65,8 @@ class Step2Controller extends Controller
      */
     public function show(Survey $survey, Step2 $step2)
     {
-        if (
-            Auth::id() != $survey->professional_id ||
-            Auth::id() != $step2->survey->professional_id
-        ) {
-            return redirect()->route('patients.index')
+        if (!canAccessStep($survey)) {
+            return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
                     'code' => 'danger'

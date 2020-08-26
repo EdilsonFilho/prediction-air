@@ -22,7 +22,9 @@
                             <th>Data de criação</th>
                             <th>Dados Sociodemográficos</th>
                             <th>Adesão à Medicação</th>
-                            <th>Escala de Demência</th>
+                            @if (\Auth::user()->profile != config('profile.patient'))
+                                <th>Escala de Demência</th>
+                            @endif
                             <th>Escala de Suporte Social</th>
                             <th>Inventário Breve de Sintomas (BSI)</th>
                             <th>Ações</th>
@@ -34,7 +36,9 @@
                                 <td>{{ $survey->created }}</td>
                                 <td>{!! $survey->getStatuStep1() !!}</td>
                                 <td>{!! $survey->getStatuStep2() !!}</td>
-                                <td>{!! $survey->getStatuStep3() !!}</td>
+                                @if (\Auth::user()->profile != config('profile.patient'))
+                                    <td>{!! $survey->getStatuStep3() !!}</td>
+                                @endif
                                 <td>{!! $survey->getStatuStep4() !!}</td>
                                 <td>{!! $survey->getStatuStep5() !!}</td>
                                 <td>

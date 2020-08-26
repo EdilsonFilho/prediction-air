@@ -32,7 +32,14 @@ class AppServiceProvider extends ServiceProvider
                     'text' => 'Minhas pesquisas',
                     'url' => 'dashboard/my-surveys',
                     'icon' => 'fas fa-fw fa-copy',
-                    'active' => ['dashboard/my-surveys*'],
+                    'active' => [
+                        'dashboard/my-surveys*',
+                        'dashboard/step1s*',
+                        'dashboard/step2s*',
+                        'dashboard/step3s*',
+                        'dashboard/step4s*',
+                        'dashboard/step5s*',
+                    ],
                 ]);
             }
 

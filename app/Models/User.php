@@ -114,4 +114,14 @@ class User extends Authenticatable
     {
         return $this->patients->count();
     }
+
+    public function getAmountUsers()
+    {
+        return $this->count();
+    }
+
+    public function getAmountProfessionals()
+    {
+        return $this->where('profile', '=', config('profile.professional'))->count();
+    }
 }
