@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
+use Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $events)
     {
+        Schema::defaultStringLength(191);
+
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
 
             $event->menu->add('MENU PRINCIPAL');
