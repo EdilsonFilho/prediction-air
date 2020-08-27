@@ -9,7 +9,7 @@
         <small>Selecione a seção para inserir novas informações</small>
     </h1>
     <br>
-    <a href="{{ route('surveys.index', ['user' => $user]) }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px;">
+    <a href="{{ route('my_surveys.index') }}" class="btn btn-warning btn-sm" style="margin-bottom: 10px;">
         Voltar p/ lista de questionários
     </a>
 @stop
