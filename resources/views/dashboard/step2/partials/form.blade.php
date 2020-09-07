@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_2', '2. Por vezes descuida-se na toma dos seus medicamentos?') }}
+                        {{ Form::label('step2_2', '2. Por vezes descuida-se na tomada dos seus medicamentos?') }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_2', 'Sim', null, ['id' => 'Sim_step2_2']) }}
                             <label for="Sim_step2_2">Sim</label>

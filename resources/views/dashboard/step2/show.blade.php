@@ -59,7 +59,7 @@
                                                 <td>{{ $step2->step2_1 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>2. Por vezes descuida-se na toma dos seus medicamentos?</td>
+                                                <td>2. Por vezes descuida-se na tomada dos seus medicamentos?</td>
                                                 <td>{{ $step2->step2_2 }}</td>
                                             </tr>
                                             <tr>

@@ -163,8 +163,8 @@
                                             <label for="Desempregado">Desempregado</label>
                                         </div>
                                         <div class="icheck-material-green">
-                                            {{ Form::radio('step1_6', 'Reformado', null, ['id' => 'Reformado']) }}
-                                            <label for="Reformado">Reformado</label>
+                                            {{ Form::radio('step1_6', 'Aposentado', null, ['id' => 'Aposentado']) }}
+                                            <label for="Aposentado">Aposentado</label>
                                         </div>
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_6', 'Outra', null, ['id' => 'Outra_step1_6']) }}
@@ -371,7 +371,7 @@
                 old('step1_6') &&
                 old('step1_6') != "Empregado" &&
                 old('step1_6') != "Desempregado" &&
-                old('step1_6') != "Reformado"
+                old('step1_6') != "Aposentado"
             )
                 $('#Outra_step1_6').attr('checked', true);
                 $('input:text[name="step1_6"]')

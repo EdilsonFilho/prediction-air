@@ -23,7 +23,7 @@
                             A seguir encontra-se uma Iista de problemas ou sintomas que por vezes as pessoas apresentam. Assinale num dos espaços à direita
                             de cada sintoma, aquele que melhor descreve O GRAU EM QUE CADA PROBLEMA O AFECTOU DURANTE A ULTIMA SEMANA.
                             Para cada problema ou sintoma marque apenas um espaço com uma cruz. Não deixe nenhuma pergunta por responder. Em que
-                            medida foi afectado nos seguintes sintomas?
+                            medida foi afetado nos seguintes sintomas?
                         </p>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                 'number' => '27'
             ])
             @include('dashboard.step5.partials.question', [
-                'title' => 'Medo de viajar de comboio, eléctrico ou autocarro',
+                'title' => 'Medo de viajar de automóvel, trem ou ônibus',
                 'number' => '28'
             ])
             @include('dashboard.step5.partials.question', [
@@ -174,7 +174,7 @@
                 'number' => '30'
             ])
             @include('dashboard.step5.partials.question', [
-                'title' => 'Ter que evitar certas coisas, lugares ou actividades por lhe causar medo',
+                'title' => 'Ter que evitar certas coisas, lugares ou atividades por lhe causar medo',
                 'number' => '31'
             ])
             @include('dashboard.step5.partials.question', [
@@ -182,7 +182,7 @@
                 'number' => '32'
             ])
             @include('dashboard.step5.partials.question', [
-                'title' => 'Sensação de anestesia ou de formigueiro no corpo',
+                'title' => 'Sensação de anestesia ou de formigamento no corpo',
                 'number' => '33'
             ])
             @include('dashboard.step5.partials.question', [
@@ -218,7 +218,7 @@
                 'number' => '41'
             ])
             @include('dashboard.step5.partials.question', [
-                'title' => 'Sentir-se embaraçado junto de outras pessoas',
+                'title' => 'Sentir-se envergonhado junto de outras pessoas',
                 'number' => '42'
             ])
             @include('dashboard.step5.partials.question', [

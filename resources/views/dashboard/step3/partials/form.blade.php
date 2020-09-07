@@ -20,9 +20,9 @@
                     <div class="alert alert-warning alert-dismissible">
                         <h4>Informações</h4>
                         <p>
-                            Leia ao utente as seguintes palavras, demorando apenas um segundo para cada uma delas: <strong>cão,
-                            chapéu, verde e pêssego</strong>. Solicite ao utente que as reproduza.
-                            Repita as palavras se necessário. Informe o utente que deverá lembrar-se delas
+                            Leia ao paciente as seguintes palavras, demorando apenas um segundo para cada uma delas: <strong>cão,
+                            chapéu, verde e pêssego</strong>. Solicite ao paciente que as reproduza.
+                            Repita as palavras se necessário. Informe o paciente que deverá lembrar-se delas
                             mais tarde.
                         </p>
                     </div>
@@ -67,9 +67,9 @@
                     <div class="form-group">
                         <strong>2. VELOCIDADE PSICOMOTORA</strong>
                         <p>
-                            Peça ao utente para escrever o alfabeto em letras maiúsculas horizontalmente numa folha (uma linha).
+                            Peça ao paciente para escrever o alfabeto em letras maiúsculas horizontalmente numa folha (uma linha).
                             <br>
-                            Registe o tempo despendido em segundos.
+                            Registre o tempo realizado em segundos.
                             <br>
                             <strong>
                                 < 21 seg = 6; 21,1 a 24 seg = 5; 24,1 a 27 seg = 4; 27,1 a 30 segundos = 3; 30,1 a 33 seg = 2; 33,1 a 36 seg = 1; > 36 seg = 0
@@ -111,8 +111,8 @@
                     <div class="form-group">
                         <strong>3. RECUPERAÇÃO DA MEMÓRIA</strong>
                         <p>
-                            Solicite ao utente que repita as quatro palavras enunciadas inicialmente. Atribua um
-                            ponto por cada resposta correta. Utilize "pistas semânticas" sempre que o utente
+                            Solicite ao paciente que repita as quatro palavras enunciadas inicialmente. Atribua um
+                            ponto por cada resposta correta. Utilize "pistas semânticas" sempre que o paciente
                             demonstre dificuldade em recordar as palavras: animal (cão), peça de roupa
                             (chapéu), cor (verde), fruta (pêssego).
                             <br>
@@ -146,7 +146,7 @@
                     <div class="form-group">
                         <strong>4. CONSTRUÇÃO</strong>
                         <p>
-                            Solicite ao utente que copie o cubo abaixo. Registar o tempo despendido:
+                            Solicite ao paciente que copie o cubo abaixo. Registar o tempo realizado:
                             _______segundos
                             <br>
                             <strong>< 25 seg = 2; 25 a 35 seg = 1; > 35 seg = 0</strong>

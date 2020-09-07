@@ -80,7 +80,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    3. Tem recebido apoio de alguém em atividades práticas do seu dia-a-dia? (Ex: arrumação da casa, ajuda no cuidado dos filhos, preparação de refeições ou qualquer outra atividade quotidiana)
+                                                    3. Tem recebido apoio de alguém em atividades práticas do seu dia-a-dia? (Ex: arrumação da casa, ajuda no cuidado dos filhos, preparação de refeições ou qualquer outra atividade cotidiana)
                                                 </td>
                                                 <td>{{ $step4->step4_3 }}</td>
                                             </tr>
@@ -92,7 +92,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    4. Tem recebido apoio de alguém em relação aos seus próprios cuidados de saúde? (Ex: lembrar a hora de tomar um medicamento ou o dia de fazer um exame, comprar um medicamento para si, acompanhalo numa consulta ou qualquer outra situação)
+                                                    4. Tem recebido apoio de alguém em relação aos seus próprios cuidados de saúde? (Ex: lembrar a hora de tomar um medicamento ou o dia de fazer um exame, comprar um medicamento para si, acompanhá-lo numa consulta ou qualquer outra situação)
                                                 </td>
                                                 <td>{{ $step4->step4_4 }}</td>
                                             </tr>

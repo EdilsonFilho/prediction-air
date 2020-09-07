@@ -218,7 +218,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    28. Medo de viajar de comboio, eléctrico ou autocarro
+                                                    28. Medo de viajar de automóvel, trem ou ônibus
                                                 </td>
                                                 <td>{{ $step5->step5_28 }}</td>
                                             </tr>
@@ -236,7 +236,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    31. Ter que evitar certas coisas, lugares ou actividades por lhe causar medo
+                                                    31. Ter que evitar certas coisas, lugares ou atividades por lhe causar medo
                                                 </td>
                                                 <td>{{ $step5->step5_31 }}</td>
                                             </tr>
@@ -248,7 +248,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    33. Sensação de anestesia ou de formigueiro no corpo
+                                                    33. Sensação de anestesia ou de formigamento no corpo
                                                 </td>
                                                 <td>{{ $step5->step5_33 }}</td>
                                             </tr>
@@ -302,7 +302,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    42. Sentir-se embaraçado junto de outras pessoas
+                                                    42. Sentir-se envergonhado junto de outras pessoas
                                                 </td>
                                                 <td>{{ $step5->step5_42 }}</td>
                                             </tr>

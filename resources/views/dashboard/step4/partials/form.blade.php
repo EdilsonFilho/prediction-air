@@ -45,13 +45,13 @@
             ])
             @include('dashboard.step4.partials.question', [
             'title_1' => '3. Tem recebido apoio de alguém em atividades práticas do seu dia-a-dia? (Ex: arrumação da
-            casa, ajuda no cuidado dos filhos, preparação de refeições ou qualquer outra atividade quotidiana)' ,
+            casa, ajuda no cuidado dos filhos, preparação de refeições ou qualquer outra atividade cotidiana)' ,
             'title_2' => '3.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?',
             'number' => '3'
             ])
             @include('dashboard.step4.partials.question', [
             'title_1' => '4. Tem recebido apoio de alguém em relação aos seus próprios cuidados de saúde? (Ex: lembrar a
-            hora de tomar um medicamento ou o dia de fazer um exame, comprar um medicamento para si, acompanhalo numa
+            hora de tomar um medicamento ou o dia de fazer um exame, comprar um medicamento para si, acompanhá-lo numa
             consulta ou qualquer outra situação)',
             'title_2' => '4.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?',
             'number' => '4'
