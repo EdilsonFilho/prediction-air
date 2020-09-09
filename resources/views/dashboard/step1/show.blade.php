@@ -67,6 +67,10 @@
                                                 <td>{{ $step1->step1_2 }}</td>
                                             </tr>
                                             <tr>
+                                                <td>2.1. Orientação sexual</td>
+                                                <td>{{ $step1->step1_2_1 }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>3. Nacionalidade</td>
                                                 <td>{{ $step1->step1_3 }}</td>
                                             </tr>

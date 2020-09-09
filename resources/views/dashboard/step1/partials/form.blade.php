@@ -65,6 +65,25 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
+                                        {{ Form::label('step1_2_1', '2.1. Orientação sexual') }}
+                                        <div class="icheck-material-green">
+                                            {{ Form::radio('step1_2_1', 'Heterossexual', null, ['id' => 'Heterossexual']) }}
+                                            <label for="Heterossexual">Heterossexual</label>
+                                        </div>
+                                        <div class="icheck-material-green">
+                                            {{ Form::radio('step1_2_1', 'Homossexual', null, ['id' => 'Homossexual']) }}
+                                            <label for="Homossexual">Homossexual</label>
+                                        </div>
+                                        <div class="icheck-material-green">
+                                            {{ Form::radio('step1_2_1', 'Bissexual', null, ['id' => 'Bissexual']) }}
+                                            <label for="Bissexual">Bissexual</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
                                         {{ Form::label('step1_3', '3. Nacionalidade') }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_3', 'Brasileira', null, ['id' => 'Brasileira']) }}
