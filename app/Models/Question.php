@@ -87,4 +87,65 @@ class Question extends Model
 
         return $questions[$index];
     }
+
+    public static function step5($index = '1')
+    {
+        $questions = [
+            '1' => '1. Nervosismo ou tensão interior',
+            '2' => '2. Desmaios ou tonturas',
+            '3' => '3. Ter a impressão de que as outras pessoas controlam os seuspensamentos',
+            '4' => '4. Ter a ideia de que as outras pessoas são culpadas pela maior parte dos seus problemas',
+            '5' => '5. Dificuldades em se lembrar de coisas passadas ou recentes',
+            '6' => '6. Aborrecer-se e irritar-se com facilidade',
+            '7' => '7. Dores sobre o coração ou no peito',
+            '8' => '8. Sentir medo na rua ou nos espaços abertos',
+            '9' => '9. Pensamentos de acabar com a vida',
+            '10' => '10. Vê a sua saúde ser afetada por ter de cuidar do seu familiar?',
+            '11' => '11. Perder o apetite',
+            '12' => '12. Ter medo subitamente sem ter motivo para isso',
+            '13' => '13. Ter impulsos que não consegue controlar',
+            '14' => '14. Sentir-se sozinho mesmo quando está com mais pessoas',
+            '15' => '15. Dificuldade em fazer qualquer trabalho',
+            '16' => '16. Sentir-se sozinho',
+            '17' => '17. Sentir-se triste',
+            '18' => '18. Não ter interesse por nada',
+            '19' => '19. Sentir-se atemorizado',
+            '20' => '20. Sentir-se facilmente ofendido nos seus sentimentos',
+            '21' => '21. Sentir que as pessoas não são amigas ou não gostam de si',
+            '22' => '22. Sentir-se inferior aos outros',
+            '23' => '23. Vontade de vomitar ou mal estar',
+            '24' => '24. Ter a impressão de que os outros o costumam observar e falar de si',
+            '25' => '25. Ter dificuldade em adormecer',
+            '26' => '26. Sentir necessidade de verificar várias vezes o que faz',
+            '27' => '27. Dificuldade em tomar decisões',
+            '28' => '28. Medo de viajar de automóvel, trem ou ônibus',
+            '29' => '29. Sensação de que lhe falta o ar',
+            '30' => '30. Calafrios ou afrontamentos',
+            '31' => '31. Ter que evitar certas coisas, lugares ou atividades por lhe causar medo',
+            '32' => '32. Sensação de vazio na cabeça',
+            '33' => '33. Sensação de anestesia ou de formigamento no corpo',
+            '34' => '34. Ter a ideia de que deveria ser castigado',
+            '35' => '35. Sentir-se sem esperança em relação ao futuro',
+            '36' => '36. Ter dificuldade em se concentrar',
+            '37' => '37. Sentir falta de forças em partes do corpo',
+            '38' => '38. Sentir em estado de tensão ou aflição',
+            '39' => '39. Ter pensamentos sobre a morte ou que vai morrer',
+            '40' => '40. Ter impulsos de bater, ofender ou fazer mal a alguém',
+            '41' => '41. Ter vontade de destruir ou partir coisas',
+            '42' => '42. Sentir-se envergonhado junto de outras pessoas',
+            '43' => '43. Não se sentir à vontade nas multidões, por exemplo, nas lojas, cinemas, mercados, etc.',
+            '44' => '44. Grande dificuldade em sentir-se próximo de outra pessoa',
+            '45' => '45. Ter ataques de terror ou pânico',
+            '46' => '46. Envolver-se facilmente em discussões',
+            '47' => '47. Sentir-se nervoso quando tem de ficar sozinho',
+            '48' => '48. Sentir que as outras pessoas não dão o devido valor ao seu trabalho ou às suas capacidades',
+            '49' => '49. Sentir-se tão inquieto que não se pode sentar ou estar parado',
+            '50' => '50. Sentir que não tem valor',
+            '51' => '51. Ter a impressão de que, se deixasse, as outras pessoas se aproveitariam de si',
+            '52' => '52. Ter sentimentos de culpa',
+            '53' => '53. Ter a impressão de que alguma coisa está mal na sua cabeça ou no seu espírito',
+        ];
+
+        return $questions[$index];
+    }
 }

@@ -103,7 +103,7 @@ class User extends Authenticatable
 
     public function surveys()
     {
-        return $this->hasMany(Survey::class, 'professional_id');
+        return $this->hasMany(Survey::class, 'professional_id')->orderBy('patient_id');
     }
 
     public function getAmountSurveys()

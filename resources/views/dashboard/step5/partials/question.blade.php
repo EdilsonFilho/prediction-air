@@ -2,7 +2,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <td width="2%">{{ $number }}</td>
+                <td width="2%"></td>
                 <td width="38%">{{ $title }}</td>
                 <td width="12%">
                     <div class="icheck-material-green">
