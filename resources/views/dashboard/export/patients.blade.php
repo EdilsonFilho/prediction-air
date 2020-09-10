@@ -18,62 +18,58 @@
 
                 {{-- Step 1 --}}
                 <th>Data de preenchimento</th>
-                <th>1. Idade</th>
-                <th>2. Gênero</th>
-                <th>2.1 Orientação sexual</th>
-                <th>3. Nacionalidade</th>
-                <th>4. Estado civil</th>
-                <th>5. Escolaridade</th>
-                <th>6. Situação perante o trabalho</th>
-                <th>7. Profissão</th>
-                <th>8. Como adquiriu o VIH?</th>
-                <th>9. Tipo de vírus (Se souber)</th>
-                <th>10. Há quantos anos é portador da infecção por HIV?</th>
-                <th>11. Tem conhecimento de estar infectado pelo vírus da Hepatite B?</th>
-                <th>12. Tem conhecimento de estar infectado pelo vírus da Hepatite C?</th>
-                <th>13. É portador de outra doença?</th>
+                <th>{{ \App\Models\Question::step1('1') }}</th>
+                <th>{{ \App\Models\Question::step1('2') }}</th>
+                <th>{{ \App\Models\Question::step1('2_1') }}</th>
+                <th>{{ \App\Models\Question::step1('3') }}</th>
+                <th>{{ \App\Models\Question::step1('4') }}</th>
+                <th>{{ \App\Models\Question::step1('5') }}</th>
+                <th>{{ \App\Models\Question::step1('6') }}</th>
+                <th>{{ \App\Models\Question::step1('7') }}</th>
+                <th>{{ \App\Models\Question::step1('8') }}</th>
+                <th>{{ \App\Models\Question::step1('9') }}</th>
+                <th>{{ \App\Models\Question::step1('10') }}</th>
+                <th>{{ \App\Models\Question::step1('11') }}</th>
+                <th>{{ \App\Models\Question::step1('12') }}</th>
+                <th>{{ \App\Models\Question::step1('13') }}</th>
 
                 {{-- Step2 --}}
-                <th>1. Alguma vez se esqueceu de tomar os seus medicamentos?</th>
-                <th>2. Por vezes descuida-se na tomada dos seus medicamentos?</th>
-                <th>3. Alguma vez interrompeu a toma dos medicamentos por se sentir mal?</th>
-                <th>4. Pense na semana passada. Quantas vezes não tomou os medicamentos?</th>
-                <th>5. Não tomou algum dos seus medicamentos durante o fim de semana passado?</th>
-                <th>6. Nos últimos três meses, quantos dias deixou de tomar todos os medicamentos?</th>
+                @for ($i = 1; $i <= 6; $i++)
+                    <th>{{ \App\Models\Question::step2($i) }}</th>
+                @endfor
 
                 {{-- Step3 --}}
-                <th>1. Atenção</th>
-                <th>2. Velocidade psicomotora</th>
-                <th>3. Recuperação da memória</th>
-                <th>4. Construção</th>
+                @for ($i = 1; $i <= 3; $i++)
+                    <th>{{ \App\Models\Question::step3($i) }}</th>
+                @endfor
 
                 {{-- Step4 --}}
-                <th>1. Tem recebido apoio de alguém em situação concreta, facilitando a realização do seu tratamento?</th>
-                <th>1.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>2. Tem recebido apoio de alguém em questões financeiras, como divisão das despesas da casa, dinheiro dado ou emprestado?</th>
-                <th>2.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>3. Tem recebido apoio de alguém em atividades práticas do seu dia-a-dia?</th>
-                <th>3.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>4. Tem recebido apoio de alguém em relação aos seus próprios cuidados de saúde?</th>
-                <th>4.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>5. Tem recebido apoio de alguém com quem possa contar em caso de necessidade?</th>
-                <th>5.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>5.2 Com base nos tipos de apoio mencionado acima (questões 1 a 5), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio?</th>
-                <th>6. Tem recebido apoio de alguém que o/a faz você sentir valorizado(a) como pessoa?</th>
-                <th>6.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>7. Tem recebido apoio de alguém com quem possa desabafar ou conversar sobre assuntos relacionados com a sua doença?</th>
-                <th>7.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>8. Tem recebido apoio de alguém que lhe oferece informações, melhorando o seu nível de conhecimento sobre o seu problema de saúde?</th>
-                <th>8.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>9. Tem recebido apoio de alguém que faz senti-lo/a integrado socialmente?</th>
-                <th>9.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?</th>
-                <th>10. Tem recebido apoio de alguém que o/a ajuda a melhorar o seu humor e disposição?</th>
-                <th>10.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?	</th>
-                <th>11. Tem recebido apoio de alguém quando precisa de companhia para se divertir ou fazer atividades de lazer?	</th>
-                <th>11.1. Em que medida está satisfeito(a) em relação a esse apoio que tem recebido?	</th>
-                <th>12. Com base nos tipos de apoio mencionado acima (questões 6 a 11), preencha a opção ou opções da(as) pessoa(s) que tem dado esse tipo de apoio a você?</th>
-                <th>13. Tem recebido algum outro tipo de apoio?</th>
-                <th>14. Gostaria de fazer algum comentário sobre o apoio ou ajuda?</th>
+                <th>{{ \App\Models\Question::step4('1') }}</th>
+                <th>{{ \App\Models\Question::step4('1_1') }}</th>
+                <th>{{ \App\Models\Question::step4('2') }}</th>
+                <th>{{ \App\Models\Question::step4('2_1') }}</th>
+                <th>{{ \App\Models\Question::step4('3') }}</th>
+                <th>{{ \App\Models\Question::step4('3_1') }}</th>
+                <th>{{ \App\Models\Question::step4('4') }}</th>
+                <th>{{ \App\Models\Question::step4('4_1') }}</th>
+                <th>{{ \App\Models\Question::step4('5') }}</th>
+                <th>{{ \App\Models\Question::step4('5_1') }}</th>
+                <th>{{ \App\Models\Question::step4('5_2') }}</th>
+                <th>{{ \App\Models\Question::step4('6') }}</th>
+                <th>{{ \App\Models\Question::step4('6_1') }}</th>
+                <th>{{ \App\Models\Question::step4('7') }}</th>
+                <th>{{ \App\Models\Question::step4('7_1') }}</th>
+                <th>{{ \App\Models\Question::step4('8') }}</th>
+                <th>{{ \App\Models\Question::step4('8_1') }}</th>
+                <th>{{ \App\Models\Question::step4('9') }}</th>
+                <th>{{ \App\Models\Question::step4('9_1') }}</th>
+                <th>{{ \App\Models\Question::step4('10') }}</th>
+                <th>{{ \App\Models\Question::step4('10_1') }}</th>
+                <th>{{ \App\Models\Question::step4('11') }}</th>
+                <th>{{ \App\Models\Question::step4('11_1') }}</th>
+                <th>{{ \App\Models\Question::step4('12') }}</th>
+                <th>{{ \App\Models\Question::step4('13') }}</th>
+                <th>{{ \App\Models\Question::step4('14') }}</th>
 
                 {{-- <th></th> --}}
             </tr>

@@ -59,59 +59,59 @@
                                                 <td>{{ $step1->fill_date }}</td>
                                             </tr>
                                             <tr>
-                                                <td>1. Idade</td>
+                                                <td>{{ \App\Models\Question::step1('1') }}</td>
                                                 <td>{{ $step1->step1_1 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>2. Gênero</td>
+                                                <td>{{ \App\Models\Question::step1('2') }}</td>
                                                 <td>{{ $step1->step1_2 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>2.1. Orientação sexual</td>
+                                                <td>{{ \App\Models\Question::step1('2_1') }}</td>
                                                 <td>{{ $step1->step1_2_1 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>3. Nacionalidade</td>
+                                                <td>{{ \App\Models\Question::step1('3') }}</td>
                                                 <td>{{ $step1->step1_3 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>4. Estado civil</td>
+                                                <td>{{ \App\Models\Question::step1('4') }}</td>
                                                 <td>{{ $step1->step1_4 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>5. Escolaridade</td>
+                                                <td>{{ \App\Models\Question::step1('5') }}</td>
                                                 <td>{{ $step1->step1_5 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>6. Situação perante o trabalho</td>
+                                                <td>{{ \App\Models\Question::step1('6') }}</td>
                                                 <td>{{ $step1->step1_6 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>7. Profissão</td>
+                                                <td>{{ \App\Models\Question::step1('7') }}</td>
                                                 <td>{{ $step1->step1_7 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>8. Como adquiriu o VIH?</td>
+                                                <td>{{ \App\Models\Question::step1('8') }}</td>
                                                 <td>{{ $step1->step1_8 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>9. Tipo de vírus (Se souber)</td>
+                                                <td>{{ \App\Models\Question::step1('9') }}</td>
                                                 <td>{{ $step1->step1_9 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>10. Há quantos anos é portador da infecção por HIV?</td>
+                                                <td>{{ \App\Models\Question::step1('10') }}</td>
                                                 <td>{{ $step1->step1_10 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>11. Tem conhecimento de estar infectado pelo vírus da Hepatite B?</td>
+                                                <td>{{ \App\Models\Question::step1('11') }}</td>
                                                 <td>{{ $step1->step1_11 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>12. Tem conhecimento de estar infectado pelo vírus da Hepatite C?</td>
+                                                <td>{{ \App\Models\Question::step1('12') }}</td>
                                                 <td>{{ $step1->step1_12 }}</td>
                                             </tr>
                                             <tr>
-                                                <td>13. É portador de outra doença?</td>
+                                                <td>{{ \App\Models\Question::step1('13') }}</td>
                                                 <td>{{ $step1->step1_13 }}</td>
                                             </tr>
                                         </tbody>

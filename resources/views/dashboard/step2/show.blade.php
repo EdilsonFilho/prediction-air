@@ -54,30 +54,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1. Alguma vez se esqueceu de tomar os seus medicamentos?</td>
-                                                <td>{{ $step2->step2_1 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2. Por vezes descuida-se na tomada dos seus medicamentos?</td>
-                                                <td>{{ $step2->step2_2 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3. Alguma vez interrompeu a toma dos medicamentos por se sentir mal?</td>
-                                                <td>{{ $step2->step2_3 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4. Pense na semana passada. Quantas vezes não tomou os medicamentos?</td>
-                                                <td>{{ $step2->step2_4 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5. Não tomou algum dos seus medicamentos durante o fim de semana passado?</td>
-                                                <td>{{ $step2->step2_5 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6. Nos últimos três meses, quantos dias deixou de tomar todos os medicamentos?</td>
-                                                <td>{{ $step2->step2_6 }}</td>
-                                            </tr>
+                                            @for ($i = 1; $i <= 6; $i++)
+                                                <tr>
+                                                    <td>{{ \App\Models\Question::step2($i) }}</td>
+                                                    <td>{{ $step2['step2_' . $i] }}</td>
+                                                </tr>
+                                            @endfor
                                         </tbody>
                                     </table>
                                 </div>

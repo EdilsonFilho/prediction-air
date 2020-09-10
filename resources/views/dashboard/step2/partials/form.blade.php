@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_1', '1. Alguma vez se esqueceu de tomar os seus medicamentos?') }}
+                        {{ Form::label('step2_1', \App\Models\Question::step2('1')) }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_1', 'Sim', null, ['id' => 'Sim_step2_1']) }}
                             <label for="Sim_step2_1">Sim</label>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_2', '2. Por vezes descuida-se na tomada dos seus medicamentos?') }}
+                        {{ Form::label('step2_2', \App\Models\Question::step2('2')) }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_2', 'Sim', null, ['id' => 'Sim_step2_2']) }}
                             <label for="Sim_step2_2">Sim</label>
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_3', '3. Alguma vez interrompeu a toma dos medicamentos por se sentir mal?') }}
+                        {{ Form::label('step2_3', \App\Models\Question::step2('3')) }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_3', 'Sim', null, ['id' => 'Sim_step2_3']) }}
                             <label for="Sim_step2_3">Sim</label>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_4', '4. Pense na semana passada. Quantas vezes não tomou os medicamentos?') }}
+                        {{ Form::label('step2_4', \App\Models\Question::step2('4')) }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_4', 'Nunca', null, ['id' => 'Nunca_step2_4']) }}
                             <label for="Nunca_step2_4">Nunca</label>
@@ -90,7 +90,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_5', '5. Não tomou algum dos seus medicamentos durante o fim de semana passado?') }}
+                        {{ Form::label('step2_5', \App\Models\Question::step2('5')) }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_5', 'Sim', null, ['id' => 'Sim_step2_5']) }}
                             <label for="Sim_step2_5">Sim</label>
@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {{ Form::label('step2_6', '6. Nos últimos três meses, quantos dias deixou de tomar todos os medicamentos?') }}
+                        {{ Form::label('step2_6', \App\Models\Question::step2('6')) }}
                         <div class="icheck-material-green">
                             {{ Form::radio('step2_6', '0-2 vezes', null, ['id' => '0-2_vezes_step2_6']) }}
                             <label for="0-2_vezes_step2_6">0-2 vezes</label>

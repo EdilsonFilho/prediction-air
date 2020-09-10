@@ -54,22 +54,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1. ATENÇÃO</td>
-                                                <td>{{ $step3->step3_1 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2. VELOCIDADE PSICOMOTORA</td>
-                                                <td>{{ $step3->step3_2 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3. RECUPERAÇÃO DA MEMÓRIA</td>
-                                                <td>{{ $step3->step3_3 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4. CONSTRUÇÃO</td>
-                                                <td>{{ $step3->step3_4 }}</td>
-                                            </tr>
+                                            @for ($i = 1; $i <= 4; $i++)
+                                                <tr>
+                                                    <td>{{ \App\Models\Question::step3($i) }}</td>
+                                                    <td>{{ $step3['step3_' . $i] }}</td>
+                                                </tr>
+                                            @endfor
                                             <tr>
                                                 <td style="background: #f6f9fc;"></td>
                                                 <td style="background: #f6f9fc;"></td>

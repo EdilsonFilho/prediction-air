@@ -42,7 +42,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_1', '1. Idade') }}
+                                        {{ Form::label('step1_1', \App\Models\Question::step1('1')) }}
                                         {{ Form::text('step1_1', null, array('class' => 'form-control')) }}
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_2', '2. Gênero') }}
+                                        {{ Form::label('step1_2', \App\Models\Question::step1('2')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_2', 'Masculino', null, ['id' => 'Masculino']) }}
                                             <label for="Masculino">Masculino</label>
@@ -65,7 +65,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_2_1', '2.1. Orientação sexual') }}
+                                        {{ Form::label('step1_2_1', \App\Models\Question::step1('2_1')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_2_1', 'Heterossexual', null, ['id' => 'Heterossexual']) }}
                                             <label for="Heterossexual">Heterossexual</label>
@@ -84,7 +84,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_3', '3. Nacionalidade') }}
+                                        {{ Form::label('step1_3', \App\Models\Question::step1('3')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_3', 'Brasileira', null, ['id' => 'Brasileira']) }}
                                             <label for="Brasileira">Brasileira</label>
@@ -111,7 +111,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_4', '4. Estado civil') }}
+                                        {{ Form::label('step1_4', \App\Models\Question::step1('4')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_4', 'Solteiro', null, ['id' => 'Solteiro']) }}
                                             <label for="Solteiro">Solteiro</label>
@@ -138,7 +138,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_5', '5. Escolaridade') }}
+                                        {{ Form::label('step1_5', \App\Models\Question::step1('5')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_5', '4º ano ou equivalente/ensino fundamental incompleto', null, ['id' => '4º ano ou equivalente/ensino fundamental incompleto']) }}
                                             <label for="4º ano ou equivalente/ensino fundamental incompleto">4º ano ou equivalente/ensino fundamental incompleto</label>
@@ -172,7 +172,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_6', '6. Situação perante o trabalho') }}
+                                        {{ Form::label('step1_6', \App\Models\Question::step1('6')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_6', 'Empregado', null, ['id' => 'Empregado']) }}
                                             <label for="Empregado">Empregado</label>
@@ -202,7 +202,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_7', '7. Profissão') }}
+                                        {{ Form::label('step1_7', \App\Models\Question::step1('7')) }}
                                         {{ Form::text('step1_7', null, array('class' => 'form-control')) }}
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_8', '8. Como adquiriu o VIH?') }}
+                                        {{ Form::label('step1_8', \App\Models\Question::step1('8')) }}
                                         {{ Form::text('step1_8', null, array('class' => 'form-control')) }}
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_9', '9. Tipo de vírus (Se souber)') }}
+                                        {{ Form::label('step1_9', \App\Models\Question::step1('9')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_9', 'HIV-1', null, ['id' => 'HIV-1']) }}
                                             <label for="HIV-1">HIV-1</label>
@@ -252,7 +252,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_10', '10. Há quantos anos é portador da infecção por HIV?') }}
+                                        {{ Form::label('step1_10', \App\Models\Question::step1('10')) }}
                                         {{ Form::text('step1_10', null, array('class' => 'form-control')) }}
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_11', '11. Tem conhecimento de estar infectado pelo vírus da Hepatite B?') }}
+                                        {{ Form::label('step1_11', \App\Models\Question::step1('11')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_11', 'Sim', null, ['id' => 'Sim_step1_11']) }}
                                             <label for="Sim_step1_11">Sim</label>
@@ -279,7 +279,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_12', '12. Tem conhecimento de estar infectado pelo vírus da Hepatite C?') }}
+                                        {{ Form::label('step1_12', \App\Models\Question::step1('12')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_12', 'Sim', null, ['id' => 'Sim_step1_12']) }}
                                             <label for="Sim_step1_12">Sim</label>
@@ -298,7 +298,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        {{ Form::label('step1_13', '13. É portador de outra doença?') }}
+                                        {{ Form::label('step1_13', \App\Models\Question::step1('13')) }}
                                         <div class="icheck-material-green">
                                             {{ Form::radio('step1_13', 'Não', null, ['id' => 'Não_step1_13']) }}
                                             <label for="Não_step1_13">Não</label>
