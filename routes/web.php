@@ -63,6 +63,7 @@ Route::group(['middleware' => ['https.protocol']], function () {
             Route::delete('patients/{user}', 'PatientController@destroy')->name('patients.destroy');
             Route::put('patients/{user}', 'PatientController@update')->name('patients.update');
             Route::get('patients/{user}/edit', 'PatientController@edit')->name('patients.edit');
+            Route::get('patients/export', 'PatientController@export')->name('patients.export');
         });
 
         Route::group(['middleware' => ['admin']], function () {

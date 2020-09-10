@@ -8,6 +8,7 @@
         </div>
     @endif
     <a href="{{ route('patients.create') }}" class="btn btn-custom btn-sm" style="margin-bottom: 10px;">NOVO PACIENTE</a>
+    <a href="{{ route('patients.export') }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">EXPORTAR DADOS</a>
     <div class="box">
         <div class="box-header with-border">
             <h4 class="box-title">Lista de pacientes</h4>

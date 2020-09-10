@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Exports\PatientsExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PatientController extends Controller
 {
@@ -130,5 +132,10 @@ class PatientController extends Controller
             return redirect()->route('patients.index')
                 ->with(['message' => 'Erro ao excluir. Tente novamente!', 'code' => 'danger']);
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new PatientsExport, 'HADDS_Exportação_' . date('Y-m-d') . '.xlsx');
     }
 }
