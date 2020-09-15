@@ -22,7 +22,7 @@
                         <p>
                             Esta escala é sobre o apoio ou ajuda que tem recebido de diferentes pessoas com quem se
                             relaciona.
-                            Por favor, informe a frenquência dos diferentes tipos de apoio que tem recebido em relação à
+                            Por favor, informe a frequência dos diferentes tipos de apoio que tem recebido em relação à
                             soropositividade e a satisfação quanto a cada um deles. Pedimos que não deixe nenhuma
                             questão em branco.
                         </p>

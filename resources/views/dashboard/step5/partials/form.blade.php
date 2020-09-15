@@ -21,7 +21,7 @@
                         <h4>Informações</h4>
                         <p>
                             A seguir encontra-se uma Iista de problemas ou sintomas que por vezes as pessoas apresentam. Assinale num dos espaços à direita
-                            de cada sintoma, aquele que melhor descreve O GRAU EM QUE CADA PROBLEMA O AFECTOU DURANTE A ULTIMA SEMANA.
+                            de cada sintoma, aquele que melhor descreve O GRAU EM QUE CADA PROBLEMA O AFETOU DURANTE A ULTIMA SEMANA.
                             Para cada problema ou sintoma marque apenas um espaço com uma cruz. Não deixe nenhuma pergunta por responder. Em que
                             medida foi afetado nos seguintes sintomas?
                         </p>

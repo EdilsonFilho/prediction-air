@@ -84,7 +84,7 @@ class User extends Authenticatable
                 return 'Administrador(a)';
 
             case config('profile.professional'):
-                return 'Enfermeiro(a)';
+                return 'Profissional';
 
             default:
                 return 'Paciente';
