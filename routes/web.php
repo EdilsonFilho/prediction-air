@@ -54,6 +54,10 @@ Route::group(['middleware' => ['https.protocol']], function () {
         Route::post('step5s/{survey}', 'Step5Controller@store')->name('step5s.store');
         Route::get('step5s/{survey}/{step5}', 'Step5Controller@show')->name('step5s.show');
 
+        Route::get('step6s/{survey}', 'Step6Controller@create')->name('step6s.create');
+        Route::post('step6s/{survey}', 'Step6Controller@store')->name('step6s.store');
+        Route::get('step6s/{survey}/{step6}', 'Step6Controller@show')->name('step6s.show');
+
         Route::get('navigations/to/{survey}', 'NavigationToController@to')->name('navigations.to');
 
         Route::group(['middleware' => ['only.admin.professional']], function () {

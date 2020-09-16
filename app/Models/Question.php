@@ -148,4 +148,82 @@ class Question extends Model
 
         return $questions[$index];
     }
+
+    public static function step6($index = '1')
+    {
+        $questions = [
+            '1' => [
+                'Alimentação' => [
+                    'Independente (capaz de usar qualquer instrumento. Come num tempo razoável)',
+                    'Necessita de ajuda (necessita de ajuda para cortar, levar à boca, etc.)',
+                    'Dependente'
+                ]
+            ],
+            '2' => [
+                'Vestir' => [
+                    'Independente (veste-se, despe-se e ajusta a roupa. Aperta os sapatos, etc.)',
+                    'Necessita de ajuda (pelo menos em ½ das tarefas, mas realiza-as num bom tempo)',
+                    'Dependente'
+                ]
+            ],
+            '3' => [
+                'Banho' => [
+                    'Independente (toma banho geral no duche ou banheira. Entra e sai do banho sem ajuda de terceiro)',
+                    'Dependente'
+                ]
+            ],
+            '4' => [
+                'Higiene corporal' => [
+                    'Independente (lava a face, mãos e dentes. Faz a barba)',
+                    'Dependente'
+                ]
+            ],
+            '5' => [
+                'Uso da Casa de Banho' => [
+                    'Independente (usa-a sem ajuda, senta-se, levanta-se e arranja-se sozinho)',
+                    'Necessita de ajuda (para manter o equilíbrio, limpar-se e ajustar a roupa)',
+                    'Dependente'
+                ]
+            ],
+            '6' => [
+                'Controlo Intestinal' => [
+                    'Independente (não apresenta episódios de incontinência. Se necessita de enemas ou microlax, fá-lo sozinho)',
+                    'Incontinência ocasional (episódios ocasionais de incontinência e necessita de ajuda para enemas ou microlax)',
+                    'Incontinente fecal'
+                ]
+            ],
+            '7' => [
+                'Controlo Vesical' => [
+                    'Independente (não apresenta episódios de incontinência. Se necessita de enemas ou microlax, fá-lo sozinho)',
+                    'Incontinência ocasional (episódios ocasionais de incontinência e necessita de ajuda para uso de sonda ou colector)',
+                    'Incontinente ou algaliado'
+                ]
+            ],
+            '8' => [
+                'Subir Escadas' => [
+                    'Independente (sobe e desce escadas. Pode usar um instrumento de apoio)',
+                    'Necessita de ajuda (necessita de ajuda física ou supervisão para subir/descer escadas)',
+                    'Dependente'
+                ]
+            ],
+            '9' => [
+                'Transferência Cadeira/ Cama' => [
+                    'Independente (não necessita de qualquer ajuda. Se usa a cadeira de rodas, transfere se sozinho',
+                    'Necessita de ajuda mínima (ajuda mínima e supervisão)',
+                    'Necessita de grande ajuda (é capaz de se sentar, mas necessita de muita ajuda para a transferência)',
+                    'Dependente'
+                ]
+            ],
+            '10' => [
+                'Deambular' => [
+                    'Independente (caminha pelo menos 50 metros sozinho ou com ajuda de andarilho, canadianas, ...)',
+                    'Necessita de ajuda (caminha 50 metros com ajuda ou supervisão)',
+                    'Independente com cadeira de rodas (anda pelo menos 50 metros)',
+                    'Dependente'
+                ]
+            ],
+        ];
+
+        return $questions[$index];
+    }
 }

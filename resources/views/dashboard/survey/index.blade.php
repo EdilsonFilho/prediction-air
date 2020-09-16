@@ -27,6 +27,7 @@
                             @endif
                             <th>Escala de Suporte Social</th>
                             <th>Inventário Breve de Sintomas (BSI)</th>
+                            <th>Atividades diárias</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
                                 @endif
                                 <td>{!! $survey->getStatuStep4() !!}</td>
                                 <td>{!! $survey->getStatuStep5() !!}</td>
+                                <td>{!! $survey->getStatuStep6() !!}</td>
                                 <td>
                                     <a href="{{ route('surveys.edit', $survey->id) }}" alt="Acessar questionário" title="Acessar questionário" class="btn btn-default btn-sm"><i class="fa fa-copy"></i></a>
                                     <button alt="Excluir questionário" title="Excluir questionário" class="btn btn-danger btn-sm"   onclick="confirmDelete({{ $survey->id }}, '{{ route('surveys.destroy', ['survey' => $survey]) }}')"><i class="fa fa-trash"></i></button>

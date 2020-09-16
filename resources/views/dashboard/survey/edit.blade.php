@@ -61,7 +61,6 @@
                 @endisset
             </div>
         </div>
-
         @if (\Auth::user()->profile != config('profile.patient'))
             <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
                 <div class="small-box bg-custom">
@@ -116,6 +115,25 @@
                     </a>
                 @else
                     <a href="{{ route('step5s.create', ['survey' => $survey]) }}" class="small-box-footer">
+                        Responder questionário <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @endisset
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-lg-4 col-md-12">
+            <div class="small-box bg-custom">
+                <div class="inner">
+                    <h3>Atividades diárias</h3>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-copy"></i>
+                </div>
+                @isset($survey->step6)
+                    <a href="{{ route('step6s.show', ['survey' => $survey, 'step6' => $survey->step6]) }}" class="small-box-footer">
+                        Analisar respostas <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                @else
+                    <a href="{{ route('step6s.create', ['survey' => $survey]) }}" class="small-box-footer">
                         Responder questionário <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 @endisset
