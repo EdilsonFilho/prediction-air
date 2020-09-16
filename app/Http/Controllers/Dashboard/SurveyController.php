@@ -35,7 +35,7 @@ class SurveyController extends Controller
      */
     public function store(User $user)
     {
-        if (!$this->canAccess($user)) {
+        if (!canAccess($user)) {
             return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
@@ -73,7 +73,7 @@ class SurveyController extends Controller
     {
         $user = User::find($survey->patient_id);
 
-        if (!$this->canAccess($user)) {
+        if (!canAccess($user)) {
             return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
@@ -94,7 +94,7 @@ class SurveyController extends Controller
     {
         $user = User::find($survey->patient_id);
 
-        if (!$this->canAccess($user)) {
+        if (!canAccess($user)) {
             return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
@@ -111,18 +111,5 @@ class SurveyController extends Controller
             return redirect()->back()
                 ->with(['message' => 'Erro ao excluir. Tente novamente!', 'code' => 'danger']);
         }
-    }
-
-    protected function canAccess(User $user)
-    {
-        if (Auth::user()->profile != config('profile.patient') && Auth::id() != $user->professional_id) {
-            return false;
-        }
-
-        if (Auth::user()->profile == config('profile.patient') && Auth::id() != $user->id) {
-            return false;
-        }
-
-        return true;
     }
 }

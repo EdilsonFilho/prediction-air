@@ -106,6 +106,11 @@ class User extends Authenticatable
         return $this->hasMany(Survey::class, 'professional_id')->orderBy('patient_id');
     }
 
+    public function clinicalRecord()
+    {
+        return $this->hasOne(ClinicalRecord::class, 'patient_id');
+    }
+
     public function getAmountSurveys()
     {
         return $this->surveys->where('professional_id', '=', Auth::id())->count();

@@ -60,6 +60,12 @@ Route::group(['middleware' => ['https.protocol']], function () {
 
         Route::get('navigations/to/{survey}', 'NavigationToController@to')->name('navigations.to');
 
+        // Route::resource('clinical-records', 'ClinicalRecordController');
+        // Route::get('clinical-records/{user}', 'SurveyController@index')->name('surveys.index');
+        Route::post('clinical-records/{user}', 'ClinicalRecordController@store')->name('clinical-records.store');
+        Route::get('clinical-records/{clinical_record}/edit', 'ClinicalRecordController@edit')->name('clinical-records.edit');
+        Route::put('clinical-records/{clinical_record}', 'ClinicalRecordController@update')->name('clinical-records.update');
+
         Route::group(['middleware' => ['only.admin.professional']], function () {
             Route::post('patients', 'PatientController@store')->name('patients.store');
             Route::get('patients', 'PatientController@index')->name('patients.index');

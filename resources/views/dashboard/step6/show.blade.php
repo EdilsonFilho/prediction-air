@@ -33,7 +33,7 @@
                             <div class="col-md-8">
                                 <h4 class="box-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#step6">
-                                        ESCALA DE SUPORTE SOCIAL
+                                        ATIVIDADES DIÁRIAS
                                     </a>
                                 </h4>
                             </div>

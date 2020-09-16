@@ -7,9 +7,24 @@
             {{ session('message') }}
         </div>
     @endif
-    {{ Form::open(['route' => ['surveys.store', 'user' => $user], 'role' => 'form', 'style' => 'margin-bottom: 10px']) }}
-        {{ Form::submit('INICIAR NOVO QUESTIONÁRIO', ['class' => 'btn btn-custom']) }}
+    {{ Form::open(['route' => ['surveys.store', 'user' => $user], 'role' => 'form', 'style' => 'margin: 0px 2px 10px 0px; float: left']) }}
+        {{ Form::submit('INICIAR NOVO QUESTIONÁRIO', ['class' => 'btn btn-custom btn-sm']) }}
     {{ Form::close() }}
+
+    @php
+        // dd(isset($user->clinicalRecord));
+    @endphp
+
+    @isset ($user->clinicalRecord)
+        {{ Form::model($user, ['route' => ['clinical-records.update', 'user' => $user], 'role' => 'form', 'style' => 'margin-bottom: 10px']) }}
+            {{ Form::submit('REGISTRO CLÍNICO', ['class' => 'btn btn-danger btn-sm']) }}
+        {{ Form::close() }}
+    @else
+        {{ Form::open(['route' => ['clinical-records.store', 'user' => $user], 'role' => 'form', 'style' => 'margin-bottom: 10px']) }}
+            {{ Form::submit('REGISTRO CLÍNICO', ['class' => 'btn btn-danger btn-sm']) }}
+        {{ Form::close() }}
+    @endisset
+
     <div class="box">
         <div class="box-header with-border">
             <h4 class="box-title">Lista de questionários do(a) paciente {{ $user->name }}</h4>
