@@ -23,7 +23,7 @@
                 <div class="box box-solid">
                     <div class="box-header with-border">
                         <h3 class="box-title" style="margin-top: 10px;">
-                            Informações clínicas do usuário <strong>{{ $user->name }}</strong>
+                            Informações clínicas do paciente <strong>{{ $user->name }}</strong>
                         </h3>
                     </div>
                     <!-- /.box-header -->

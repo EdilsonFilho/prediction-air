@@ -60,8 +60,9 @@ Route::group(['middleware' => ['https.protocol']], function () {
 
         Route::get('navigations/to/{survey}', 'NavigationToController@to')->name('navigations.to');
 
-        // Route::resource('clinical-records', 'ClinicalRecordController');
-        // Route::get('clinical-records/{user}', 'SurveyController@index')->name('surveys.index');
+        Route::get('interventions/{survey}', 'InterventionController@show')->name('interventions.show');
+        Route::post('interventions/{survey}', 'InterventionController@store')->name('interventions.store');
+
         Route::post('clinical-records/{user}', 'ClinicalRecordController@store')->name('clinical-records.store');
         Route::get('clinical-records/{clinical_record}/edit', 'ClinicalRecordController@edit')->name('clinical-records.edit');
         Route::put('clinical-records/{clinical_record}', 'ClinicalRecordController@update')->name('clinical-records.update');

@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
                         'dashboard/step3s*',
                         'dashboard/step4s*',
                         'dashboard/step5s*',
+                        'dashboard/step6s*',
                     ],
                 ]);
             }
@@ -59,6 +60,8 @@ class AppServiceProvider extends ServiceProvider
                         'dashboard/step3s*',
                         'dashboard/step4s*',
                         'dashboard/step5s*',
+                        'dashboard/step6s*',
+                        'dashboard/clinical-records*',
                     ]
                 ]);
             }

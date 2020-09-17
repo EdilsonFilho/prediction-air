@@ -42,6 +42,15 @@ class Step1Controller extends Controller
         $step = Step1::create($request->all());
 
         if ($step) {
+
+            if (Auth::user()->profile != config('profile.patient')) {
+                return redirect()->route('step1s.show', ['survey' => $survey, 'step1' => $survey->step1])
+                    ->with([
+                        'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',
+                        'code' => 'success'
+                    ]);
+            }
+
             return redirect()->route('surveys.edit', ['id' => $survey->id])
                 ->with([
                     'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',
