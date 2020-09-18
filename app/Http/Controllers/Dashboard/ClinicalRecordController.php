@@ -29,7 +29,7 @@ class ClinicalRecordController extends Controller
         if ($clinicalRecord) {
             return redirect()->route('clinical-records.edit', ['id' => $clinicalRecord['id']])
                 ->with([
-                    'message' => 'Questionário iniciado com sucesso. Selecione a seção onde deseja inserir novas informações.',
+                    'message' => 'Registro Clínico iniciado com sucesso.',
                     'code' => 'success'
                 ]);
         } else {

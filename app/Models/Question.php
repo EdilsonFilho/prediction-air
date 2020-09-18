@@ -149,7 +149,7 @@ class Question extends Model
         return $questions[$index];
     }
 
-    public static function step6($index = '1')
+    public static function step6($index = '1', $isScale = false)
     {
         $questions = [
             '1' => [
@@ -179,24 +179,24 @@ class Question extends Model
                 ]
             ],
             '5' => [
-                'Uso da Casa de Banho' => [
+                'Uso do sanitário' => [
                     'Independente (usa-a sem ajuda, senta-se, levanta-se e arranja-se sozinho)',
                     'Necessita de ajuda (para manter o equilíbrio, limpar-se e ajustar a roupa)',
                     'Dependente'
                 ]
             ],
             '6' => [
-                'Controlo Intestinal' => [
+                'Evacuar' => [
                     'Independente (não apresenta episódios de incontinência. Se necessita de enemas ou microlax, fá-lo sozinho)',
                     'Incontinência ocasional (episódios ocasionais de incontinência e necessita de ajuda para enemas ou microlax)',
-                    'Incontinente fecal'
+                    'Incontinência fecal'
                 ]
             ],
             '7' => [
-                'Controlo Vesical' => [
+                'Urinar' => [
                     'Independente (não apresenta episódios de incontinência. Se necessita de enemas ou microlax, fá-lo sozinho)',
                     'Incontinência ocasional (episódios ocasionais de incontinência e necessita de ajuda para uso de sonda ou colector)',
-                    'Incontinente ou algaliado'
+                    'Incontinência ou algaliado'
                 ]
             ],
             '8' => [
@@ -215,7 +215,7 @@ class Question extends Model
                 ]
             ],
             '10' => [
-                'Deambular' => [
+                'Andar' => [
                     'Independente (caminha pelo menos 50 metros sozinho ou com ajuda de andarilho, canadianas, ...)',
                     'Necessita de ajuda (caminha 50 metros com ajuda ou supervisão)',
                     'Independente com cadeira de rodas (anda pelo menos 50 metros)',
@@ -224,6 +224,69 @@ class Question extends Model
             ],
         ];
 
-        return $questions[$index];
+        $punctuation = [
+            // Alimentação
+            'step6_1' => [
+                'Independente (capaz de usar qualquer instrumento. Come num tempo razoável)' => 10,
+                'Necessita de ajuda (necessita de ajuda para cortar, levar à boca, etc.)' => 5,
+                'Dependente' => 0
+            ],
+            // Vestir
+            'step6_2' => [
+                'Independente (veste-se, despe-se e ajusta a roupa. Aperta os sapatos, etc.)' => 10,
+                'Necessita de ajuda (pelo menos em ½ das tarefas, mas realiza-as num bom tempo)' => 5,
+                'Dependente' => 0
+            ],
+            // Banho
+            'step6_3' => [
+                'Independente (toma banho geral no duche ou banheira. Entra e sai do banho sem ajuda de terceiro)' => 5,
+                'Dependente' => 0
+            ],
+            // Higiene corporal
+            'step6_4' => [
+                'Independente (lava a face, mãos e dentes. Faz a barba)' => 5,
+                'Dependente' => 0
+            ],
+            // Uso do sanitário
+            'step6_5' => [
+                'Independente (usa-a sem ajuda, senta-se, levanta-se e arranja-se sozinho)' => 10,
+                'Necessita de ajuda (para manter o equilíbrio, limpar-se e ajustar a roupa)' => 5,
+                'Dependente' => 0
+            ],
+            // Evacuar
+            'step6_6' => [
+                'Independente (não apresenta episódios de incontinência. Se necessita de enemas ou microlax, fá-lo sozinho)' => 10,
+                'Incontinência ocasional (episódios ocasionais de incontinência e necessita de ajuda para enemas ou microlax)' => 5,
+                'Incontinência fecal' => 0
+            ],
+            // Urinar
+            'step6_7' => [
+                'Independente (não apresenta episódios de incontinência. Se necessita de enemas ou microlax, fá-lo sozinho)' => 10,
+                'Incontinência ocasional (episódios ocasionais de incontinência e necessita de ajuda para uso de sonda ou colector)' => 5,
+                'Incontinência ou algaliado' => 0
+            ],
+            // Subir Escadas
+            'step6_8' => [
+                'Independente (sobe e desce escadas. Pode usar um instrumento de apoio)' => 10,
+                'Necessita de ajuda (necessita de ajuda física ou supervisão para subir/descer escadas)' => 5,
+                'Dependente' => 0
+            ],
+            // Transferência Cadeira/ Cama
+            'step6_9' => [
+                'Independente (não necessita de qualquer ajuda. Se usa a cadeira de rodas, transfere se sozinho' => 15,
+                'Necessita de ajuda mínima (ajuda mínima e supervisão)' => 10,
+                'Necessita de grande ajuda (é capaz de se sentar, mas necessita de muita ajuda para a transferência)' => 5,
+                'Dependente' => 0
+            ],
+            // Andar
+            'step6_10' => [
+                'Independente (caminha pelo menos 50 metros sozinho ou com ajuda de andarilho, canadianas, ...)' => 15,
+                'Necessita de ajuda (caminha 50 metros com ajuda ou supervisão)' => 10,
+                'Independente com cadeira de rodas (anda pelo menos 50 metros)' => 5,
+                'Dependente' => 0
+            ],
+        ];
+
+        return $isScale ? $punctuation[$index] : $questions[$index];
     }
 }

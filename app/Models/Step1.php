@@ -34,4 +34,21 @@ class Step1 extends Model
     {
         $this->attributes['fill_date'] = isset($value) ? Carbon::createFromFormat('d/m/Y', $value) : null;
     }
+
+    public function getAllAttributes()
+    {
+        $columns = $this->getFillable();
+        // Another option is to get all columns for the table like so:
+        // $columns = \Schema::getColumnListing($this->table);
+        // but it's safer to just get the fillable fields
+
+        $attributes = $this->getAttributes();
+
+        foreach ($columns as $column) {
+            if (!array_key_exists($column, $attributes)) {
+                $attributes[$column] = null;
+            }
+        }
+        return $attributes;
+    }
 }

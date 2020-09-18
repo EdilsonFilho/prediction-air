@@ -28,8 +28,8 @@
                     </div>
                 </div>
                 <div class="panel box box-primary">
-
                     @if (\Auth::user()->profile != config('profile.patient'))
+
                         @include('dashboard.intervention.index', [
                             'type' => 'STEP_1',
                             'survey' => $survey,
@@ -38,8 +38,8 @@
                                         $survey->intervention1()->first()->text :
                                         null
                         ])
-                    @endif
 
+                    @endif
                     <div class="box-header with-border">
                         <div class="row">
                             <div class="col-md-8">

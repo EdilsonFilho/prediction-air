@@ -72,6 +72,12 @@
                                                     <td>{{ $step6['step6_' . $i] }}</td>
                                                 </tr>
                                             @endfor
+                                            @if (\Auth::user()->profile != config('profile.patient'))
+                                                <tr>
+                                                    <td><strong>Resultado</strong></td>
+                                                    <td><strong>{{ \App\Models\Result::getStep6($step6) }}</strong></td>
+                                                </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>

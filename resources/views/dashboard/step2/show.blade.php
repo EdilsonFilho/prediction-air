@@ -28,7 +28,6 @@
                     </div>
                 </div>
                 <div class="panel box box-primary">
-
                     @if (\Auth::user()->profile != config('profile.patient'))
                         @include('dashboard.intervention.index', [
                             'type' => 'STEP_2',
@@ -39,7 +38,6 @@
                                         null
                         ])
                     @endif
-
                     <div class="box-header with-border">
                         <div class="row">
                             <div class="col-md-8">
@@ -72,6 +70,12 @@
                                                     <td>{{ $step2['step2_' . $i] }}</td>
                                                 </tr>
                                             @endfor
+                                            @if (\Auth::user()->profile != config('profile.patient'))
+                                                <tr>
+                                                    <td><strong>Resultado</strong></td>
+                                                    <td><strong>{{ \App\Models\Result::getStep2($step2) }}</strong></td>
+                                                </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>

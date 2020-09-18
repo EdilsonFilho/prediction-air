@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            {{ Form::textarea('text', $text, array('class' => 'form-control', 'rows' => 24)) }}
+                            {{ Form::textarea('text', $text, array('class' => 'form-control', 'rows' => 14)) }}
                         </div>
                     </div>
                 </div>

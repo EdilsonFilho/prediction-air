@@ -222,6 +222,12 @@
                                                 </td>
                                                 <td>{{ $step4->step4_14 }}</td>
                                             </tr>
+                                            @if (\Auth::user()->profile != config('profile.patient'))
+                                                <tr>
+                                                    <td><strong>Resultado</strong></td>
+                                                    <td><strong>{{ \App\Models\Result::getStep4($step4) }}</strong></td>
+                                                </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
