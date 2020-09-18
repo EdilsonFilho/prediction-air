@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Step6Request;
 use App\Models\Step6;
 use App\Models\Survey;
+use Auth;
 
 class Step6Controller extends Controller
 {
@@ -42,6 +43,15 @@ class Step6Controller extends Controller
         $step = Step6::create($request->all());
 
         if ($step) {
+
+            if (Auth::user()->profile != config('profile.patient')) {
+                return redirect()->route('step6s.show', ['survey' => $survey, 'step6' => $survey->step6])
+                    ->with([
+                        'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',
+                        'code' => 'success'
+                    ]);
+            }
+
             return redirect()->route('surveys.edit', ['id' => $survey->id])
                 ->with([
                     'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',

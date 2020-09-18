@@ -1,4 +1,5 @@
 {{ Form::open(['route' => ['interventions.store', 'survey' => $survey], 'role' => 'form', 'class' => 'areyousure']) }}
+    {{ Form::hidden('type', $type) }}
     {{ Form::hidden('step_id', $stepId) }}
     {{ Form::hidden('survey_id', $survey->id) }}
     <div class="box-header with-border">
@@ -21,7 +22,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            {{ Form::textarea('text', isset($text) ? $text : null, array('class' => 'form-control', 'rows' => 24)) }}
+                            {{ Form::textarea('text', $text, array('class' => 'form-control', 'rows' => 24)) }}
                         </div>
                     </div>
                 </div>

@@ -26,9 +26,39 @@ class Survey extends Model
         return $this->belongsTo(User::class, 'patient_id');
     }
 
-    public function intervention($stepId)
+    public function interventions()
     {
-        return $this->hasOne(Intervention::class)->where('step_id', '=', $stepId);
+        return $this->hasMany(Intervention::class);
+    }
+
+    public function intervention1()
+    {
+        return $this->hasOne(Intervention1::class);
+    }
+
+    public function intervention2()
+    {
+        return $this->hasOne(Intervention2::class);
+    }
+
+    public function intervention3()
+    {
+        return $this->hasOne(Intervention3::class);
+    }
+
+    public function intervention4()
+    {
+        return $this->hasOne(Intervention4::class);
+    }
+
+    public function intervention5()
+    {
+        return $this->hasOne(Intervention5::class);
+    }
+
+    public function intervention6()
+    {
+        return $this->hasOne(Intervention6::class);
     }
 
     public function step1()

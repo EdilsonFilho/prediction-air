@@ -43,6 +43,15 @@ class Step5Controller extends Controller
         $step = Step5::create($request->all());
 
         if ($step) {
+
+            if (Auth::user()->profile != config('profile.patient')) {
+                return redirect()->route('step5s.show', ['survey' => $survey, 'step5' => $survey->step5])
+                    ->with([
+                        'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',
+                        'code' => 'success'
+                    ]);
+            }
+
             return redirect()->route('surveys.edit', ['id' => $survey->id])
                 ->with([
                     'message' => 'Questionário cadastrado com sucesso. Selecione a seção onde deseja inserir novas informações.',

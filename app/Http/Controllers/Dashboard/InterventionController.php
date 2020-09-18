@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InterventionRequest;
-use App\Models\Intervention;
+use App\Models\Intervention1;
+use App\Models\Intervention2;
 use App\Models\Survey;
 
 class InterventionController extends Controller
@@ -20,17 +20,14 @@ class InterventionController extends Controller
                 ]);
         }
 
-        // $intervention = Intervention::create($request->all());
-
-        $intervention = Intervention::updateOrCreate(
-            [
-                'survey_id' => $survey->id,
-                'step_id' => $request['step_id'],
-            ],
-            [
-                'text' => $request['text']
-            ]
+        $intervention = $this->updateOrCreateIntervention(
+            $request['type'],
+            $request['step_id'],
+            $survey->id,
+            $request['text']
         );
+
+
 
         if ($intervention) {
             return redirect()->back()
@@ -45,5 +42,46 @@ class InterventionController extends Controller
                     'code' => 'danger'
                 ]);
         }
+    }
+
+    private function updateOrCreateIntervention($type, $step, $survey, $text)
+    {
+        $intervention = null;
+
+        switch ($type) {
+            case 'STEP_1':
+
+                $intervention = Intervention1::updateOrCreate(
+                    [
+                        'survey_id' => $survey,
+                        'step1_id' => $step,
+                    ],
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                break;
+
+            case 'STEP_2':
+
+                $intervention = Intervention2::updateOrCreate(
+                    [
+                        'survey_id' => $survey,
+                        'step2_id' => $step,
+                    ],
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        return $intervention;
     }
 }

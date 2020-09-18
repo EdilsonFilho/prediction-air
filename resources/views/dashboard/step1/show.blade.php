@@ -31,10 +31,11 @@
 
                     @if (\Auth::user()->profile != config('profile.patient'))
                         @include('dashboard.intervention.index', [
+                            'type' => 'STEP_1',
                             'survey' => $survey,
-                            'stepId' => $survey->step1->id,
-                            'text' => $survey->intervention($survey->step1->id)->first() ?
-                                        $survey->intervention($survey->step1->id)->first()->text :
+                            'stepId' => $step1->id,
+                            'text' => $survey->intervention1()->first() ?
+                                        $survey->intervention1()->first()->text :
                                         null
                         ])
                     @endif

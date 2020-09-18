@@ -28,6 +28,18 @@
                     </div>
                 </div>
                 <div class="panel box box-primary">
+
+                    @if (\Auth::user()->profile != config('profile.patient'))
+                        @include('dashboard.intervention.index', [
+                            'type' => 'STEP_5',
+                            'survey' => $survey,
+                            'stepId' => $step5->id,
+                            'text' => $survey->intervention5()->first() ?
+                                        $survey->intervention5()->first()->text :
+                                        null
+                        ])
+                    @endif
+
                     <div class="box-header with-border">
                         <div class="row">
                             <div class="col-md-8">
