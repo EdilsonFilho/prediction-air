@@ -39,7 +39,7 @@
                 @endfor
 
                 {{-- Step3 --}}
-                @for ($i = 1; $i <= 3; $i++)
+                @for ($i = 1; $i <= 4; $i++)
                     <th>{{ \App\Models\Question::step3($i) }}</th>
                 @endfor
 
@@ -74,6 +74,11 @@
                 {{-- Step5 --}}
                 @for ($i = 1; $i <= 53; $i++)
                     <th>{{ \App\Models\Question::step5($i) }}</th>
+                @endfor
+
+                {{-- Step5 --}}
+                @for ($i = 1; $i <= 10; $i++)
+                    <th>{{ key(\App\Models\Question::step6($i)) }}</th>
                 @endfor
             </tr>
         </thead>
@@ -141,7 +146,12 @@
 
                     {{-- Step 5 --}}
                     @for ($i = 1; $i <= 53; $i++)
-                        <td>{{ $survey->step3['step5_' . $i] }}</td>
+                        <td>{{ $survey->step5['step5_' . $i] }}</td>
+                    @endfor
+
+                    {{-- Step 6 --}}
+                    @for ($i = 1; $i <= 10; $i++)
+                        <td>{{ $survey->step6['step6_' . $i] }}</td>
                     @endfor
                 </tr>
             @endforeach
