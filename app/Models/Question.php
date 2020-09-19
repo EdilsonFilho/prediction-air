@@ -224,6 +224,8 @@ class Question extends Model
             ],
         ];
 
+        // TODO: Sempre que a chave for alterada, tb será preciso alterar o valor no banco step6 :(
+
         $punctuation = [
             // Alimentação
             'step6_1' => [

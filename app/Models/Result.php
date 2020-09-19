@@ -91,6 +91,74 @@ class Result extends Model
         return self::getResultStep4($partialResult, $max);
     }
 
+    public static function getStep5($step)
+    {
+        // Somatização
+        $scale1 = ['2', '7', '23', '29', '30', '33', '37'];
+        $countScale1 = ['tag' => 'scale1', 'value' => self::getCountScaleStep5($scale1, $step)];
+
+        // Obsessões-Compulsões
+        $scale2 = ['5', '15', '26', '27', '32', '36'];
+        $countScale2 = ['tag' => 'scale2', 'value' => self::getCountScaleStep5($scale2, $step)];
+
+        // Sensibilidade Interpessoal
+        $scale3 = ['20', '21', '22', '42'];
+        $countScale3 = ['tag' => 'scale3', 'value' => self::getCountScaleStep5($scale3, $step)];
+
+        // Depressão
+        $scale4 = ['9', '16', '17', '18', '35', '50'];
+        $countScale4 = ['tag' => 'scale4', 'value' => self::getCountScaleStep5($scale4, $step)];
+
+        // Ansiedade
+        $scale5 = ['1', '12', '19', '38', '45', '49'];
+        $countScale5 = ['tag' => 'scale5', 'value' => self::getCountScaleStep5($scale5, $step)];
+
+        // Hostilidade
+        $scale6 = ['6', '13', '40', '41', '46'];
+        $countScale6 = ['tag' => 'scale6', 'value' => self::getCountScaleStep5($scale6, $step)];
+
+        // Ansiedade Fóbica
+        $scale7 = ['8', '28', '31', '43', '47'];
+        $countScale7 = ['tag' => 'scale7', 'value' => self::getCountScaleStep5($scale7, $step)];
+
+        // Ideação Paranóide
+        $scale8 = ['4', '10', '24', '48', '51'];
+        $countScale8 = ['tag' => 'scale8', 'value' => self::getCountScaleStep5($scale8, $step)];
+
+        // Psicoticismo
+        $scale9 = ['3', '14', '34', '44', '53'];
+        $countScale9 = ['tag' => 'scale9', 'value' => self::getCountScaleStep5($scale9, $step)];
+
+        $scales = [
+            $countScale1,
+            $countScale2,
+            $countScale3,
+            $countScale4,
+            $countScale5,
+            $countScale6,
+            $countScale7,
+            $countScale8,
+            $countScale9
+        ];
+
+        usort($scales, function ($a, $b) {
+            return $b['value'] <=> $a['value'];
+        });
+
+        // dd(
+        //     // $test
+        //     self::getNameScaleFromStep5($scales[0]['tag'])
+        // );
+
+        // Baby steps
+        // - Para cada escala obter somatório, ou seja, ir na variável $step e verificar
+        //      se o valor é: Nunca 0 pontos; Poucas Vezes 1 ponto; Algumas Vezes 2 pontos;
+        //      Muitas Vezes 3 pontos; e Muitíssimas Vezes 4 pontos
+        // - De posse desse valor, guardar as duas maiores escalas
+
+        return self::getNameScaleFromStep5($scales[0]['tag']) . " e " . self::getNameScaleFromStep5($scales[1]['tag']);
+    }
+
     public static function getStep6($step)
     {
 
@@ -126,6 +194,91 @@ class Result extends Model
         }
 
         return "Severamente dependente";
+    }
+
+    private static function getNameScaleFromStep5($scale)
+    {
+        $name = "";
+
+        switch ($scale) {
+            case "scale1":
+                $name = "Somatização";
+                break;
+
+            case "scale2":
+                $name = "Obsessões-Compulsões";
+                break;
+
+            case "scale3":
+                $name = "Sensibilidade Interpessoal";
+                break;
+
+            case "scale4":
+                $name = "Depressão";
+                break;
+
+            case "scale5":
+                $name = "Ansiedade";
+                break;
+
+            case "scale6":
+                $name = "Hostilidade";
+                break;
+
+            case "scale7":
+                $name = "Ansiedade Fóbica";
+                break;
+
+            case "scale8":
+                $name = "Ideação Paranóide";
+                break;
+
+            default:
+                $name = "Psicoticismo";
+                break;
+        }
+
+        return $name;
+    }
+
+    private static function getCountScaleStep5($scale, $step)
+    {
+        $count = 0;
+
+        foreach ($scale as $key => $value) {
+            $count = $count + self::getValueFromStep5($step['step5_' . $value]);
+        }
+
+        return $count;
+    }
+
+    private static function getValueFromStep5($value)
+    {
+        $result = 0;
+
+        switch (strtolower($value)) {
+            case "nunca":
+                $result = 0;
+                break;
+
+            case "poucas vezes":
+                $result = 1;
+                break;
+
+            case "algumas vezes":
+                $result = 2;
+                break;
+
+            case "muitas vezes":
+                $result = 2;
+                break;
+
+            default:
+                $result = 3;
+                break;
+        }
+
+        return $result;
     }
 
     private static function getResultStep4($partialResult, $max)
