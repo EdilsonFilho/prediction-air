@@ -168,7 +168,7 @@ class Question extends Model
             ],
             '3' => [
                 'Banho' => [
-                    'Independente (toma banho geral no duche ou banheira. Entra e sai do banho sem ajuda de terceiro)',
+                    'Independente (toma banho geral na ducha ou banheira. Entra e sai do banho sem ajuda de terceiro)',
                     'Dependente'
                 ]
             ],
@@ -241,7 +241,7 @@ class Question extends Model
             ],
             // Banho
             'step6_3' => [
-                'Independente (toma banho geral no duche ou banheira. Entra e sai do banho sem ajuda de terceiro)' => 5,
+                'Independente (toma banho geral na ducha ou banheira. Entra e sai do banho sem ajuda de terceiro)' => 5,
                 'Dependente' => 0
             ],
             // Higiene corporal

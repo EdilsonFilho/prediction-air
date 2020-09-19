@@ -4,15 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HADDS</title>
+    <title>HADDS - {{ $survey->patient->name }}</title>
 	<link href="{{ public_path('css/pdf.css') }}" rel="stylesheet" type="text/css" />
-
-    {{-- @hasSection('simple-table') --}}
-        {{-- <link href="{{ public_path('css/simple-table.css') }}" rel="stylesheet" type="text/css" /> --}}
-    {{-- @else --}}
-        <link href="{{ public_path('css/grey-grid-table.css') }}" rel="stylesheet" type="text/css" />
-    {{-- @endif --}}
-
+    <link href="{{ public_path('css/grey-grid-table.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header>
@@ -22,7 +16,7 @@
                     <td class="logo" width="30%">
                         <strong>HADDS</strong>
                     </td>
-                    <td class="report-title" width="70%">Pesquisa</td>
+                    <td class="report-title" width="70%">{{ $survey->patient->name }}</td>
                 </tr>
             </tbody>
         </table>
@@ -32,7 +26,7 @@
             <tbody>
                 <tr>
                     <td width="20%">
-                        <strong>HADDS</strong> - Pesquisa <br>
+                        <strong>HADDS</strong> - {{ $survey->patient->name }} <br>
                         <small>
                             <em>
                                 Gerado por {{ \Auth::user()->name }} em {{ \Carbon\Carbon::now()->format('d/m/Y \à\s H:i') }}
@@ -54,8 +48,92 @@
                     'survey' => $survey,
                     'step1' => $survey->step1
                 ])
+                <br>
+                @include('dashboard.survey.partials.intervention', [
+                    'intervention' => isset($survey->intervention1) ? $survey->intervention1->text : null
+                ])
             @else
-                {{-- @include('dashboard.survey.partials.table') --}}
+                @include('dashboard.survey.partials.no_data', ['title' => 'DADOS SOCIODEMOGRÁFICOS'])
+            @endisset
+
+            <br>
+
+            @isset($survey->step2)
+                @include('dashboard.step2.partials.table', [
+                    'showHeader' => true,
+                    'survey' => $survey,
+                    'step2' => $survey->step2
+                ])
+                <br>
+                @include('dashboard.survey.partials.intervention', [
+                    'intervention' => isset($survey->intervention2) ? $survey->intervention2->text : null
+                ])
+            @else
+                @include('dashboard.survey.partials.no_data', ['title' => 'ADESÃO À MEDICAÇÃO'])
+            @endisset
+
+            <br>
+
+            @isset($survey->step3)
+                @include('dashboard.step3.partials.table', [
+                    'showHeader' => true,
+                    'survey' => $survey,
+                    'step3' => $survey->step3
+                ])
+                <br>
+                @include('dashboard.survey.partials.intervention', [
+                    'intervention' => isset($survey->intervention3) ? $survey->intervention3->text : null
+                ])
+            @else
+                @include('dashboard.survey.partials.no_data', ['title' => 'ESCALA DE DEMÊNCIA'])
+            @endisset
+
+            <br>
+
+            @isset($survey->step4)
+                @include('dashboard.step4.partials.table', [
+                    'showHeader' => true,
+                    'survey' => $survey,
+                    'step4' => $survey->step4
+                ])
+                <br>
+                @include('dashboard.survey.partials.intervention', [
+                    'intervention' => isset($survey->intervention4) ? $survey->intervention4->text : null
+                ])
+            @else
+                @include('dashboard.survey.partials.no_data', ['title' => 'ESCALA DE SUPORTE SOCIAL'])
+            @endisset
+
+            <br>
+
+            @isset($survey->step5)
+                @include('dashboard.step5.partials.table', [
+                    'showHeader' => true,
+                    'survey' => $survey,
+                    'step5' => $survey->step5
+                ])
+                <br>
+                @include('dashboard.survey.partials.intervention', [
+                    'intervention' => isset($survey->intervention5) ? $survey->intervention5->text : null
+                ])
+            @else
+                @include('dashboard.survey.partials.no_data', ['title' => 'INVENTÁRIO BREVE DE SINTOMAS (BSI)'])
+            @endisset
+
+            <br>
+
+            @isset($survey->step6)
+                @include('dashboard.step6.partials.table', [
+                    'showHeader' => true,
+                    'survey' => $survey,
+                    'step6' => $survey->step6
+                ])
+                <br>
+                @include('dashboard.survey.partials.intervention', [
+                    'intervention' => isset($survey->intervention6) ? $survey->intervention6->text : null
+                ])
+            @else
+                @include('dashboard.survey.partials.no_data', ['title' => 'ATIVIDADES DIÁRIAS'])
             @endisset
         </div>
     </main>
