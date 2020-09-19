@@ -45,7 +45,7 @@
                             <div class="col-md-8">
                                 <h4 class="box-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#step5">
-                                        ESCALA DE SUPORTE SOCIAL
+                                        INVENTÁRIO BREVE DE SINTOMAS (BSI)
                                     </a>
                                 </h4>
                             </div>
@@ -58,28 +58,10 @@
                         <div class="box-body no-padding">
                             <div class="box-body no-padding">
                                 <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th width="40%">Perguntas</th>
-                                                <th width="60%">Respostas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @for ($i = 1; $i <= 53; $i++)
-                                                <tr>
-                                                    <td>{{ \App\Models\Question::step5($i) }}</td>
-                                                    <td>{{ $step5['step5_' . $i] }}</td>
-                                                </tr>
-                                            @endfor
-                                            @if (\Auth::user()->profile != config('profile.patient'))
-                                                <tr>
-                                                    <td><strong>Resultado</strong></td>
-                                                    <td><strong>{{ \App\Models\Result::getStep5($step5) }}</strong></td>
-                                                </tr>
-                                            @endif
-                                        </tbody>
-                                    </table>
+                                    @include('dashboard.step5.partials.table', [
+                                        'survey' => $survey,
+                                        'step5' => $survey->step5
+                                    ])
                                 </div>
                             </div>
                         </div>

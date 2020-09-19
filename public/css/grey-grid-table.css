@@ -1,0 +1,45 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    text-align: left;
+    border-spacing: 0px;
+}
+
+table td,
+table th {
+    border: 0px solid #f4f4f4;
+    padding: 4px 4px;
+    text-align: left;
+}
+
+table tbody td {
+    font-size: 13px;
+}
+
+table tr:nth-child(even) {
+    background: #f6f9fc;
+}
+
+table thead {
+    background: #f6f9fc;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+table thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #8898aa;
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+table tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #222D32;
+    border-top: 2px solid #444444;
+}
+
+table tfoot td {
+    font-size: 14px;
+}

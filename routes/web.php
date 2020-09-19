@@ -32,6 +32,7 @@ Route::group(['middleware' => ['https.protocol']], function () {
         Route::get('surveys/{user}', 'SurveyController@index')->name('surveys.index');
         Route::post('surveys/{user}', 'SurveyController@store')->name('surveys.store');
         Route::get('surveys/{survey}/edit', 'SurveyController@edit')->name('surveys.edit');
+        Route::get('surveys/{survey}/print', 'SurveyController@print')->name('surveys.print');
         Route::delete('surveys/{survey}', 'SurveyController@destroy')->name('surveys.destroy');
 
         Route::get('step1s/{survey}', 'Step1Controller@create')->name('step1s.create');

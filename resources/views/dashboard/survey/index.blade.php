@@ -77,7 +77,10 @@
                                 <td>{!! $survey->getStatuStep6() !!}</td>
                                 <td>
                                     <a href="{{ route('surveys.edit', $survey->id) }}" alt="Acessar questionário" title="Acessar questionário" class="btn btn-default btn-sm"><i class="fa fa-copy"></i></a>
-                                    <button alt="Excluir questionário" title="Excluir questionário" class="btn btn-danger btn-sm"   onclick="confirmDelete({{ $survey->id }}, '{{ route('surveys.destroy', ['survey' => $survey]) }}')"><i class="fa fa-trash"></i></button>
+                                    @if (\Auth::user()->profile != config('profile.patient'))
+                                        <a target="_blank" href="{{ route('surveys.print', $survey->id) }}" alt="Imprimir relatório" title="Imprimir relatório" class="btn btn-default btn-sm"><i class="fa fa-print"></i></a>
+                                        <button alt="Excluir questionário" title="Excluir questionário" class="btn btn-danger btn-sm"   onclick="confirmDelete({{ $survey->id }}, '{{ route('surveys.destroy', ['survey' => $survey]) }}')"><i class="fa fa-trash"></i></button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Survey;
 use App\Models\User;
 use Auth;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class SurveyController extends Controller
 {
@@ -94,7 +95,7 @@ class SurveyController extends Controller
     {
         $user = User::find($survey->patient_id);
 
-        if (!canAccess($user)) {
+        if (Auth::user()->profile == config('profile.patient') || !canAccess($user)) {
             return redirect()->route('home.index')
                 ->with([
                     'message' => 'Você tentou acessar uma área não permitida.',
@@ -111,5 +112,22 @@ class SurveyController extends Controller
             return redirect()->back()
                 ->with(['message' => 'Erro ao excluir. Tente novamente!', 'code' => 'danger']);
         }
+    }
+
+    public function print(Survey $survey)
+    {
+        $user = User::find($survey->patient_id);
+
+        if (Auth::user()->profile == config('profile.patient') || !canAccess($user)) {
+            return redirect()->route('home.index')
+                ->with([
+                    'message' => 'Você tentou acessar uma área não permitida.',
+                    'code' => 'danger'
+                ]);
+        }
+
+        return PDF::loadView('dashboard.survey.report', ['survey' => $survey])
+            ->setPaper('A4', 'portrait')
+            ->stream('__.pdf');
     }
 }

@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+@page {
+    margin: 80px 25px 100px 25px;
+
+    /* ABNT */
+    /* margin: 113.385px 75.590px 75.590px 113.385px; */
+}
+
+header {
+    position: fixed;
+    top: -50px;
+    width: 100%;
+    border-bottom: .3px solid #333;
+}
+
+footer {
+    position: fixed;
+    bottom: -100px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+    padding-top: 4px;
+}
+
+footer .pagenum:before {
+    content: counter(page);
+}
+
+footer .pagenum-container {
+    float: right;
+}
+
+main {
+    margin-top: 0px;
+}
+
+.table-header {
+    width: 100%;
+}
+
+.table-header tr {
+    /* margin: 0px !important; */
+    /* margin: 0px !important; */
+    background-color: white !important;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.report-title {
+    font-size: 18px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

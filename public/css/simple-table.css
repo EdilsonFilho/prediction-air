@@ -1,0 +1,36 @@
+table tr th {
+    font-weight: normal;
+    /* border-bottom: 1px solid #333; */
+    padding-bottom: 6px;
+}
+
+table tbody {
+    font-size: 12px;
+}
+
+.columns th {
+    background: #ddd;
+    border: 1px solid #aaa;
+    padding-top: 6px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    font-size: 10px;
+}
+
+.title th {
+    border-bottom: 1px solid #333;
+    padding-bottom: 6px;
+}
+
+.pd-top-6 {
+    padding-top: 6px;
+}
+
+hr.dashed {
+    border: 1px dashed #aaa;
+}
+
+hr {
+    border: 1.5px solid #aaa;
+}
