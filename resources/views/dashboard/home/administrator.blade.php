@@ -1,7 +1,5 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
-
 @section('content_header')
     <h1>
         Seja bem-vindo(a) {{ \Auth::user()->name }}
