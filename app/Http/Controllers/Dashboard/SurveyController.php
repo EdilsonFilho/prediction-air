@@ -126,7 +126,7 @@ class SurveyController extends Controller
                 ]);
         }
 
-        return PDF::loadView('dashboard.survey.report', ['survey' => $survey])
+        return PDF::loadView('dashboard.survey.report', ['survey' => $survey, 'user' => $user])
             ->setPaper('A4', 'portrait')
             ->stream('__.pdf');
     }

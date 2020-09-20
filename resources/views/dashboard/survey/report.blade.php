@@ -42,6 +42,16 @@
     </footer>
     <main>
         <div class="content">
+            @isset($user->clinicalRecord)
+                @include('dashboard.clinical_record.partials.table', [
+                    'clinicalRecord' => $user->clinicalRecord
+                ])
+            @else
+                @include('dashboard.survey.partials.no_data', ['title' => 'REGISTRO CLÍNICO'])
+            @endisset
+
+            <br>
+
             @isset($survey->step1)
                 @include('dashboard.step1.partials.table', [
                     'showHeader' => true,
