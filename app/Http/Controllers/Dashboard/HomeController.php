@@ -10,87 +10,52 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->profile == config('profile.administrator')) {
+        // if (Auth::user()->profile == config('profile.administrator')) {
 
-            $totalUsers = Auth::user()->getTotalUsers();
+        $totalUsers = Auth::user()->getTotalUsers();
 
-            $totalProfessionals = Auth::user()->getTotalProfessionals();
+        $totalProfessionals = Auth::user()->getTotalProfessionals();
 
-            $totalPatients = Auth::user()->getTotalPatients();
+        $totalPatients = Auth::user()->getTotalPatients();
 
-            $totalSurveys = Survey::all()->count();
+        $totalSurveys = Survey::all()->count();
 
-            $users = Auth::user()->getLastUsers();
-
-            $amountPatients = Auth::user()->getAmountPatients();
-
-            $amountSurveys = Auth::user()->getAmountSurveys();
-
-            return view(
-                'dashboard.home.administrator',
-                compact(
-                    'totalUsers',
-                    'totalProfessionals',
-                    'totalPatients',
-                    'totalSurveys',
-                    'users',
-                    'amountPatients',
-                    'amountSurveys'
-                )
-            );
-        }
-
-        if (Auth::user()->profile == config('profile.professional')) {
-
-            $amountPatients = Auth::user()->getAmountPatients();
-
-            $amountSurveys = Auth::user()->getAmountSurveys();
-
-            return view(
-                'dashboard.home.professional',
-                compact(
-                    'amountPatients',
-                    'amountSurveys'
-                )
-            );
-        }
-
-        $amountSurveys = Survey::where('patient_id', '=', Auth::id())->count();
+        $users = Auth::user()->getLastUsers();
 
         return view(
-            'dashboard.home.patient',
+            'dashboard.home.administrator',
             compact(
-                'amountSurveys'
+                'totalUsers',
+                'totalProfessionals',
+                'totalPatients',
+                'totalSurveys',
+                'users'
             )
         );
+        // }
 
+        // if (Auth::user()->profile == config('profile.professional')) {
 
-        // $amountPatients = 0;
-        // $amountSurveys = 0;
-        // $amountUsers = 0;
-        // $amountProfessionals = 0;
-        // $users = collect();
-
-        // if (
-        //     Auth::user()->profile == config('profile.administrator') ||
-        //     Auth::user()->profile == config('profile.professional')
-        // ) {
         //     $amountPatients = Auth::user()->getAmountPatients();
-        //     $amountSurveys = Auth::user()->getAmountSurveys();
+
+        //     $totalSurveys = Survey::all()->count();
+
+        //     return view(
+        //         'dashboard.home.professional',
+        //         compact(
+        //             'amountPatients',
+        //             'totalSurveys'
+        //         )
+        //     );
         // }
 
-        // if (Auth::user()->profile == config('profile.administrator')) {
-        //     $amountUsers = Auth::user()->getAmountUsers();
-        //     $amountProfessionals = Auth::user()->getAmountProfessionals();
-        //     $users = Auth::user()->getLastUsers();
-        // }
+        // $totalSurveys = Survey::all()->count();
 
-        // return view('dashboard.home.index', [
-        //     'amountPatients' => $amountPatients,
-        //     'amountSurveys' => $amountSurveys,
-        //     'amountUsers' => $amountUsers,
-        //     'amountProfessionals' => $amountProfessionals,
-        //     'users' => $users,
-        // ]);
+        // return view(
+        //     'dashboard.home.patient',
+        //     compact(
+        //         'totalSurveys'
+        //     )
+        // );
     }
 }

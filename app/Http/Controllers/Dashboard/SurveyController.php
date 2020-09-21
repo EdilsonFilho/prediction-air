@@ -13,16 +13,7 @@ class SurveyController extends Controller
 {
     public function index(User $user)
     {
-        if (Auth::id() != $user->professional_id) {
-            return redirect()->route('home.index')
-                ->with([
-                    'message' => 'Você tentou acessar uma área não permitida.',
-                    'code' => 'danger'
-                ]);
-        }
-
-        $surveys = Survey::where('professional_id', '=', Auth::id())
-            ->where('patient_id', '=', $user->id)
+        $surveys = Survey::where('patient_id', '=', $user->id)
             ->paginate(config('pagination.default'));
 
         return view('dashboard.survey.index', ['user' => $user, 'surveys' => $surveys]);

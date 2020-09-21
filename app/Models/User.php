@@ -96,29 +96,24 @@ class User extends Authenticatable
         return Carbon::parse($this->attributes['created_at'])->format('d/m/Y \à\s H:i');
     }
 
-    public function patients()
-    {
-        return $this->hasMany($this, 'professional_id');
-    }
+    // public function patients()
+    // {
+    //     return $this->hasMany($this, 'professional_id');
+    // }
 
-    public function surveys()
-    {
-        return $this->hasMany(Survey::class, 'professional_id')->orderBy('patient_id');
-    }
+    // public function surveys()
+    // {
+    //     return $this->hasMany(Survey::class, 'professional_id')->orderBy('patient_id');
+    // }
 
     public function clinicalRecord()
     {
         return $this->hasOne(ClinicalRecord::class, 'patient_id');
     }
 
-    public function getAmountSurveys()
-    {
-        return $this->surveys->where('professional_id', '=', Auth::id())->count();
-    }
-
     public function getAmountPatients()
     {
-        return $this->patients->where('professional_id', '=', Auth::id())->count();
+        return $this->where('professional_id', '!=', null)->count();
     }
 
     public function getTotalUsers()

@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\Survey;
 use Auth;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\WithProperties;
@@ -28,7 +29,7 @@ class PatientsExport implements WithProperties, FromView
     public function view(): View
     {
         return view('dashboard.export.patients', [
-            'surveys' => Auth::user()->surveys
+            'surveys' => Survey::orderBy('patient_id')->get()
         ]);
     }
 }
