@@ -23,9 +23,11 @@ class PatientController extends Controller
 
         if ($s) {
             $patients = User::where('name', 'LIKE', '%' . $s . '%')
+                ->where('profile', '=', config('profile.patient'))
                 ->paginate(config('pagination.default'));
         } else {
-            $patients = User::paginate(config('pagination.default'));
+            $patients = User::where('profile', '=', config('profile.patient'))
+                ->paginate(config('pagination.default'));
         }
 
         return view('dashboard.patient.index', compact('patients', 's'));
