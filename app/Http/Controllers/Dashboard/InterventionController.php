@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\InterventionRequest;
 use App\Models\Intervention1;
 use App\Models\Intervention2;
+use App\Models\Intervention3;
+use App\Models\Intervention4;
+use App\Models\Intervention5;
+use App\Models\Intervention6;
 use App\Models\Survey;
 
 class InterventionController extends Controller
@@ -69,6 +73,62 @@ class InterventionController extends Controller
                     [
                         'survey_id' => $survey,
                         'step2_id' => $step,
+                    ],
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                break;
+
+            case 'STEP_3':
+
+                $intervention = Intervention3::updateOrCreate(
+                    [
+                        'survey_id' => $survey,
+                        'step3_id' => $step,
+                    ],
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                break;
+
+            case 'STEP_4':
+
+                $intervention = Intervention4::updateOrCreate(
+                    [
+                        'survey_id' => $survey,
+                        'step4_id' => $step,
+                    ],
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                break;
+
+            case 'STEP_5':
+
+                $intervention = Intervention5::updateOrCreate(
+                    [
+                        'survey_id' => $survey,
+                        'step5_id' => $step,
+                    ],
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                break;
+
+            case 'STEP_6':
+
+                $intervention = Intervention6::updateOrCreate(
+                    [
+                        'survey_id' => $survey,
+                        'step6_id' => $step,
                     ],
                     [
                         'text' => $text

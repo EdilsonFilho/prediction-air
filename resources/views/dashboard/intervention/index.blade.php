@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <h4 class="box-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#intervention">
-                        INTERVAÇÃO
+                        INTERVENÇÃO
                     </a>
                 </h4>
             </div>
