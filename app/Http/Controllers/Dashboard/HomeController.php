@@ -10,29 +10,29 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // if (Auth::user()->profile == config('profile.administrator')) {
+        if (Auth::user()->profile == config('profile.administrator')) {
 
-        $totalUsers = Auth::user()->getTotalUsers();
+            $totalUsers = Auth::user()->getTotalUsers();
 
-        $totalProfessionals = Auth::user()->getTotalProfessionals();
+            $totalProfessionals = Auth::user()->getTotalProfessionals();
 
-        $totalPatients = Auth::user()->getTotalPatients();
+            $totalPatients = Auth::user()->getTotalPatients();
 
-        $totalSurveys = Survey::all()->count();
+            $totalSurveys = Survey::all()->count();
 
-        $users = Auth::user()->getLastUsers();
+            $users = Auth::user()->getLastUsers();
 
-        return view(
-            'dashboard.home.administrator',
-            compact(
-                'totalUsers',
-                'totalProfessionals',
-                'totalPatients',
-                'totalSurveys',
-                'users'
-            )
-        );
-        // }
+            return view(
+                'dashboard.home.administrator',
+                compact(
+                    'totalUsers',
+                    'totalProfessionals',
+                    'totalPatients',
+                    'totalSurveys',
+                    'users'
+                )
+            );
+        }
 
         // if (Auth::user()->profile == config('profile.professional')) {
 
@@ -49,13 +49,13 @@ class HomeController extends Controller
         //     );
         // }
 
-        // $totalSurveys = Survey::all()->count();
+        $totalSurveys = Survey::all()->count();
 
-        // return view(
-        //     'dashboard.home.patient',
-        //     compact(
-        //         'totalSurveys'
-        //     )
-        // );
+        return view(
+            'dashboard.home.patient',
+            compact(
+                'totalSurveys'
+            )
+        );
     }
 }
