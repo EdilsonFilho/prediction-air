@@ -49,7 +49,7 @@ class HomeController extends Controller
         //     );
         // }
 
-        $totalSurveys = Survey::all()->count();
+        $totalSurveys = Survey::where('patient_id', '=', Auth::id())->count();
 
         return view(
             'dashboard.home.patient',
