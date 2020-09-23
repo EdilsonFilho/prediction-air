@@ -30,6 +30,7 @@
                         <tr>
                             <th>Nome</th>
                             <th>Dt. de nascimento</th>
+                            <th>Nome da mãe</th>
                             <th>Telefone</th>
                             <th>Data de cadastro</th>
                             <th>Último acesso</th>
@@ -41,6 +42,7 @@
                             <tr>
                                 <td>{{ $patient->name }}</td>
                                 <td>{{ $patient->date_birth }}</td>
+                                <td>{{ $patient->mother_name }}</td>
                                 <td>{{ $patient->phone }}</td>
                                 <td>{{ $patient->created }}</td>
                                 <td>{{ $patient->last_login_at }}</td>

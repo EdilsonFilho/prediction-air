@@ -51,6 +51,12 @@
             </div>
         </div>
     </div>
+    <div class="col-md-8">
+        <div class="form-group">
+            {{ Form::label('mother_name', 'Nome da mãe') }}
+            {{ Form::text('mother_name', null, array('class' => 'form-control')) }}
+        </div>
+    </div>
     <div class="col-md-12">
         <div class="form-group">
             {{ Form::label('address', 'Endereço') }}
