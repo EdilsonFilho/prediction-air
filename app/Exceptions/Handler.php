@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +49,24 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ModelNotFoundException && $request->expectsJson()) {
+            return response()->json(
+                [
+                    'error' =>
+                    'Oops! Você está tentando realizar uma ação em um dado que já não existe mais.'
+                ],
+                500
+            );
+        }
+
+        if ($exception instanceof ValidationException && $request->expectsJson()) {
+            return response()->json(['error' => $exception->errors()], $exception->status);
+        }
+
+        if ($exception instanceof AuthenticationException) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
         return parent::render($request, $exception);
     }
 }

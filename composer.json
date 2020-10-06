@@ -14,7 +14,8 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "5.6",
         "maatwebsite/excel": "^3.1",
-        "nesbot/carbon": "1.26"
+        "nesbot/carbon": "1.26",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",

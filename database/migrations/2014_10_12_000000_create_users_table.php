@@ -18,7 +18,12 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->smallInteger('profile')->default(ProfilesType::OneRoleValue);
             $table->string('name');
-            $table->string('email')->nullable();
+
+            // if (true) {
+
+            // }
+
+            $table->string('email')->unique()->nullable();
             $table->string('password');
             $table->string('phone')->unique();
             $table->string('address')->nullable();

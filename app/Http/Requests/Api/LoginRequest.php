@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Step5Request extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,23 +23,17 @@ class Step5Request extends FormRequest
      */
     public function rules()
     {
-        $rules = [];
-
-        for ($i = 1; $i <= 53; $i++) {
-            $rules['step5_' . $i] = 'required';
-        }
-
-        return $rules;
+        return [
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ];
     }
 
     public function attributes()
     {
-        $attributes = [];
-
-        for ($i = 1; $i <= 53; $i++) {
-            $attributes['step5_' . $i] = 'Pergunta ' . $i;
-        }
-
-        return $attributes;
+        return [
+            'email' => 'e-mail',
+            'password' => 'senha',
+        ];
     }
 }
