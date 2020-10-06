@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ProfilesType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +16,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('profile')->default(config('profile.professional'));
+            $table->smallInteger('profile')->default(ProfilesType::OneRoleValue);
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('password');

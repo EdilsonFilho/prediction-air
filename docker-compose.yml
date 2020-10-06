@@ -1,38 +1,38 @@
 version: "2"
 
 volumes:
-  vihsida-mysql-data:
+  seed-mysql-data:
     driver: local
 
-  vihsida-redis-data:
+  seed-redis-data:
     driver: local
 
 services:
   mysql:
     image: mysql:5.7
-    container_name: vihsida-mysql
+    container_name: seed-mysql
     volumes:
-      - vihsida-mysql-data:/var/lib/mysql
+      - seed-mysql-data:/var/lib/mysql
     ports:
       - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=vihsida
-      - MYSQL_DATABASE=vihsida
-      - MYSQL_USER=vihsida
-      - MYSQL_PASSWORD=vihsida
+      - MYSQL_ROOT_PASSWORD=seed
+      - MYSQL_DATABASE=seed
+      - MYSQL_USER=seed
+      - MYSQL_PASSWORD=seed
 
   cache:
     image: redis:4.0
-    container_name: vihsida-redis
+    container_name: seed-redis
     command: --appendonly yes
     volumes:
-      - vihsida-redis-data:/data
+      - seed-redis-data:/data
     ports:
       - "6380:6379"
 
   app:
     image: ambientum/php:7.3-nginx
-    container_name: vihsida-app
+    container_name: seed-app
     volumes:
       - .:/var/www/app
     ports:

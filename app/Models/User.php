@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProfilesType;
 use Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,8 +18,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profile', 'phone', 'address', 'last_login_at', 'last_login_ip',
-        'date_birth', 'professional_id', 'mother_name'
+        'name',
+        'email',
+        'password',
+        'profile',
+        'phone',
+        'address',
+        'date_birth',
+        'last_login_at',
+        'last_login_ip'
     ];
 
     /**
@@ -80,59 +88,25 @@ class User extends Authenticatable
     public function getDescriptionProfile()
     {
         switch ($this->profile) {
-            case config('profile.administrator'):
-                return 'Administrador(a)';
+            case ProfilesType::ZeroRoleValue:
+                return ProfilesType::ZeroRoleDescription;
 
-            case config('profile.professional'):
-                return 'Profissional';
+            case ProfilesType::OneRoleValue:
+                return ProfilesType::OneRoleDescription;
+
+            case ProfilesType::TwoRoleValue:
+                return ProfilesType::TwoRoleDescription;
+
+            case ProfilesType::ThreeRoleValue:
+                return ProfilesType::ThreeRoleDescription;
 
             default:
-                return 'Paciente';
+                return 'Perfil não identificado';
         }
     }
 
     public function getCreatedAttribute()
     {
         return Carbon::parse($this->attributes['created_at'])->format('d/m/Y \à\s H:i');
-    }
-
-    // public function patients()
-    // {
-    //     return $this->hasMany($this, 'professional_id');
-    // }
-
-    // public function surveys()
-    // {
-    //     return $this->hasMany(Survey::class, 'professional_id')->orderBy('patient_id');
-    // }
-
-    public function clinicalRecord()
-    {
-        return $this->hasOne(ClinicalRecord::class, 'patient_id');
-    }
-
-    public function getAmountPatients()
-    {
-        return $this->where('professional_id', '!=', null)->count();
-    }
-
-    public function getTotalUsers()
-    {
-        return $this->where('profile', '!=', config('profile.administrator'))->count();
-    }
-
-    public function getTotalProfessionals()
-    {
-        return $this->where('profile', '=', config('profile.professional'))->count();
-    }
-
-    public function getTotalPatients()
-    {
-        return $this->where('profile', '=', config('profile.patient'))->count();
-    }
-
-    public function getLastUsers($number = 8)
-    {
-        return $this->where('profile', '!=', config('profile.administrator'))->limit($number)->get();
     }
 }

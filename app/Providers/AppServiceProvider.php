@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Enums\ProfilesType;
 use Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -30,43 +31,7 @@ class AppServiceProvider extends ServiceProvider
                 'active' => ['dashboard/home*']
             ]);
 
-            if (Auth::user()->profile == config('profile.patient')) {
-                $event->menu->add([
-                    'text' => 'Minhas pesquisas',
-                    'url' => 'dashboard/my-surveys',
-                    'icon' => 'fas fa-fw fa-copy',
-                    'active' => [
-                        'dashboard/my-surveys*',
-                        'dashboard/step1s*',
-                        'dashboard/step2s*',
-                        'dashboard/step3s*',
-                        'dashboard/step4s*',
-                        'dashboard/step5s*',
-                        'dashboard/step6s*',
-                    ],
-                ]);
-            }
-
-            if (Auth::user()->profile != config('profile.patient')) {
-                $event->menu->add([
-                    'text' => 'Pacientes',
-                    'url'  => 'dashboard/patients',
-                    'icon' => 'fas fa-fw fa-users',
-                    'active' => [
-                        'dashboard/patients*',
-                        'dashboard/surveys*',
-                        'dashboard/step1s*',
-                        'dashboard/step2s*',
-                        'dashboard/step3s*',
-                        'dashboard/step4s*',
-                        'dashboard/step5s*',
-                        'dashboard/step6s*',
-                        'dashboard/clinical-records*',
-                    ]
-                ]);
-            }
-
-            if (Auth::user()->profile == config('profile.administrator')) {
+            if (Auth::user()->profile == ProfilesType::ZeroRoleValue) {
 
                 $event->menu->add('ADMINISTRAÇÃO');
 

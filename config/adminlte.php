@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'HADDS',
+    'title' => 'SEED',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>HADDS</b>',
+    'logo' => '<b>SEED</b>',
 
-    'logo_mini' => '<b>HS</b>',
+    'logo_mini' => '<b>SD</b>',
 
     /*
     |--------------------------------------------------------------------------
