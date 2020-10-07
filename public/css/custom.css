@@ -1,3 +1,8 @@
+:root {
+    --seed-primary: #468208;
+    --seed-secondary: #324e14;
+  }
+
 .login-logo a,
 .register-logo a {
     color: #fff;
@@ -12,7 +17,7 @@
 }
 
 a {
-    color: #468208;
+    color: var(--seed-primary);
 }
 
 a:hover,
@@ -20,46 +25,46 @@ a:active,
 a:focus {
     outline: none;
     text-decoration: none;
-    color: #324e14;
+    color: var(--seed-secondary);
 }
 
 .skin-red .sidebar-menu>li.active>a {
-    border-left-color: #468208;
+    border-left-color: var(--seed-primary);
 }
 
 .btn-custom {
     color: white;
     background-color: #437c0a !important;
-    border-color: #468208 !important;
+    border-color: var(--seed-primary) !important;
 }
 
 .btn-custom:hover {
     color: white;
-    background-color: #324e14 !important;
-    border-color: #324e14 !important;
+    background-color: var(--seed-secondary) !important;
+    border-color: var(--seed-secondary) !important;
 }
 
 .skin-red .main-header .logo {
-    background-color: #468208;
+    background-color: var(--seed-primary);
     color: #fff;
     border-bottom: 0 solid transparent;
 }
 
 .skin-red .main-header .logo:hover {
-    background-color: #468208;
+    background-color: var(--seed-primary);
 }
 
 .skin-red .main-header .navbar .sidebar-toggle:hover {
-    background-color: #468208;
+    background-color: var(--seed-primary);
 }
 
 .skin-red .main-header .navbar {
-    background-color: #468208;
+    background-color: var(--seed-primary);
 }
 
 .widget-color {
     color: white;
-    background-color: #468208;
+    background-color: var(--seed-primary);
 }
 
 .invoice {
@@ -78,10 +83,10 @@ a:focus {
     /* justify-content: center; */
     /* align-items: center; */
     background: #0250c5;
-    background: -webkit-linear-gradient(bottom, #468208, #39630d);
-    background: -o-linear-gradient(bottom, #468208, #39630d);
-    background: -moz-linear-gradient(bottom, #468208, #39630d);
-    background: linear-gradient(bottom, #468208, #39630d);
+    background: -webkit-linear-gradient(bottom, var(--seed-primary), #39630d);
+    background: -o-linear-gradient(bottom, var(--seed-primary), #39630d);
+    background: -moz-linear-gradient(bottom, var(--seed-primary), #39630d);
+    background: linear-gradient(bottom, var(--seed-primary), #39630d);
     position: relative;
     z-index: 1;
 }
@@ -134,8 +139,8 @@ a:focus {
 }
 
 .box .box-danger {
-    border-top: 3px solid #468208 !important;
-    border-top-color: #468208 !important;
+    border-top: 3px solid var(--seed-primary) !important;
+    border-top-color: var(--seed-primary) !important;
 }
 
 .border-radius-zero {
@@ -256,14 +261,14 @@ label {
 .datepicker table tr td span.active.disabled:hover,
 .datepicker table tr td span.active:hover {
     background-color: #39630d;
-    background-image: -moz-linear-gradient(to bottom, #468208, #39630d);
-    background-image: -ms-linear-gradient(to bottom, #468208, #39630d);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#468208), to(#39630d));
-    background-image: -webkit-linear-gradient(to bottom, #468208, #39630d);
-    background-image: -o-linear-gradient(to bottom, #468208, #39630d);
-    background-image: linear-gradient(to bottom, #468208, #39630d);
+    background-image: -moz-linear-gradient(to bottom, var(--seed-primary), #39630d);
+    background-image: -ms-linear-gradient(to bottom, var(--seed-primary), #39630d);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(var(--seed-primary)), to(#39630d));
+    background-image: -webkit-linear-gradient(to bottom, var(--seed-primary), #39630d);
+    background-image: -o-linear-gradient(to bottom, var(--seed-primary), #39630d);
+    background-image: linear-gradient(to bottom, var(--seed-primary), #39630d);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#468208', endColorstr='#39630d', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--seed-primary)', endColorstr='#39630d', GradientType=0);
     border-color: #39630d #39630d #39630d;
     border-color: rgba(0, 0, 0, .1) rgba(0, 0, 0, .1) rgba(0, 0, 0, .25);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
@@ -312,7 +317,7 @@ label {
 
 .box.box-solid>.box-header .btn:hover,
 .box.box-solid>.box-header a:hover {
-    background-color: #468208;
+    background-color: var(--seed-primary);
 }
 
 .bg-dark {
@@ -423,7 +428,7 @@ label {
 }
 
 .set-cursor {
-    color: #468208;
+    color: var(--seed-primary);
     cursor: pointer;
 }
 

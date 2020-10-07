@@ -40,7 +40,13 @@
                             Atenção!
                             <br>
                             <br>
-                            Os campos Telefone, Senha, Confirmação de senha e Nome são campos obrigatórios.
+
+                            @if (config('seed.username') == 'email')
+                                Os campos E-mail, Senha, Confirmação de senha e Nome são campos obrigatórios.
+                            @else
+                                Os campos Telefone, Senha, Confirmação de senha e Nome são campos obrigatórios.
+                            @endif
+
                         </h6>
                         @include('dashboard.user.partials.form')
                     </div>

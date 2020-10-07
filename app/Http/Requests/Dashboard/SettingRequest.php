@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;
@@ -24,13 +24,21 @@ class SettingRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|max:191',
             'date_birth' => 'nullable|date_format:d/m/Y',
-            'email' => 'email|nullable',
-            'phone' => 'required|max:191|unique:users,phone,' . Auth::user()->id,
             'password' => 'confirmed|nullable|min:6',
             'password_confirmation' => 'nullable|min:6|same:password',
         ];
+
+        if (config('seed.username') == 'email') {
+            $rules['email'] = 'required|email|unique:users,email,' . Auth::id();
+            $rules['phone'] = 'nullable|regex:/\(\d{2,}\) \d{4,}\-\d{4}/|unique:users,phone,' . Auth::id();
+        } else {
+            $rules['email'] = 'nullable|email|unique:users,email,' . Auth::id();
+            $rules['phone'] = 'required|max:191|unique:users,phone,' . Auth::id();
+        }
+
+        return $rules;
     }
 }

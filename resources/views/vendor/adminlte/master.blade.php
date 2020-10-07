@@ -50,7 +50,7 @@
     {{ Html::style('plugins/icheck-material-1.0.0/assets/css/icheck-material.min.css') }}
     {{ Html::style('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}
     {{ Html::style('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
-    {{ Html::style('css/custom.css?v=saecf6dc-ba7d-4287-ab07-d9fda4a111bz') }}
+    {{ Html::style('css/custom.css?v=iaecf6dc-ba7d-1269-ab07-d9fda4a111bz') }}
 
     @yield('adminlte_css')
 

@@ -40,7 +40,13 @@
                             Atenção!
                             <br>
                             <br>
-                            Você está na página de edição do usuário. Somente os campos Telefone e Nome são obrigatórios.
+
+                            @if (config('seed.username') == 'email')
+                                Você está na página de edição do usuário. Somente os campos E-mail e Nome são obrigatórios.
+                            @else
+                                Você está na página de edição do usuário. Somente os campos Telefone e Nome são obrigatórios.
+                            @endif
+
                         </h6>
                         @if (!isset($isPatientRecord))
                             <div class="form-group">

@@ -48,11 +48,18 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $rules = [
             'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+        ];
+
+        if (config('seed.username') == 'email') {
+            $rules['email'] = 'required|string|email|max:255|unique:users';
+        } else {
+            $rules['phone'] = 'required|string|max:255|unique:users';
+        }
+
+        return Validator::make($data, $rules);
     }
 
     /**
@@ -63,10 +70,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $newUser = [
             'name' => $data['name'],
-            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
-        ]);
+        ];
+
+        if (config('seed.username') == 'email') {
+            $newUser['email'] = $data['email'];
+        } else {
+            $newUser['phone'] = $data['phone'];
+        }
+
+        return User::create($newUser);
     }
 }

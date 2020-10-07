@@ -46,7 +46,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'phone';
+        return config('seed.username');
     }
 
     /**

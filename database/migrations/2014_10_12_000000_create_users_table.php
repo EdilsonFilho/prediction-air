@@ -19,13 +19,15 @@ class CreateUsersTable extends Migration
             $table->smallInteger('profile')->default(ProfilesType::OneRoleValue);
             $table->string('name');
 
-            // if (true) {
+            if (config('seed.username') == 'email') {
+                $table->string('email')->unique();
+                $table->string('phone')->nullable()->unique();
+            } else {
+                $table->string('email')->nullable()->unique();
+                $table->string('phone')->unique();
+            }
 
-            // }
-
-            $table->string('email')->unique()->nullable();
             $table->string('password');
-            $table->string('phone')->unique();
             $table->string('address')->nullable();
             $table->date('date_birth')->nullable();
             $table->rememberToken();
