@@ -51,7 +51,7 @@
                         @if (!isset($isPatientRecord))
                             <div class="form-group">
                                 {{ Form::label('', 'Perfil de acesso: ') }}
-                                <strong>{{ Auth::user()->getDescriptionProfile() }}</strong>
+                                <strong>{{ $user->getDescriptionProfile() }}</strong>
                             </div>
                         @endif
                         @include('dashboard.user.partials.form', [
