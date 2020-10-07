@@ -19,6 +19,7 @@ class AuthController extends Controller
             'expires_in' => auth('api')->factory()->getTTL() * 60,
             'user' => [
                 'email' => auth('api')->user()->email,
+                'phone' => auth('api')->user()->phone,
                 'name' => auth('api')->user()->name,
             ]
         ], 200);
@@ -39,11 +40,11 @@ class AuthController extends Controller
 
         try {
 
-            $credentials = $request->only(['email', 'password']);
+            $credentials = $request->only([config('seed.username'), 'password']);
 
             $request['password'] = bcrypt($request->password);
 
-            User::create($request->only(['name', 'email', 'password', 'phone', 'profile']));
+            User::create($request->only(['name', config('seed.username'), 'password', 'phone', 'profile']));
 
             if (!$token = auth('api')->attempt($credentials)) {
                 return response()->json(['message' => 'Unauthorized'], 401);
@@ -63,10 +64,10 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $credentials = $request->only(['email', 'password']);
+        $credentials = $request->only([config('seed.username'), 'password']);
 
         if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => 'E-mail ou senha incorretos.'], 400);
+            return response()->json(['error' => 'Credenciais incorretas.'], 400);
         }
 
         return $this->respondWithToken($token);

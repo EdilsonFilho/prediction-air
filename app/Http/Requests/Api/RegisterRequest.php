@@ -23,12 +23,20 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
-            'phone' => 'required|regex:/\(\d{2,}\) \d{4,}\-\d{4}/',
+            'password' => 'required|string|min:6'
         ];
+
+        if (config('seed.username') == 'email') {
+            $rules['email'] = 'required|email|unique:users';
+            $rules['phone'] = 'nullable|regex:/\(\d{2,}\) \d{4,}\-\d{4}/|unique:users';
+        } else {
+            $rules['email'] = 'nullable|email|unique:users';
+            $rules['phone'] = 'required|regex:/\(\d{2,}\) \d{4,}\-\d{4}/|unique:users';
+        }
+
+        return $rules;
     }
 
     public function attributes()

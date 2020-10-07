@@ -23,16 +23,22 @@ class LoginRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => 'required|string',
-            'password' => 'required|string',
-        ];
+        $rules = ['password' => 'required|string'];
+
+        if (config('seed.username') == 'email') {
+            $rules['email'] = 'required|email';
+        } else {
+            $rules['phone'] = 'required|regex:/\(\d{2,}\) \d{4,}\-\d{4}/';
+        }
+
+        return $rules;
     }
 
     public function attributes()
     {
         return [
             'email' => 'e-mail',
+            'phone' => 'telefone',
             'password' => 'senha',
         ];
     }
