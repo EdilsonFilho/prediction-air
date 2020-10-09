@@ -9,6 +9,7 @@
         "barryvdh/laravel-dompdf": "^0.8.7",
         "bensampo/laravel-enum": "1.15",
         "fideloper/proxy": "^4.0",
+        "geekcom/validator-docs": "^3.4",
         "jeroennoten/laravel-adminlte": "^1.24",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
