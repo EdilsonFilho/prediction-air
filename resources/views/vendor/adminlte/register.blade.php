@@ -1,92 +1,105 @@
-@extends('adminlte::master')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('adminlte_css')
-    @yield('css')
-@stop
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    {{ Html::style('css/login.css?v=iaecf6dc-ba7d-1269-ab07-d9fda4a111bz') }}
+</head>
 
-@section('body_class', 'register-page')
-
-@section('body')
-    <div class="container-login-box">
-        <div class="register-box">
-            <div class="register-logo">
-                <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-            </div>
-
-            <div class="register-box-body">
-                <p class="login-box-msg">{{ trans('adminlte::adminlte.register_message') }}</p>
-                <form action="{{ url(config('adminlte.register_url', 'register')) }}" method="post">
-                    {!! csrf_field() !!}
-
-                    <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }}"
-                            placeholder="{{ trans('adminlte::adminlte.full_name') }}">
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                        @if ($errors->has('name'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
-                        @endif
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 login-section-wrapper">
+                    <div class="brand-wrapper">
+                        <img src="{{ asset('images/logo.svg') }}" alt="logo" class="logo">
                     </div>
+                    <div class="login-wrapper my-auto">
+                        <h1 class="login-title">{{ trans('adminlte::adminlte.register_message') }}</h1>
+                        <form action="{{ url(config('adminlte.register_url', 'register')) }}" method="post">
+                            {!! csrf_field() !!}
 
-                    @if (config('seed.username') == 'email')
-                        <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                            <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                                placeholder="{{ trans('adminlte::adminlte.email') }}">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
+                            <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
+                                <label for="name">{{ trans('adminlte::adminlte.full_name') }}</label>
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
+                                    placeholder="">
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            @if (config('seed.username') == 'email')
+                                <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
+                                    <label for="email">{{ trans('adminlte::adminlte.email') }}</label>
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                                        placeholder="seu@email.com">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            @else
+                                <div class="form-group has-feedback {{ $errors->has('phone') ? 'has-error' : '' }}">
+                                    <label for="phone">{{ trans('adminlte::adminlte.phone') }}</label>
+                                    <input type="text" name="phone" value="{{ old('phone') }}" class="form-control"
+                                        placeholder="(**) *****-****">
+                                    @if ($errors->has('phone'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('phone') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             @endif
-                        </div>
-                    @else
-                        <div class="form-group has-feedback {{ $errors->has('phone') ? 'has-error' : '' }}">
-                            <input type="text" name="phone" class="form-control phone" value="{{ old('phone') }}"
-                                placeholder="Telefone">
-                            <span class="glyphicon glyphicon-phone form-control-feedback"></span>
-                            @if ($errors->has('phone'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('phone') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    @endif
 
-                    <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                        <input type="password" name="password" class="form-control"
-                            placeholder="{{ trans('adminlte::adminlte.password') }}">
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
+                            <div class="form-group mb-4 has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
+                                <label for="password">{{ trans('adminlte::adminlte.password') }}</label>
+                                <input type="password" name="password" class="form-control" placeholder="********">
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div
+                                class="form-group mb-4 has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                                <label
+                                    for="password_confirmation">{{ trans('adminlte::adminlte.retype_password') }}</label>
+                                <input type="password" name="password_confirmation" class="form-control"
+                                    placeholder="********">
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <input name="login" class="btn btn-block login-btn" type="submit"
+                                value="{{ trans('adminlte::adminlte.register') }}">
+                        </form>
+
+                        <a href="{{ route('login') }}"
+                            class="forgot-password-link">Voltar para tela de login</a>
                     </div>
-                    <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                        <input type="password" name="password_confirmation" class="form-control"
-                            placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
-                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                        @if ($errors->has('password_confirmation'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password_confirmation') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <button type="submit"
-                            class="btn btn-custom btn-block"
-                    >{{ trans('adminlte::adminlte.register') }}</button>
-                </form>
-                <div class="auth-links">
-                    <a href="{{ url(config('adminlte.login_url', 'login')) }}"
-                    class="text-center">{{ trans('adminlte::adminlte.i_already_have_a_membership') }}</a>
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="{{ asset('images/login.jpg') }}" alt="login image" class="login-img">
                 </div>
             </div>
-            <!-- /.form-box -->
-        </div><!-- /.register-box -->
-    </div><!-- /.register-box -->
-@stop
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
 
-@section('adminlte_js')
-    @yield('js')
-@stop
+</html>

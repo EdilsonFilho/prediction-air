@@ -21,7 +21,7 @@
                         <img src="{{ asset('images/logo.svg') }}" alt="logo" class="logo">
                     </div>
                     <div class="login-wrapper my-auto">
-                        <h1 class="login-title">Log in</h1>
+                        <h1 class="login-title">{{ trans('adminlte::adminlte.login_message') }}</h1>
                         <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                             {!! csrf_field() !!}
 
