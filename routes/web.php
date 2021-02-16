@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// https://github.com/alexeymezenin/laravel-best-practices#follow-laravel-naming-conventions
+
 Route::group(['middleware' => ['https.protocol']], function () {
 
     Route::get('/', function () {

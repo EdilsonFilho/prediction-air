@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+// https://github.com/alexeymezenin/laravel-best-practices#follow-laravel-naming-conventions
+
 Route::group(['middleware' => ['https.protocol']], function () {
     Route::group(['namespace' => 'Api'], function () {
 
