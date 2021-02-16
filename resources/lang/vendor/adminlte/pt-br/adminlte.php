@@ -18,5 +18,5 @@ return [
     'register_message'            => 'Registrar um novo membro',
     'password_reset_message'      => 'Recuperar senha',
     'reset_password'              => 'Recuperar senha',
-    'send_password_reset_link'    => 'Enviar link de recuperação de senha',
+    'send_password_reset_link'    => 'Enviar link de recuperação',
 ];

@@ -1,65 +1,79 @@
-@extends('adminlte::master')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('adminlte_css')
-    @yield('css')
-@stop
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    {{ Html::style('css/login.css?v=iaecf6dc-ba7d-1269-ab07-d9fda4a111bz') }}
+</head>
 
-@section('body_class', 'login-page')
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 login-section-wrapper">
+                    <div class="brand-wrapper">
+                        <img src="{{ asset('images/logo.svg') }}" alt="logo" class="logo">
+                    </div>
+                    <div class="login-wrapper my-auto">
+                        <h1 class="login-title">{{ trans('adminlte::adminlte.password_reset_message') }}</h1>
+                        <form action="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}" method="post">
+                            {!! csrf_field() !!}
 
-@section('body')
-    <div class="container-login-box">
-        <div class="login-box">
-            <div class="login-logo">
-                <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+                            <input type="hidden" name="token" value="{{ $token }}">
+
+                            <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
+                                <label for="email">{{ trans('adminlte::adminlte.email') }}</label>
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                                    placeholder="seu@email.com">
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group mb-4 has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
+                                <label for="password">{{ trans('adminlte::adminlte.password') }}</label>
+                                <input type="password" name="password" class="form-control"
+                                    placeholder="********">
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group mb-4 has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                                <label for="password_confirmation">{{ trans('adminlte::adminlte.retype_password') }}</label>
+                                <input type="password" name="password_confirmation" class="form-control"
+                                    placeholder="********">
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <input class="btn btn-block login-btn" type="submit"
+                                value="{{ trans('adminlte::adminlte.reset_password') }}">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="{{ asset('images/login.jpg') }}" alt="login image" class="login-img">
+                </div>
             </div>
-            <!-- /.login-logo -->
-            <div class="login-box-body">
-                <p class="login-box-msg">{{ trans('adminlte::adminlte.password_reset_message') }}</p>
-                <form action="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}" method="post">
-                    {!! csrf_field() !!}
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
 
-                    <input type="hidden" name="token" value="{{ $token }}">
-
-                    <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                        <input type="email" name="email" class="form-control" value="{{ isset($email) ? $email : old('email') }}"
-                            placeholder="{{ trans('adminlte::adminlte.email') }}">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                        <input type="password" name="password" class="form-control"
-                            placeholder="{{ trans('adminlte::adminlte.password') }}">
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                        <input type="password" name="password_confirmation" class="form-control"
-                            placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
-                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                        @if ($errors->has('password_confirmation'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password_confirmation') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <button type="submit"
-                            class="btn btn-danger btn-block"
-                    >{{ trans('adminlte::adminlte.reset_password') }}</button>
-                </form>
-            </div>
-            <!-- /.login-box-body -->
-        </div><!-- /.login-box -->
-    </div><!-- /.container-login-box -->
-@stop
-
-@section('adminlte_js')
-    @yield('js')
-@stop
+</html>
