@@ -27,9 +27,9 @@
 
                             @if (config('seed.username') == 'email')
                                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                                    <label for="email">E-mail</label>
+                                    <label for="email">{{ trans('adminlte::adminlte.email') }}</label>
                                     <input type="email" name="email" value="{{ old('email') }}" class="form-control"
-                                        placeholder="{{ trans('adminlte::adminlte.email') }}">
+                                        placeholder="seu@email.com">
                                     @if ($errors->has('email'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -38,9 +38,9 @@
                                 </div>
                             @else
                                 <div class="form-group has-feedback {{ $errors->has('phone') ? 'has-error' : '' }}">
-                                    <label for="phone">E-mail</label>
+                                    <label for="phone">{{ trans('adminlte::adminlte.phone') }}</label>
                                     <input type="text" name="phone" value="{{ old('phone') }}" class="form-control"
-                                        placeholder="{{ trans('adminlte::adminlte.phone') }}">
+                                        placeholder="(**) *****-****">
                                     @if ($errors->has('phone'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('phone') }}</strong>
@@ -50,9 +50,9 @@
                             @endif
 
                             <div class="form-group mb-4 has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                                <label for="password">Senha</label>
+                                <label for="password">{{ trans('adminlte::adminlte.password') }}</label>
                                 <input type="password" name="password" class="form-control"
-                                    placeholder="{{ trans('adminlte::adminlte.password') }}">
+                                    placeholder="********">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
