@@ -66,7 +66,7 @@
 <script src="{{ asset('plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <script src="{{ asset('plugins/are-you-sure/jquery.are-you-sure.js?v=a87b8160-5be0-418e-b4b2-140d8a13def1') }}"></script>
-<script src="//oss.maxcdn.com/jquery.mask/1.11.4/jquery.mask.min.js"></script>
+<script src="{{ asset('plugins/jquery-mask/jquery.mask.min.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
 <script src="{{ asset('js/dashboard.js?v=abzca191-ccia-018e-zab2-028a8903dyzz') }}"></script>
