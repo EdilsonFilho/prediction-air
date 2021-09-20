@@ -31,7 +31,7 @@ Important: Need create .env and verificad .yml
 ```sh
 $ sudo docker exec -it seed-app bash
 $ php artisan key:generate --show
-
+```
 
 4. Run Migrations
 ```sh
