@@ -1,38 +1,38 @@
 version: "2"
 
 volumes:
-  seed-mysql-data:
+  prediction-mysql-data:
     driver: local
 
-  seed-redis-data:
+  prediction-redis-data:
     driver: local
 
 services:
   mysql:
     image: mysql:5.7
-    container_name: seed-mysql
+    container_name: prediction-mysql
     volumes:
-      - seed-mysql-data:/var/lib/mysql
+      - prediction-mysql-data:/var/lib/mysql
     ports:
       - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=seed
-      - MYSQL_DATABASE=seed
-      - MYSQL_USER=seed
-      - MYSQL_PASSWORD=seed
+      - MYSQL_ROOT_PASSWORD=prediction
+      - MYSQL_DATABASE=prediction
+      - MYSQL_USER=prediction
+      - MYSQL_PASSWORD=prediction
 
   cache:
     image: redis:4.0
-    container_name: seed-redis
+    container_name: prediction-redis
     command: --appendonly yes
     volumes:
-      - seed-redis-data:/data
+      - prediction-redis-data:/data
     ports:
       - "6380:6379"
 
   app:
     image: ambientum/php:7.3-nginx
-    container_name: seed-app
+    container_name: prediction-app
     volumes:
       - .:/var/www/app
     ports:
