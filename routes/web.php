@@ -34,6 +34,6 @@ Route::group(['middleware' => ['https.protocol']], function () {
             Route::resource('users', 'UserController');
         });
     });
-
+ 
     Auth::routes();
 });
