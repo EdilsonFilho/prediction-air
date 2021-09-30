@@ -5,6 +5,10 @@ use Phpml\Classification\MLPClassifier;
 use Phpml\NeuralNetwork\ActivationFunction\PReLU;
 use Phpml\NeuralNetwork\ActivationFunction\Sigmoid;
 use Phpml\Dataset\CsvDataset;
+use Phpml\ModelManager;
+use Phpml\Metric\ConfusionMatrix;
+use Phpml\Metric\Accuracy;
+use Phpml\CrossValidation\RandomSplit;
 //require 'vendor/autoload.php';
 use Exception;
 
@@ -45,64 +49,6 @@ class ImportPredictions extends Command
     public function handle()
     {
         $this->output->title('Iniciando pre processamento da MLP');
-        /*
-        //(new ImportPredictions)->withOutput($this->output)->import(storage_path('csv/air.csv'));
-        //$mlp = new MLPClassifier(4, [2], ['good', 'moderate', 'unhealthy for sensitive','unhealthy', 'very unhealthy','hazardous']);
-        //$mlp = new MLPClassifier(4, [[2, new PReLU], [2, new Sigmoid]], ['good', 'moderate', 'unhealthy for sensitive','unhealthy', 'very unhealthy','hazardous']);
-        $datasets = new CsvDataset(storage_path('csv/air.csv'), 2, false, ';');
-        $this->output->success('Importação realizada com sucesso.');
-        
-        $this->output->title('Iniciando A MLP');
-        //dd($datasets);
-        $minLat = 41.34343606848294;
-        $maxLat = 57.844750992891;
-        $minLng = -16.040039062500004;
-        $maxLng = 29.311523437500004;
-        $samples = $labels = [];
-
-        $step = 0.1;
-
-
-        try {
-
-            $estimator = new MLPClassifier(4, [2], ['good', 'moderate', 'unhealthy for sensitive','unhealthy', 'very unhealthy','hazardous']);
-            $estimator->train($datasets->getSamples(), $datasets->getTargets());
-            $estimator->setLearningRate(0.1);
-
-            //$estimator->predict([$sample]);  
-            //echo sprintf('Accuracy: %.02f%% correct: %s', ($estimator / count($datasets->getSamples())) * 100, $estimator) . PHP_EOL;
-
-        } catch (Exception $e) {
-            return [
-                'status' => false,  
-                'exception' => $e->getMessage(),
-                'code' => 'danger'
-            ];
-        }*/
-
-        
-        /*$mlp = new MLPClassifier(4, [2], ['a', 'b', 'c']);
-        $mlp->train(
-            $samples = [[1, 0, 0, 0], [0, 1, 1, 0], [1, 1, 1, 1], [0, 0, 0, 0]],
-            $targets = ['a', 'a', 'b', 'c']
-        );
-        $this->output->success('treino realizado com sucesso.');
-        $mlp->setLearningRate(0.1);
-        try {
-            $b = $mlp->predict([[1, 1, 1, 1], [0, 0, 0, 0]]);
-            echo 'Registros existentes: ' . count($b) . PHP_EOL;
-            dd($b);    
-            $this->output->title('Fim do processo com sucesso');
-
-        } catch (Exception $e) {
-            return [
-                'status' => false,  
-                'exception' => $e->getMessage(),
-                'code' => 'danger'
-            ];
-        }
-        */
-
         
         $samples =[];
         $targets =[];
@@ -140,10 +86,10 @@ class ImportPredictions extends Command
         
         // dd(count($newSamples), count($targets));
 
-        $auxSample = [floatval($samples[0][0]), floatval($samples[0][1])];
-        $auxSample1 = [[1, 0], [0, 1]];
-        $auxTarget = [$targets[0], $targets[1]];
-        $auxTarget1 = ['a', 'b'];
+        // $auxSample = [floatval($samples[0][0]), floatval($samples[0][1])];
+        // $auxSample1 = [[1, 0], [0, 1]];
+        // $auxTarget = [$targets[0], $targets[1]];
+        // $auxTarget1 = ['a', 'b'];
 
         // dd(
         //     $auxSample, 
@@ -157,14 +103,93 @@ class ImportPredictions extends Command
             $correct =0;
             
             try{
-                $estimator = new MLPClassifier(2, [2], ['good', 'moderate', 'unhealthy for sensitive','unhealthy', 'very unhealthy','hazardous']);
+                $estimator = new MLPClassifier(2, [[2, new PReLU], [2, new Sigmoid]], ['good', 'moderate', 'unhealthy for sensitive','unhealthy', 'very unhealthy','hazardous']);
                 $this->output->title('deu certo mlp');
-                $this->output->title('Iniciando o treinamento mlp');
-                $estimator->train($newSamples, $targets); // isso precisa ser algo como $mlp->train( $samples = [[lat, lng], [0, 1, 1, 0], [1, 1, 1, 1], [0, 0, 0, 0]], $targets = ['a', 'a', 'b', 'c']);
-                $this->output->title('deu certo treinar mlp');
+                $this->output->title('Dividindo em conjunto de treino e teste');
                 $estimator->setLearningRate(0.1);
-                $predicted = $estimator->predict([[51.403007, 7.208546]]);
-               $this->output->title('saind try ');
+                 
+                //Usado cross validation
+                $dataset = new RandomSplit($datasets, 0.2);
+
+                // train group
+                $trainSamples = $dataset->getTrainSamples();
+                $trainLabels = $dataset->getTrainLabels();
+
+                // test group
+                $testSamples = $dataset->getTestSamples();
+                $testLabes = $dataset->getTestLabels();
+                //fim de validacao cruzada
+
+                
+                printf("O número do conjunto de treino  é: %d \n", count($trainSamples));
+                print_r($trainSamples);
+                printf("O número do conjunto de teste  é: %d \n", count($testSamples));
+                print_r($testSamples);
+                printf("Vejamos os rotulos de treino\n");
+                print_r($trainLabels);
+
+
+                /// fazendo transformações
+                $newTrainSamples =[];
+                for ($i= 0; $i < count($trainSamples); $i++) { 
+
+                    array_push($newTrainSamples, [
+                        floatval($trainSamples[$i][0]),
+                        floatval($trainSamples[$i][1]),
+                    ]);
+
+                }
+                $newTestSamples =[];
+                for ($i= 0; $i < count($testSamples); $i++) { 
+
+                    array_push($newTestSamples, [
+                        floatval($testSamples[$i][0]),
+                        floatval($testSamples[$i][1]),
+                    ]);
+
+                }
+
+                $this->output->title('Iniciando o treinamento mlp');
+                $tmInicioMlp = microtime( true );
+                $estimator->train($newTrainSamples, $trainLabels);
+                $tmFimMlp = microtime( true ); 
+
+
+                $this->output->title('deu certo treinar mlp');
+                printf("Iniciando a predicao usando o conjunto de teste\n");
+                $tmInicioPrev = microtime( true ); 
+                $predicted = $estimator->predict($newTestSamples);
+                $tmFimPrev = microtime( true );
+                printf("Fim da predicao\n");
+                print_r($predicted);
+
+                //Medindo acuracia
+                // $tmInicioPrev = microtime( true ); 
+                
+                // $actualLabels = ['a', 'b', 'a', 'b'];
+                // $predictedLabels = ['b', 'c', 'b', 'b'];
+
+
+                // $predicted = Accuracy::score($actualLabels, $predictedLabels, true);
+                // $tmFimPrev = microtime( true );
+                // print_r("A Acuracia é: ");
+                // print_r($predicted*100);
+                // print_r("%\n");
+                //fim de medicao de acuracia
+
+                // Calcula o tempo de execucao do script 
+                $tempoTreinamento = $tmFimMlp - $tmInicioMlp;
+                // Exibe o tempo de execucao do script em segundos
+                printf("Tempo de Treinamento: %f minutos\n", $tempoTreinamento/60);
+                // Calcula o tempo de execucao do script 
+                $tempoPrevisao = $tmFimPrev - $tmInicioPrev;
+                // Exibe o tempo de execucao do script em segundos
+                printf("Tempo de Previsao: %f minutos\n", $tempoPrevisao/60);
+
+
+
+                $this->output->title('saindo try e finalizando o processamento ');
+
                 
             }catch (Exception $e){
                 dd($e);
