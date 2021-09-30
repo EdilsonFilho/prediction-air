@@ -152,29 +152,30 @@ class ImportPredictions extends Command
                 $this->output->title('Iniciando o treinamento mlp');
                 $tmInicioMlp = microtime( true );
                 $estimator->train($newTrainSamples, $trainLabels);
+ 
                 $tmFimMlp = microtime( true ); 
 
 
                 $this->output->title('deu certo treinar mlp');
                 printf("Iniciando a predicao usando o conjunto de teste\n");
                 $tmInicioPrev = microtime( true ); 
-                $predicted = $estimator->predict($newTestSamples);
+                $predicted = $estimator->predict($newTrainSamples);
                 $tmFimPrev = microtime( true );
                 printf("Fim da predicao\n");
                 print_r($predicted);
 
                 //Medindo acuracia
-                // $tmInicioPrev = microtime( true ); 
+                $tmInicioPrev = microtime( true ); 
                 
                 // $actualLabels = ['a', 'b', 'a', 'b'];
                 // $predictedLabels = ['b', 'c', 'b', 'b'];
 
 
-                // $predicted = Accuracy::score($actualLabels, $predictedLabels, true);
-                // $tmFimPrev = microtime( true );
-                // print_r("A Acuracia é: ");
-                // print_r($predicted*100);
-                // print_r("%\n");
+                $predicted = Accuracy::score($trainLabels, $predicted, true); // ambos os paramentros precisam ter a mesma dimensao
+                $tmFimPrev = microtime( true );
+                print_r("A Acuracia é: ");
+                print_r($predicted*100);
+                print_r("%\n");
                 //fim de medicao de acuracia
 
                 // Calcula o tempo de execucao do script 
