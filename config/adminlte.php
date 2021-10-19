@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'SEED',
+    'title' => 'Qualidade do Ar',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>SEED</b>',
+    'logo' => '<b>Qualidade Ar</b>',
 
-    'logo_mini' => '<b>SD</b>',
+    'logo_mini' => '<b>Ar</b>',
 
     /*
     |--------------------------------------------------------------------------

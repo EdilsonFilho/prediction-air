@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-sm-6 login-section-wrapper">
                     <div class="brand-wrapper">
-                        <img src="{{ asset('images/logo.svg') }}" alt="logo" class="logo">
+                        <img src="{{ asset('images/logo.png') }}" alt="logo" class="logo" style="width: 120px; height: 120px; margin: 0px;">
                     </div>
                     <div class="login-wrapper my-auto">
                         <h1 class="login-title">{{ trans('adminlte::adminlte.password_reset_message') }}</h1>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="{{ asset('images/login.jpg') }}" alt="login image" class="login-img">
+                    <img src="{{ asset('images/qualidade.jpg') }}" alt="login image" class="login-img">
                 </div>
             </div>
         </div>
