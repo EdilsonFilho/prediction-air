@@ -43,6 +43,21 @@ class AppServiceProvider extends ServiceProvider
                 ]);
             }
 
+            $event->menu->add('SOBRE');
+
+            $event->menu->add([
+                'text' => 'Quem somos',
+                'url'  => 'dashboard/settings',
+                'icon' => 'glyphicon glyphicon-book',
+                'active' => ['dashboard/settings*'],
+            ]);
+            $event->menu->add([
+                'text' => 'Qualidade do ar e métricas',
+                'url'  => 'dashboard/settings',
+                'icon' => 'glyphicon glyphicon-globe',
+                'active' => ['dashboard/settings*'],
+            ]);
+
             $event->menu->add('PERFIL');
 
             $event->menu->add([
