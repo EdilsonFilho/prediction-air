@@ -48,6 +48,11 @@
                                 <h5 class="description-header">712</h5>
                                     <span class="description-text">Número de sensores</span>
                                 </div>
+                                <div class="description-block margin-bottom">
+                                    <div class="sparkbar pad" data-color="#fff"></div>
+                                <h5 class="description-header">80</h5>
+                                    <span class="description-text">Paises</span>
+                                </div>
                             </div>
 
                         </div>

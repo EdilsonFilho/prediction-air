@@ -23,6 +23,9 @@ Route::group(['middleware' => ['https.protocol']], function () {
 
         Route::get('home', 'HomeController@index')->name('home.index');
 
+        Route::get('who/index', 'WhoController@index')->name('who.index');
+        Route::get('who/theory', 'WhoController@theory')->name('who.theory');
+
         Route::get('settings', 'SettingController@index')->name('settings.index');
         Route::put('settings/{user}', 'SettingController@update')->name('settings.update');
         Route::post('settings/change-menu', 'SettingController@changeMenu')->name('settings.changeMenu');

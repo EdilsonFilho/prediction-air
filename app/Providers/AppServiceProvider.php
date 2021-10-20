@@ -47,15 +47,15 @@ class AppServiceProvider extends ServiceProvider
 
             $event->menu->add([
                 'text' => 'Quem somos',
-                'url'  => 'dashboard/settings',
+                'url'  => 'dashboard/who/index',
                 'icon' => 'glyphicon glyphicon-book',
-                'active' => ['dashboard/settings*'],
+                'active' => ['dashboard/who/index*'],
             ]);
             $event->menu->add([
                 'text' => 'Qualidade do ar e métricas',
-                'url'  => 'dashboard/settings',
+                'url'  => 'dashboard/who/theory',
                 'icon' => 'glyphicon glyphicon-globe',
-                'active' => ['dashboard/settings*'],
+                'active' => ['who.theory*'],
             ]);
 
             $event->menu->add('PERFIL');
