@@ -16,7 +16,7 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">Distribuição sensores no mundo</h3>
@@ -62,6 +62,30 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Minha Localidade.</h3>
+                  <h5 class="text-muted">Coloque as informações solicitadas</h5>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                    <div class="form-group">
+                        {{ Form::label('lat', 'Latitude') }}
+                        {{ Form::text('lat', null, array('class' => 'form-control', 'placeholder' => 'Exemplo: 52.2688736')) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('lon', 'Longitude') }}
+                        {{ Form::text('lon', null, array('class' => 'form-control', 'placeholder' => 'Exemplo: 7.208546')) }}
+                    </div>
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-success">Pesquisar</button>
+                  </div>
+                </form>
             </div>
         </div>
     </div>
