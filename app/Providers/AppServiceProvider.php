@@ -31,6 +31,13 @@ class AppServiceProvider extends ServiceProvider
                 'active' => ['dashboard/home*']
             ]);
 
+            $event->menu->add([
+                'text' => 'Qualidade do ar e métricas',
+                'url'  => 'dashboard/who/theory',
+                'icon' => 'glyphicon glyphicon-globe',
+                'active' => ['who.theory*'],
+            ]);
+
             if (Auth::user()->profile == ProfilesType::ZeroRoleValue) {
 
                 $event->menu->add('ADMINISTRAÇÃO');
@@ -51,12 +58,7 @@ class AppServiceProvider extends ServiceProvider
                 'icon' => 'glyphicon glyphicon-book',
                 'active' => ['dashboard/who/index*'],
             ]);
-            $event->menu->add([
-                'text' => 'Qualidade do ar e métricas',
-                'url'  => 'dashboard/who/theory',
-                'icon' => 'glyphicon glyphicon-globe',
-                'active' => ['who.theory*'],
-            ]);
+            
 
             $event->menu->add('PERFIL');
 
