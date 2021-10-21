@@ -10,4 +10,8 @@ class HomeController extends Controller
     {
         return view('dashboard.home.index');
     }
+    public function prediction()
+    {
+        return view('dashboard.home.prediction');
+    }
 }

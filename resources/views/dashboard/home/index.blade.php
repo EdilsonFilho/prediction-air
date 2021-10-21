@@ -83,7 +83,10 @@
                         {{ Form::text('lon', null, array('class' => 'form-control', 'placeholder' => 'Exemplo: 7.208546')) }}
                     </div>
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-success">Pesquisar</button>
+                    <a href="{{ route('home.prediction') }}" class="btn btn-success fileinput-button" style="margin-bottom: 20px;">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <span>Pesquisar</span>
+                    </a>
                   </div>
                 </form>
             </div>

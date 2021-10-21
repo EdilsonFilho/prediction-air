@@ -22,6 +22,7 @@ Route::group(['middleware' => ['https.protocol']], function () {
     Route::group(['middleware' => ['auth'], 'namespace' => 'Dashboard', 'prefix' => 'dashboard'], function () {
 
         Route::get('home', 'HomeController@index')->name('home.index');
+        Route::get('home/prediction', 'HomeController@prediction')->name('home.prediction');
 
         Route::get('who/index', 'WhoController@index')->name('who.index');
         Route::get('who/theory', 'WhoController@theory')->name('who.theory');
