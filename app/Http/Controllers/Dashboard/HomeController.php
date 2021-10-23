@@ -12,6 +12,7 @@ class HomeController extends Controller
     {
         return view('dashboard.home.index');
     }
+
     public function prediction(Request $request)
     {
         $modelManager = new ModelManager();
