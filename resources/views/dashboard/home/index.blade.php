@@ -56,7 +56,7 @@
                             </div>
 
                         </div>
-                        
+
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
@@ -72,7 +72,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form action="{{ route('home.prediction') }}" method="GET">
                   <div class="box-body">
                     <div class="form-group">
                         {{ Form::label('lat', 'Latitude') }}
@@ -83,10 +83,10 @@
                         {{ Form::text('lon', null, array('class' => 'form-control', 'placeholder' => 'Exemplo: 7.208546')) }}
                     </div>
                   <div class="box-footer">
-                    <a href="{{ route('home.prediction') }}" class="btn btn-success fileinput-button" style="margin-bottom: 20px;">
+                    <button type="submit" class="btn btn-success fileinput-button" style="margin-bottom: 20px;">
                         <i class="glyphicon glyphicon-search"></i>
                         <span>Pesquisar</span>
-                    </a>
+                    </button>
                   </div>
                 </form>
             </div>
@@ -135,7 +135,7 @@
                 stroke: '#111'
             }
             },
-            markers          : [  //Cidades 
+            markers          : [  //Cidades
             { latLng: [51.403007, 7.208546]                },
                 { latLng: [52.2688736, 10.5267696]             },
                 { latLng: [52.235083, 5.181552]                },
@@ -178,7 +178,24 @@
             ]
         });
 
-        
+        function getLocation() {
+            if (navigator.geolocation) {
+                let coords = navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Não foi possível obter sua lat e lng.")
+            }
+        }
+
+        function showPosition(position) {
+            $('#lat').val(position.coords.latitude);
+            $('#lon').val(position.coords.longitude);
+        }
+
+        $(document).ready(function() {
+            getLocation();
+        });
+
+
     </script>
 
 
