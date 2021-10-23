@@ -50,11 +50,36 @@ class ImportSensors extends Command
             Sensor::create([
                 'lat' => $sensor->lat,
                 'lon' => $sensor->lon,
-                'aqi' => $sensor->aqi,
+                'aqi' => $this->getValue($sensor->aqi),
                 'uid' => $sensor->uid,
                 'station_name' => $sensor->station->name,
                 'station_time' => $sensor->station->time
             ]);
         }
+    }
+
+    private function getValue($value)
+    {
+        if ($value >= 0 && $value <= 50) {
+            return "good";
+        }
+
+        if ($value >= 51 && $value <= 100) {
+            return "moderate";
+        }
+
+        if ($value >= 101 && $value <= 150) {
+            return "unhealthy for sensisitive groups";
+        }
+
+        if ($value >= 151 && $value <= 200) {
+            return "unhealthy";
+        }
+
+        if ($value >= 201 && $value <= 300) {
+            return "very unhealthy";
+        }
+
+        return "hazardous";
     }
 }
