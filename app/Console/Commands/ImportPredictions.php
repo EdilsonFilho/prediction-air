@@ -10,6 +10,7 @@ use Phpml\Metric\Accuracy;
 use Phpml\CrossValidation\RandomSplit;
 use Illuminate\Console\Command;
 use Exception;
+use Phpml\ModelManager;
 use Phpml\Dataset\ArrayDataset;
 
 class ImportPredictions extends Command
@@ -46,7 +47,6 @@ class ImportPredictions extends Command
      */
     public function handle()
     {
-
         try {
             $this->output->title('Iniciando pre processamento da MLP');
 
@@ -109,14 +109,7 @@ class ImportPredictions extends Command
                 ]);
             }
 
-            // dd($newTrainSamples, $newTestSamples);
-
             $this->output->title('Iniciando o treinamento mlp');
-
-            // $mlp->train(
-            //     $samples = [[1, 0, 0, 0], [0, 1, 1, 0], [1, 1, 1, 1], [0, 0, 0, 0]],
-            //     $targets = ['a', 'a', 'b', 'c']
-            // );
 
             $tmInicioMlp = microtime(true);
 
@@ -141,14 +134,14 @@ class ImportPredictions extends Command
             //Medindo acuracia
             $tmInicioPrev = microtime(true);
 
-            // $actualLabels = ['a', 'b', 'a', 'b'];
-            // $predictedLabels = ['b', 'c', 'b', 'b'];
-
-
             $predicted = Accuracy::score($trainLabels, $predicted, true); // ambos os paramentros precisam ter a mesma dimensao
+
             $tmFimPrev = microtime(true);
+
             print_r("A Acuracia é: ");
+
             print_r($predicted * 100);
+
             print_r("%\n");
             //fim de medicao de acuracia
 
@@ -161,9 +154,11 @@ class ImportPredictions extends Command
             // Exibe o tempo de execucao do script em segundos
             printf("Tempo de Previsao: %f minutos\n", $tempoPrevisao / 60);
 
-
-
             $this->output->title('saindo try e finalizando o processamento ');
+
+            $filepath = public_path('pml');
+            $modelManager = new ModelManager();
+            $modelManager->saveToFile($estimator, $filepath);
         } catch (Exception $e) {
             dd($e);
 
