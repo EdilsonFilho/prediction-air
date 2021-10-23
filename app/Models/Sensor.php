@@ -10,6 +10,8 @@ class Sensor extends Model
         'lat',
         'lon',
         'uid',
-        'aqi'    
+        'aqi',
+        'station_name',
+        'station_time',
     ];
 }

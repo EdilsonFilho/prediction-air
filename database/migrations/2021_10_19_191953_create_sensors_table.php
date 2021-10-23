@@ -19,8 +19,9 @@ class CreateSensorsTable extends Migration
             $table->string('lon')->nullable();
             $table->string('uid')->nullable();
             $table->string('aqi')->nullable();
-            $table->string('station')->nullable();
-            
+            $table->string('station_name')->nullable();
+            $table->string('station_time')->nullable();
+
             $table->timestamps();
         });
     }
