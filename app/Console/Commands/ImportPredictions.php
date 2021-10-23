@@ -47,10 +47,19 @@ class ImportPredictions extends Command
      */
     public function handle()
     {
+        $aux = [];
+
+        for ($i=1; $i <= 50; $i++) {
+            array_push($aux, $i);
+        }
+
         try {
             $this->output->title('Iniciando pre processamento da MLP');
 
-            $data = Sensor::whereIn('id', [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21])
+            $data = Sensor::whereIn(
+                'id',
+                $aux
+            )
                 ->get(['lat', 'lon', 'aqi']);
 
             $samples = $this->getSamples($data);
