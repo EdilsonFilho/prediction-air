@@ -45,7 +45,7 @@ class ImportSensors extends Command
         // Paramêtro 2: Controla o surgimento de pontos a esquerda/direita até o meridíano 0º
         // Paramêtro 3: Controla o surgimento de pontos para cima/baixo
         // Paramêtro 4: Controla o surgimento de pontos a esquerda/direita até o meridíano 0º
-        $url = "https://api.waqi.info/map/bounds/?token=5c5be2c79e99b92c935134b0f4dad014692e7cd5&latlng=-100,-140,145,180";
+        $url = "https://api.waqi.info/map/bounds/?token=5c5be2c79e99b92c935134b0f4dad014692e7cd5&latlng=-100,-140,75,180";
 
         $json = file_get_contents($url);
 

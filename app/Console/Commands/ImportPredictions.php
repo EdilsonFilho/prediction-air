@@ -72,17 +72,19 @@ class ImportPredictions extends Command
             $estimator = new MLPClassifier(
                 2,
                 [
-                    [2, new PReLU], [2, new Sigmoid]
+                    [20, 15]
                 ],
                 [
                     'good', 'moderate',
                     'unhealthy for sensitive',
                     'unhealthy', 'very unhealthy',
                     'hazardous'
-                ]
+                ],
+                5000,
+                new Sigmoid()
             );
 
-            $estimator->setLearningRate(0.1);
+            $estimator->setLearningRate(0.001);
 
             //Usado cross validation
             $dataset = new RandomSplit($datasets, 0.2);
