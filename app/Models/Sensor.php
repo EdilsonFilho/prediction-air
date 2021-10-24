@@ -16,22 +16,11 @@ class Sensor extends Model
         'station_time',
     ];
 
-    public static function getColor($lat, $lon)
+    public static function getColor($aqi)
     {
-        $modelManager = new ModelManager();
-
-        $filepath = public_path('pml');
-
-        $restoredClassifier = $modelManager->restoreFromFile($filepath);
-
-        $result = $restoredClassifier->predict([
-            floatval($lat),
-            floatval($lon)
-        ]);
-
         $color = '';
 
-        switch ($result) {
+        switch ($aqi) {
             case 'good':
                 $color = '#55a75c';
                 break;
@@ -55,35 +44,5 @@ class Sensor extends Model
         }
 
         return $color;
-    }
-
-    public static function getStatus($result)
-    {
-        $status = '';
-
-        switch ($result) {
-            case 'good':
-                $status = 'Bom';
-                break;
-            case 'moderate':
-                $status = 'Moderado';
-                break;
-            case 'unhealthy for sensitive':
-                $status = 'Insalubre';
-                break;
-            case 'unhealthy':
-                $status = 'Pouco saudável';
-                break;
-            case 'very unhealthy':
-                $status = 'Muito prejudicial à saúde';
-                break;
-
-                // hazardous
-            default:
-                $status = 'Perigoso';
-                break;
-
-                return $status;
-        }
     }
 }

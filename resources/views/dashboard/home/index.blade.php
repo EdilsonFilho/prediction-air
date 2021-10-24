@@ -137,7 +137,7 @@
                     latLng: [{{ $sensor->lat }}, {{ $sensor->lon }}],
                     name: "{{ $sensor->station_name }}",
                     style: {
-                        fill: "{{ \App\Models\Sensor::getColor($sensor->lat, $sensor->lon) }}",
+                        fill: "{{ \App\Models\Sensor::getColor($sensor->aqi) }}",
                         stroke: "#111",
                     },
                 });
