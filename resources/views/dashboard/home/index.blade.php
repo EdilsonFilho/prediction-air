@@ -62,7 +62,6 @@
                     </div>
                     <!-- /.row -->
                 </div>
-                <!-- /.box-body -->
             </div>
         </div>
         <div class="col-md-2">
