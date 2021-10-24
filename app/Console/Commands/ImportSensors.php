@@ -40,7 +40,12 @@ class ImportSensors extends Command
     {
         Sensor::truncate();
 
-        $url = "https://api.waqi.info/map/bounds/?token=5c5be2c79e99b92c935134b0f4dad014692e7cd5&latlng=-100,-90,145,105";
+        // Ref: https://imgur.com/p7gPuxB
+        // Paramêtro 1: Controla o surgimento de pontos para cima/baixo
+        // Paramêtro 2: Controla o surgimento de pontos a esquerda/direita até o meridíano 0º
+        // Paramêtro 3: Controla o surgimento de pontos para cima/baixo
+        // Paramêtro 4: Controla o surgimento de pontos a esquerda/direita até o meridíano 0º
+        $url = "https://api.waqi.info/map/bounds/?token=5c5be2c79e99b92c935134b0f4dad014692e7cd5&latlng=-100,-140,145,180";
 
         $json = file_get_contents($url);
 
