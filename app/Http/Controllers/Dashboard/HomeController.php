@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Information;
+use App\Models\Sensor;
 use Illuminate\Http\Request;
 use Phpml\ModelManager;
 
@@ -11,7 +12,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('dashboard.home.index');
+        $sensors = Sensor::all();
+
+        return view('dashboard.home.index', compact('sensors'));
     }
 
     public function prediction(Request $request)
