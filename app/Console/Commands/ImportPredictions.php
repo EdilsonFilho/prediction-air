@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Information;
 use App\Models\Sensor;
 use Phpml\Classification\MLPClassifier;
 use Phpml\NeuralNetwork\ActivationFunction\PReLU;
@@ -49,7 +50,7 @@ class ImportPredictions extends Command
     {
         $aux = [];
 
-        for ($i=1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             array_push($aux, $i);
         }
 
@@ -140,16 +141,16 @@ class ImportPredictions extends Command
 
             print_r($predicted);
 
-            //Medindo acuracia
-            $tmInicioPrev = microtime(true);
-
             $predicted = Accuracy::score($trainLabels, $predicted, true); // ambos os paramentros precisam ter a mesma dimensao
-
-            $tmFimPrev = microtime(true);
 
             print_r("A Acuracia é: ");
 
             print_r($predicted * 100);
+
+            Information::create([
+                'name' => 'accuracy',
+                'value' => $predicted * 100
+            ]);
 
             print_r("%\n");
             //fim de medicao de acuracia

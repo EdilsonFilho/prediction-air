@@ -69,7 +69,7 @@ class ImportSensors extends Command
         }
 
         if ($value >= 101 && $value <= 150) {
-            return "unhealthy for sensisitive groups";
+            return "unhealthy for sensitive";
         }
 
         if ($value >= 151 && $value <= 200) {

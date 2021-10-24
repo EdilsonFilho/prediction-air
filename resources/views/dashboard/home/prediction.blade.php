@@ -22,31 +22,29 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Minha Localidade.</h3>
-                        <h5 class="text-muted">Identificamos que em sua região não existem sensores de nossa rede de monitoramento, Mas
-                            com base nos dados coletados por nossa rede e pelos algoritmos de Inteligência Artifical de nossa platadorma
-                            a Qualidade do Ar em na localização informada é: 
+                        <h5 class="text-muted">Identificamos que em sua região não existem sensores de nossa rede de
+                            monitoramento, Mas
+                            com base nos dados coletados por nossa rede e pelos algoritmos de Inteligência Artifical de
+                            nossa platadorma
+                            a Qualidade do Ar em na localização informada é:
                         </h5>
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-md-3">
-                <div class="small-box bg-green">
+                <div class="small-box" style="color: white; background-color: {{ $color }}">
                     <div class="inner">
-                        <h3></h3>
-            
-                        <p>BOA</p>
+                        <p>{{ $status }}</p>
                     </div>
                     <div class="icon">
                         <i class="
                         glyphicon glyphicon-thumbs-up"></i>
                     </div>
                 </div>
-                <div class="small-box bg-green">
+                <div class="small-box" style="color: white; background-color: {{ $acuracyColor }}">
                     <div class="inner">
-                        <h3></h3>
-            
-                        <p>Grau de confiabilidade: 91%</p>
+                        <p>Grau de confiabilidade: {{ $acuracy }}%</p>
                     </div>
                     <div class="icon">
                         <i class="
@@ -55,9 +53,6 @@
                 </div>
             </div>
         </div>
-  
+
     </div>
 @stop
-
-
-
