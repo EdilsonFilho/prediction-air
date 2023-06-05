@@ -1,6 +1,6 @@
-## Projeto para predicão de qualidade do ar 
+## Using PHP-ML for air quality prediction.
 
-Nosso projeto usa dados de sensores de cidades que monitaram a qualidade do  ar e através de Redes Neurias (MLP) prevê qual a qualidade do ar para cidades que não possuem sensores de monitoramento de qualidade do ar. 
+Our project uses sensor data from cities [1] that monitor air quality and through Neural Networks (MLP) [2]  predicts the air quality for cities that do not have air quality monitoring sensors.
 
 
 
@@ -46,5 +46,12 @@ $ php artisan storage:link
 
 ### Autores
 Edilson e Ronald
+
+References
+
+[1] https://aqicn.org/here/
+
+[2]  https://php-ml.readthedocs.io/en/0.6.1/machine-learning/neural-network/multilayer-perceptron-classifier/
+
 
 
